@@ -269,10 +269,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9f09129afc14a409a1117aacbef753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 10
+  zoomedIn: {x: 0, y: 12, z: -10}
+  zoomedOut: {x: 0, y: 5, z: -10}
+  zoomedOutRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  zoomedInRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.29999924
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   panSpeed: 20
-  scrollSpeed: 20
-  minY: 5
-  maxY: 12
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
