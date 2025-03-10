@@ -4,7 +4,56 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-    public Camera mainCam;
+    NavMeshAgent agent;
+    public float rotateSpeed = 0.05f;
+    float rotateVelocity;
+
+    public Animator anim;
+    float motionSmoothTime = 0.1f;
+
+
+    private void Start()
+    {
+        agent = gameObject.GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        //Animation();
+        Move();
+    }
+
+    void Animation()
+    {
+        float speed = agent.velocity.magnitude / agent.speed;
+        anim.SetFloat("Speed", speed, motionSmoothTime, Time.deltaTime);
+    }
+
+    void Move()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+            {
+                if (hit.collider.tag == "Ground")
+                {
+                    // Movement \\
+                    agent.SetDestination(hit.point);
+                    agent.stoppingDistance = 0;
+
+                    // Rotation \\
+                    Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
+                    float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeed * (Time.deltaTime * 5));
+                    transform.eulerAngles = new Vector3(0, rotationY, 0);
+                }
+            }
+        }
+    }
+
+
+
+    /*public Camera mainCam;
     public int layer = 3;
     public GameObject moveIcon;
     public Vector3 moveIconStartPoint;
@@ -45,5 +94,5 @@ public class Movement : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         moveIcon.transform.position = moveIconStartPoint;
         yield return null;
-    }
+    }*/
 }

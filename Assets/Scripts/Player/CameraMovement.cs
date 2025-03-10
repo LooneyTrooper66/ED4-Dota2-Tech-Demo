@@ -35,7 +35,6 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         mainCam = GetComponent<Camera>();
-        selectedUnitTransform = gameObject.transform;
     }
 
     void Update()
