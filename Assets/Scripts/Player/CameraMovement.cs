@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -18,19 +19,41 @@ public class CameraMovement : MonoBehaviour
     [Header("Edge Pan Values")]
     public float panSpeed = 25;
 
-    // Mouse Values
+    // Mouse Values \\
     private Vector3 dragOrigin;
     private Vector3 cameraDragOrigin;
     //private Vector3 currentPosition;
 
+    [Header("Showcase View Values")]
+    public bool isShowcaseActivated = false;
+    public GameObject selectedUnit;
+    private Transform selectedUnitTransform;
+    private Camera mainCam;
 
+
+
+    private void Start()
+    {
+        mainCam = GetComponent<Camera>();
+        selectedUnitTransform = gameObject.transform;
+    }
 
     void Update()
     {
-        MouseDragInputs();
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!isShowcaseActivated) { isShowcaseActivated = true; }
+            else { isShowcaseActivated = false; }
+        }
+
+        if (isShowcaseActivated)
+        {
+            ShowcaseModeInputs();
+        }
+        else { MouseDragInputs(); EdgePanInputs(); } // only use these functions if not in showcase mode
+
+        SelectUnit();
         ZoomCamera();
-        EdgePanInputs();
-        // add showcase view
     }
 
     // Take x and z inputs and translate based on camera rotation
@@ -40,6 +63,19 @@ public class CameraMovement : MonoBehaviour
         float xMove = Mathf.Sin(transform.eulerAngles.y * Mathf.PI / 180) * zInput + Mathf.Cos(transform.eulerAngles.y * Mathf.PI / 180) * xInput;
 
         transform.position = transform.position + new Vector3(xMove, 0, zMove);
+    }
+
+    // showcase mode movement things
+    void ShowcaseModeInputs()
+    {
+        selectedUnitTransform = selectedUnit.transform;
+        // check distance between selected unit and camera
+
+
+        // set camera follow target using enum, default to hero
+        // set camera rotation to 0
+        // make so the camera zoom still kinda works (ill figure it out, probably change clamped values and zoomed in/out rotations)
+        // look at dotas camera more when home
     }
 
     // Get mouse drag inputs and put values into move camera
@@ -144,4 +180,23 @@ public class CameraMovement : MonoBehaviour
             }
         }
     }*/
+
+    // select unit based on left mouse click
+    void SelectUnit()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            {
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    GameObject temp = hit.transform.gameObject;
+                    if (temp.GetComponent<ShowcaseViewSelect>() != null)
+                    {
+                        selectedUnit = temp;
+                    }
+                }
+            }
+        }
+    }
 }
