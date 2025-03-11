@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Unity.Cinemachine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CameraMovement : MonoBehaviour
@@ -26,16 +27,12 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Showcase View Values")]
     public bool isShowcaseActivated = false;
+    public CinemachineCamera showcaseCam;
     public GameObject selectedUnit;
     private Transform selectedUnitTransform;
-    private Camera mainCam;
+    public Camera mainCam;
 
 
-
-    private void Start()
-    {
-        mainCam = GetComponent<Camera>();
-    }
 
     void Update()
     {
@@ -45,11 +42,8 @@ public class CameraMovement : MonoBehaviour
             else { isShowcaseActivated = false; }
         }
 
-        if (isShowcaseActivated)
-        {
-            ShowcaseModeInputs();
-        }
-        else { MouseDragInputs(); EdgePanInputs(); } // only use these functions if not in showcase mode
+        if (isShowcaseActivated) { ShowcaseModeInputs(); showcaseCam.Priority = 5; }
+        else { MouseDragInputs(); EdgePanInputs(); showcaseCam.Priority = 0; } // only use these functions if not in showcase mode
 
         SelectUnit();
         ZoomCamera();
@@ -68,7 +62,7 @@ public class CameraMovement : MonoBehaviour
     void ShowcaseModeInputs()
     {
         selectedUnitTransform = selectedUnit.transform;
-        float dist = Vector3.Distance(selectedUnitTransform.position, transform.position);
+        showcaseCam.Target.TrackingTarget = selectedUnitTransform;
         
         // CINEMACHINE AAAAAAAAAAA
 
