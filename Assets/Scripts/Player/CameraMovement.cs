@@ -65,10 +65,6 @@ public class CameraMovement : MonoBehaviour
         showcaseCam.Target.TrackingTarget = selectedUnitTransform;
         
         // CINEMACHINE AAAAAAAAAAA
-
-
-        // set camera follow target, default to hero
-        // set camera rotation to 0
         // make so the camera zoom still kinda works (ill figure it out, probably change clamped values and zoomed in/out rotations)
         // look at dotas camera more when home
     }
