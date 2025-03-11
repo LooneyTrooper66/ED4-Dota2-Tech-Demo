@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class Movement : MonoBehaviour
 {
     NavMeshAgent agent;
-    public float rotateSpeed = 0.05f;
+    public float rotateSpeed = 0.1f;
     float rotateVelocity;
 
     public Animator anim;

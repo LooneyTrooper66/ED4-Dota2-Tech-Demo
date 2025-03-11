@@ -68,10 +68,12 @@ public class CameraMovement : MonoBehaviour
     void ShowcaseModeInputs()
     {
         selectedUnitTransform = selectedUnit.transform;
-        // check distance between selected unit and camera
+        float dist = Vector3.Distance(selectedUnitTransform.position, transform.position);
+        
+        // CINEMACHINE AAAAAAAAAAA
 
 
-        // set camera follow target using enum, default to hero
+        // set camera follow target, default to hero
         // set camera rotation to 0
         // make so the camera zoom still kinda works (ill figure it out, probably change clamped values and zoomed in/out rotations)
         // look at dotas camera more when home
@@ -121,64 +123,18 @@ public class CameraMovement : MonoBehaviour
         transform.position = camPos;
     }
 
-    // zoom via scrollwheel
+    // zoom via scrollwheel  <-- XOME BACK TO LATER SO CAN MAKE SMOOTH SCROLL
     void ZoomCamera()
     {
-        /*Vector3 pos = transform.position; // needed for timer for thingy
-        float scroll = Input.GetAxis("Mouse ScrollWheel"); // 0 is still, 0.1 is zoom in, -0.1 is zoom out
-        if (scroll == 0.1f)
-        {
-            zoomingOut = false; zoomingIn = true; StopCoroutine(ZoomOutLerps()); // set zooming out to false and zooming in to true
-            StartCoroutine(ZoomInLerps());
-        }
-        else if (scroll == -0.1f)
-        {
-            zoomingIn = false; zoomingOut = true; StopCoroutine(ZoomInLerps()); // set zooming in to false and zooming out to true
-            StartCoroutine(ZoomOutLerps());
-        }*/
-
-
         Vector3 pos = transform.position;
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         pos.y -= scroll * scrollSpeed * Time.deltaTime * 300f;
-        pos.y = Mathf.Clamp(pos.y, 5, 12);
+        pos.y = Mathf.Clamp(pos.y, 6, 12);
         transform.position = pos;
 
         float temp = pos.y / 10;
         transform.rotation = Quaternion.Slerp(zoomedInRotation, zoomedOutRotation, curve.Evaluate(temp));
     }
-
-    /*IEnumerator ZoomInLerps()
-    {
-        if (zoomingIn == true)
-        {
-            transform.position = Vector3.Lerp(zoomedOut, zoomedIn, curve.Evaluate(temp));
-            transform.rotation = Quaternion.Slerp(zoomedInRotation, zoomedOutRotation, curve.Evaluate(temp));
-            temp += Time.deltaTime;
-            if (transform.position.y >= 11)
-            {
-                transform.position = zoomedIn;
-                zoomingIn = false;
-                temp = 0f;
-                yield return null;
-            }
-        }
-    }
-    IEnumerator ZoomOutLerps()
-    {
-        if (zoomingOut == true)
-        {
-            transform.position = Vector3.Lerp(zoomedIn, zoomedOut, curve.Evaluate(temp));
-            transform.rotation = Quaternion.Slerp(zoomedOutRotation, zoomedInRotation, curve.Evaluate(temp));
-            temp += Time.deltaTime;
-            if (transform.position == zoomedOut)
-            {
-                zoomingOut = false;
-                temp = 0f;
-                yield return null;
-            }
-        }
-    }*/
 
     // select unit based on left mouse click
     void SelectUnit()
