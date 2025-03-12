@@ -10,12 +10,6 @@ public class CameraMovement : MonoBehaviour
     public Quaternion zoomedOutRotation;
     public Quaternion zoomedInRotation;
     public AnimationCurve curve;
-    // for the version that involves the ease-in-out zoom
-    //public Vector3 zoomedIn;
-    //public Vector3 zoomedOut;
-    //bool zoomingIn = false;
-    //bool zoomingOut = false;
-    //float temp = 0f;
 
     [Header("Edge Pan Values")]
     public float panSpeed = 25;
@@ -23,7 +17,6 @@ public class CameraMovement : MonoBehaviour
     // Mouse Values \\
     private Vector3 dragOrigin;
     private Vector3 cameraDragOrigin;
-    //private Vector3 currentPosition;
 
     [Header("Showcase View Values")]
     public bool isShowcaseActivated = false;
@@ -63,10 +56,6 @@ public class CameraMovement : MonoBehaviour
     {
         selectedUnitTransform = selectedUnit.transform;
         showcaseCam.Target.TrackingTarget = selectedUnitTransform;
-        
-        // CINEMACHINE AAAAAAAAAAA
-        // make so the camera zoom still kinda works (ill figure it out, probably change clamped values and zoomed in/out rotations)
-        // look at dotas camera more when home
     }
 
     // Get mouse drag inputs and put values into move camera
@@ -117,9 +106,9 @@ public class CameraMovement : MonoBehaviour
     void ZoomCamera()
     {
         Vector3 pos = transform.position;
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        /*float scroll = Input.GetAxis("Mouse ScrollWheel");
         pos.y -= scroll * scrollSpeed * Time.deltaTime * 300f;
-        pos.y = Mathf.Clamp(pos.y, 6, 12);
+        pos.y = Mathf.Clamp(pos.y, 6, 12);*/
         transform.position = pos;
 
         float temp = pos.y / 10;
