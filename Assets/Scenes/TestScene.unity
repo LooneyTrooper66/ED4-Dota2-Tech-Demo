@@ -270,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.49999997, y: 0, z: 0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1152,7 +1152,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         InputAction: {fileID: -7670872117038145147, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-        Gain: 10
+        Gain: 15
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
@@ -1165,7 +1165,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         InputAction: {fileID: -7670872117038145147, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-        Gain: -10
+        Gain: -15
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
@@ -1233,7 +1233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9f09129afc14a409a1117aacbef753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 5
+  scrollSpeed: 30
+  smoothTime: 0.3
   zoomedOutRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
   zoomedInRotation: {x: 0.25881904, y: 0, z: 0, w: 0.9659258}
   curve:

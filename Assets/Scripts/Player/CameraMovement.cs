@@ -7,6 +7,10 @@ public class CameraMovement : MonoBehaviour
 {
     [Header("Scroll Values")]
     public float scrollSpeed = 10;
+    private CinemachineCamera thisCam;
+    public float smoothTime = 0.5f;
+    private float zoom;
+    private float velocity = 0f;
     public Quaternion zoomedOutRotation;
     public Quaternion zoomedInRotation;
     public AnimationCurve curve;
@@ -26,6 +30,12 @@ public class CameraMovement : MonoBehaviour
     public Camera mainCam;
 
 
+
+    private void Start()
+    {
+        thisCam = GetComponent<CinemachineCamera>();
+        zoom = thisCam.transform.position.y;
+    }
 
     void Update()
     {
@@ -102,19 +112,6 @@ public class CameraMovement : MonoBehaviour
         transform.position = camPos;
     }
 
-    // zoom via scrollwheel  <-- XOME BACK TO LATER SO CAN MAKE SMOOTH SCROLL
-    void ZoomCamera()
-    {
-        Vector3 pos = transform.position;
-        /*float scroll = Input.GetAxis("Mouse ScrollWheel");
-        pos.y -= scroll * scrollSpeed * Time.deltaTime * 300f;
-        pos.y = Mathf.Clamp(pos.y, 6, 12);*/
-        transform.position = pos;
-
-        float temp = pos.y / 10;
-        transform.rotation = Quaternion.Slerp(zoomedInRotation, zoomedOutRotation, curve.Evaluate(temp));
-    }
-
     // select unit based on left mouse click
     void SelectUnit()
     {
@@ -132,5 +129,24 @@ public class CameraMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    // zoom via scrollwheel  <-- XOME BACK TO LATER SO CAN MAKE SMOOTH SCROLL
+    void ZoomCamera()
+    {
+        Vector3 pos = transform.position;
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        zoom -= scroll * scrollSpeed * Time.deltaTime * 300f;
+        zoom = Mathf.Clamp(zoom, 6, 12);
+        pos.y = Mathf.SmoothDamp(pos.y, zoom, ref velocity, smoothTime);
+        transform.position = pos;
+
+        float temp = pos.y / 10;
+        transform.rotation = Quaternion.Slerp(zoomedInRotation, zoomedOutRotation, curve.Evaluate(temp));
+    }
+
+    void ZoomIn()
+    {
+
     }
 }
