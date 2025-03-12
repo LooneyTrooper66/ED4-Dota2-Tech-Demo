@@ -144,9 +144,4 @@ public class CameraMovement : MonoBehaviour
         float temp = pos.y / 10;
         transform.rotation = Quaternion.Slerp(zoomedInRotation, zoomedOutRotation, curve.Evaluate(temp));
     }
-
-    void ZoomIn()
-    {
-
-    }
 }
