@@ -131,7 +131,7 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    // zoom via scrollwheel  <-- XOME BACK TO LATER SO CAN MAKE SMOOTH SCROLL
+    // zoom via scrollwheel
     void ZoomCamera()
     {
         Vector3 pos = transform.position;
