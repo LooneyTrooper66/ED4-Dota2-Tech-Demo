@@ -19,11 +19,9 @@ public class TowerTargeting : MonoBehaviour
 
     void CheckTargetingOrder()
     {
-        // go through list of things:
-
         foreach (GameObject target in potentialTargtets)
         {
-
+            // 
         }
 
         // Closest enemy unit attacking an ally hero

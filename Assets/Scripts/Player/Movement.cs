@@ -11,6 +11,10 @@ public class Movement : MonoBehaviour
     public Animator anim;
     float motionSmoothTime = 0.1f;
 
+    [Header("Enemy Targeting")]
+    public GameObject targetEnemy;
+    public float stoppingDist;
+
 
     private void Start()
     {
@@ -38,61 +42,42 @@ public class Movement : MonoBehaviour
             {
                 if (hit.collider.tag == "Ground")
                 {
-                    // Movement \\
-                    agent.SetDestination(hit.point);
-                    agent.stoppingDistance = 0;
-
-                    // Rotation \\
-                    Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
-                    float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeed * (Time.deltaTime * 5));
-                    transform.eulerAngles = new Vector3(0, rotationY, 0);
+                    MoveToPos(hit.point);
                 }
             }
         }
-    }
 
-
-
-    /*public Camera mainCam;
-    public int layer = 3;
-    public GameObject moveIcon;
-    public Vector3 moveIconStartPoint;
-    NavMeshAgent myNavAgent;
-    private Coroutine coroutine;
-
-
-    private void Start()
-    {
-        myNavAgent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
+        // use this if end up using MoveToEnemy function
+        /*if (targetEnemy != null)
         {
-            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            if (Vector3.Distance(transform.position, targetEnemy.transform.position) > stoppingDist)
             {
-                if (Physics.Raycast(ray, out RaycastHit hit))
-                {
-                    if (hit.collider.gameObject.layer == layer)
-                    {
-                        Vector3 offset = new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z);
-                        if (coroutine != null) StopCoroutine(coroutine);
-                        coroutine = StartCoroutine(MoveIcon(offset));
-
-                        myNavAgent.SetDestination(hit.point);
-                    }
-                }
+                agent.SetDestination(targetEnemy.transform.position);
             }
-        }
+        }*/
     }
 
-
-    IEnumerator MoveIcon(Vector3 offset)
+    void MoveToPos(Vector3 pos)
     {
-        moveIcon.transform.position = offset;
-        yield return new WaitForSecondsRealtime(1);
-        moveIcon.transform.position = moveIconStartPoint;
-        yield return null;
-    }*/
+        agent.SetDestination(pos);
+        agent.stoppingDistance = 0;
+        RotateHero(pos);
+    }
+
+    // access this if cast an ability while not within range of target (only dismember probably)
+    public void MoveToEnemy(GameObject enemy)
+    {
+        targetEnemy = enemy;
+        agent.SetDestination(targetEnemy.transform.position);
+        agent.stoppingDistance = stoppingDist;
+
+        RotateHero(targetEnemy.transform.position);
+    }
+
+    void RotateHero(Vector3 lookPos)
+    {
+        Quaternion rotationToLookAt = Quaternion.LookRotation(lookPos - transform.position);
+        float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeed * (Time.deltaTime * 5));
+        transform.eulerAngles = new Vector3(0, rotationY, 0);
+    }
 }
