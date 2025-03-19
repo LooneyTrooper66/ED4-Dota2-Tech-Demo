@@ -9,6 +9,15 @@ public class TowerTargeting : MonoBehaviour
 
 
 
+    private void Update()
+    {
+        // if current target die
+
+        // if current target leaves range
+
+        // if another potential target starts attacking ally hero
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == tagToTarget)

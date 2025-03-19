@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - AllyCreep
+  - AllyTower
+  - EnemyCreep
+  - EnemyTower
   layers:
   - Default
   - TransparentFX

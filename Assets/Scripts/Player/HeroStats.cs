@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class HeroStats : MonoBehaviour
 {
-    public float health;
-    public float mana;
-    public float damage;
-    public float attackSpeed;
+    public PlayerHeroStats playerStats;  // connect hero ui, hero health, etc..
 
 
     public void DealDamage(GameObject target, float damage)
@@ -22,6 +19,9 @@ public class HeroStats : MonoBehaviour
                 case "EnemyCreep":
                     Debug.Log("y amount of xp, if lh x amount of gold");
                     return;
+
+
+            //meow meowmeow meow meow meow meow meow
             }*/
         }
     }
