@@ -7,7 +7,8 @@ public class LaneCreepSpawn : MonoBehaviour
     public float creepMoveSpeed;
     public float siegeCreepMoveSpeed;
 
-    public GameObject creepPrefab;
+    public GameObject meleeCreepPrefab;
+    public GameObject rangedCreepPrefab;
     public GameObject siegeCreepPrefab;
     public Transform spawnPoint;
     public float spawnInterval = 30f; // should be 30 seconds
@@ -46,17 +47,17 @@ public class LaneCreepSpawn : MonoBehaviour
     {
         for (int i = 0; i < meleeCreepsPerWave; ++i)
         {
-            GameObject creep = Instantiate(creepPrefab, spawnPoint.position, spawnPoint.rotation);
+            GameObject creep = Instantiate(meleeCreepPrefab, spawnPoint.position, spawnPoint.rotation);
         }
 
         for (int i = 0;i < rangedCreepsPerWave; i++)
         {
-
+            GameObject creep = Instantiate(rangedCreepPrefab, spawnPoint.position, spawnPoint.rotation);
         }
     }
 
     void SpawnSiegeCreep()
     {
-
+        GameObject creep = Instantiate(siegeCreepPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }

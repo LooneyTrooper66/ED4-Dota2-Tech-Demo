@@ -9,7 +9,7 @@ public class LaneCreepAI : MonoBehaviour
     public string enemyTowerTag;
     public float stoppingDist = 2f;
     public float aggroRange = 5f;
-    public float targetSwitchInterval = 2f;
+    public float targetSwitchInterval = 1f;
     private float timeSinceLastTargetSwitch = 0f;
 
 
@@ -18,6 +18,19 @@ public class LaneCreepAI : MonoBehaviour
         creepAgent = GetComponent<NavMeshAgent>();
         FindAndSetTarget();
     }
+
+
+    #region
+
+    // OK FUCKO, HERES THE PLAN
+
+    // IMMA MAKE THE CREEPS LERP DOWN A PATH TOWARDS EACH TOWER/ANCIENT
+    // HOWEVER.
+    // I SHALL ALSO ADD STATES USING AN ENUM THAT CHANGE DEPENDING ON WETHER
+    // A HOSTILE ENEMY ENTERS A CERTAIN RANGE OF THEM
+
+    #endregion
+
 
     private void Update()
     {
