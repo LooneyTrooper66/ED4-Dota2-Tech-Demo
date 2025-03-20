@@ -7,9 +7,9 @@ public class LaneCreepAI : MonoBehaviour
     private Transform currentTarget;
     public string enemyCreepTag;
     public string enemyTowerTag;
-    public float stoppingDist = 2f;
-    public float aggroRange = 5f;
-    public float targetSwitchInterval = 1f;
+    private float stoppingDist = 2f;
+    private float aggroRange = 8f;
+    private float targetSwitchInterval = 0.5f;
     private float timeSinceLastTargetSwitch = 0f;
 
 
@@ -35,13 +35,15 @@ public class LaneCreepAI : MonoBehaviour
 
     private void Update()
     {
+        // checking if any enemy units in range in intervals of 0.5s
         timeSinceLastTargetSwitch += Time.deltaTime;
         if (timeSinceLastTargetSwitch > targetSwitchInterval)
         {
-            CheckAndSwitchTargets();
+            FindAndSetTarget();
             timeSinceLastTargetSwitch = 0f;
         }
 
+        // setting creep destination to the current target
         if (currentTarget != null)
         {
             Vector3 directionToTarget = currentTarget.position - transform.position;
@@ -51,7 +53,7 @@ public class LaneCreepAI : MonoBehaviour
         }
     }
 
-    void CheckAndSwitchTargets()
+    void FindAndSetTarget()
     {
         GameObject[] enemyCreeps = GameObject.FindGameObjectsWithTag(enemyCreepTag);
         Transform closestEnemyCreep = GetClosestObjectInRadius(enemyCreeps, aggroRange);
@@ -62,8 +64,16 @@ public class LaneCreepAI : MonoBehaviour
         }
         else
         {
-            GameObject[] Towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
-            currentTarget = GetClosestObject(Towers);
+            if (Mathf.Abs(transform.position.x) < 45)
+            {
+                GameObject[] Corners = GameObject.FindGameObjectsWithTag("CornerMarker");
+                currentTarget = GetClosestObject(Corners);
+            }
+            else
+            {
+                GameObject[] Towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
+                currentTarget = GetClosestObject(Towers);
+            }
         }
     }
 
@@ -104,21 +114,5 @@ public class LaneCreepAI : MonoBehaviour
         }
 
         return closestObject;
-    }
-
-    void FindAndSetTarget()
-    {
-        GameObject[] enemyCreeps = GameObject.FindGameObjectsWithTag(enemyCreepTag);
-        Transform closestEnemyCreep = GetClosestObjectInRadius(enemyCreeps, aggroRange);
-
-        if (closestEnemyCreep != null)
-        {
-            currentTarget = closestEnemyCreep;
-        }
-        else
-        {
-            GameObject[] Towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
-            currentTarget = GetClosestObject(Towers);
-        }
     }
 }

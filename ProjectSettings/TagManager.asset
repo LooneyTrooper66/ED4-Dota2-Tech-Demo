@@ -9,6 +9,7 @@ TagManager:
   - AllyTower
   - EnemyCreep
   - EnemyTower
+  - CornerMarker
   layers:
   - Default
   - TransparentFX

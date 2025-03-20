@@ -150,4 +150,4 @@ MonoBehaviour:
   enemyTowerTag: EnemyTower
   stoppingDist: 2
   aggroRange: 5
-  targetSwitchInterval: 2
+  targetSwitchInterval: 0.5
