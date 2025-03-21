@@ -4,11 +4,11 @@ using UnityEngine.AI;
 public class LaneCreepAI : MonoBehaviour
 {
     private NavMeshAgent creepAgent;
-    private Transform currentTarget;
+    public Transform currentTarget;
     public string enemyCreepTag;
     public string enemyTowerTag;
-    private float stoppingDist = 2f;
-    private float aggroRange = 8f;
+    private float stoppingDist = 0.8f;
+    public float aggroRange = 6f;
     private float targetSwitchInterval = 0.5f;
     private float timeSinceLastTargetSwitch = 0f;
 
