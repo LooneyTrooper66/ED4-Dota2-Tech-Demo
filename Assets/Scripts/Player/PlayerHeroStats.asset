@@ -15,9 +15,11 @@ MonoBehaviour:
   level: 0
   health: 120
   mana: 75
-  strength: 25
-  agility: 11
-  intelligence: 16
   damage: 70
   movementSpeed: 280
   attackSpeed: 1.7
+  strength: 25
+  agility: 11
+  intelligence: 16
+  gold: 0
+  xp: 0

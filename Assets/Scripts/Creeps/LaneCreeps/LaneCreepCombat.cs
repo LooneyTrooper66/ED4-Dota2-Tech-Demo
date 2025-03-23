@@ -46,11 +46,6 @@ public class LaneCreepCombat : MonoBehaviour
         {
             float distToTarget = Vector3.Distance(transform.position, laneAI.currentTarget.position);
 
-            #region // delete after debugging
-            bool temp = distToTarget <= attackRange;
-            Debug.Log(temp);
-            #endregion
-
             return distToTarget <= attackRange;
         }
 

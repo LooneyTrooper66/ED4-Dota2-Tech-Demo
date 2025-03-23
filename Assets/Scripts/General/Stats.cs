@@ -19,6 +19,8 @@ public class Stats : MonoBehaviour
     private Coroutine damageCoroutine;
 
     HealthUI healthUI;
+    GameObject player;
+    HeroStats heroStats;
 
 
     private void Awake()
@@ -31,15 +33,22 @@ public class Stats : MonoBehaviour
         healthUI.Start3DSlider(health);
     }
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        heroStats = player.GetComponent<HeroStats>();
+    }
+
     public void TakeDamage(GameObject target, float damage)
     {
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;
 
         // check if creep is dead
-        if (target.CompareTag("AllyCreep") && targetStats.targetHealth <= 0)
+        if ((target.CompareTag("AllyCreep") || target.CompareTag("EnemyCreep")) && targetStats.targetHealth <= 0)
         {
-            Destroy(target.gameObject);
+            Destroy(target.gameObject); // could pool later for optimisation reasons
+            AwardXP();
         }
         else if (targetStats.damageCoroutine == null)
         {
@@ -78,5 +87,14 @@ public class Stats : MonoBehaviour
     void UpdateHealthUI()
     {
         healthUI.Update3DSlider(currentHealth);
+    }
+
+    void AwardXP()
+    {
+        float dist = Vector3.Distance(transform.position, player.transform.position); // dont bother checking how many and spliting xp for now as only one hero should be in the game
+        if (dist <= 15) // this is based on 1500 / 100
+        {
+            heroStats.playerStats.xp += xpWorth;
+        }
     }
 }
