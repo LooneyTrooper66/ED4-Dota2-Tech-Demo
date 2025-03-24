@@ -94,7 +94,7 @@ public class Stats : MonoBehaviour
         float dist = Vector3.Distance(transform.position, player.transform.position); // dont bother checking how many and spliting xp for now as only one hero should be in the game
         if (dist <= 15) // this is based on 1500 / 100
         {
-            heroStats.playerStats.xp += xpWorth;
+            heroStats.xp += xpWorth;
         }
     }
 }

@@ -7,7 +7,7 @@ public class LaneCreepAI : MonoBehaviour
     public Transform currentTarget;
     public string enemyCreepTag;
     public string enemyTowerTag;
-    private float stoppingDist = 0.8f;
+    private float stoppingDist = 0.9f;
     public float aggroRange = 6f;
     private float targetSwitchInterval = 0.5f;
     private float timeSinceLastTargetSwitch = 0f;

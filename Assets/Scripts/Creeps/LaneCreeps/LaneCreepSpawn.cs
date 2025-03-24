@@ -16,11 +16,24 @@ public class LaneCreepSpawn : MonoBehaviour
     public int rangedCreepsPerWave = 1;
     public int wavesUntilSiegeCreep = 6;
     private int waveCount = 0;
+    private Timer timer;
+    private bool wavesStart;
 
 
     private void Start()
     {
-        StartCoroutine(SpawnCreeps());
+        GameObject timerHolder = GameObject.Find("--Timer--");
+        timer = timerHolder.GetComponent<Timer>();
+        wavesStart = false;
+    }
+
+    private void Update()
+    {
+        if (timer.timeElapsed >= 0 && wavesStart == false)
+        {
+            StartCoroutine(SpawnCreeps());
+            wavesStart = true;
+        }
     }
 
     IEnumerator SpawnCreeps()
