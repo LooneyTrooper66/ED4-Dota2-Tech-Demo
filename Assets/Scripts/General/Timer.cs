@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        timeElapsed = -10f; // set to -60 for actual game
+        timeElapsed = -5f; // set to -60 for actual game
         dayNightTimer = timeElapsed;
         gamePlaying = true; // set this to false when in menus
         currentTime = timeOfDay.night;

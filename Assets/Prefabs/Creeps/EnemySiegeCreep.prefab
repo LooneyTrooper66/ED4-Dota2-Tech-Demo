@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8515730151964952971}
   - component: {fileID: 713797734851802151}
   - component: {fileID: 4850019302289974592}
+  - component: {fileID: 388622443956853913}
   - component: {fileID: 5176968299880368219}
   m_Layer: 0
   m_Name: EnemySiegeCreep
@@ -187,6 +188,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 8024278540819600770}
+--- !u!114 &388622443956853913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0583b55114dcf947b2b62e62230badf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5176968299880368219
 MonoBehaviour:
   m_ObjectHideFlags: 0

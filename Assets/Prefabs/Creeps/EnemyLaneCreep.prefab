@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7408334696340194454}
   - component: {fileID: 1510707777639846324}
   - component: {fileID: 7992264953086756753}
+  - component: {fileID: 2788362516057164892}
   - component: {fileID: 4585874232209479443}
   m_Layer: 0
   m_Name: EnemyLaneCreep
@@ -277,6 +278,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackInterval: 1
   state: 2
+--- !u!114 &2788362516057164892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0583b55114dcf947b2b62e62230badf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4585874232209479443
 MonoBehaviour:
   m_ObjectHideFlags: 0

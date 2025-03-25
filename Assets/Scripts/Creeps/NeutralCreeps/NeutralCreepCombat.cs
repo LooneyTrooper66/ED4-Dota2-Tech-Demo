@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class NeutralCreepCombat : MonoBehaviour
+public class NeutralCreepCombat : MonoBehaviour // all stats based off of the Kobold Foreman
 {
-    private float attackRange = 1f;
-    private float attackDamage = 20;
-    public float attackInterval;
+    private float attackRange = 1.1f; // need to add aqisition range of 5
+    private float attackDamage = 22;
+    private float attackInterval = 2;
     private float lastAttackTime;
 
     public enum currentState { attackingHero, attackingOther, idle };
