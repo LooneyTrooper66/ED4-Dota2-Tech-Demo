@@ -85,7 +85,6 @@ public class NeutralCreepAI : MonoBehaviour
             }
         }
 
-        Debug.Log(closestObject);
         return closestObject;
     }
 }
