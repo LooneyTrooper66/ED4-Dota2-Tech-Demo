@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 5007179393905824913}
   - component: {fileID: 8988005269464497421}
   - component: {fileID: 35041726620450166}
+  - component: {fileID: 5573222017657747955}
   m_Layer: 0
   m_Name: AllyLaneCreep
   m_TagString: AllyCreep
@@ -479,6 +480,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0583b55114dcf947b2b62e62230badf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hostile: 0
+--- !u!54 &5573222017657747955
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702739710636024729}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &8252041376636419045
 GameObject:
   m_ObjectHideFlags: 0

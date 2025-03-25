@@ -9,7 +9,7 @@ public class NeutralCreepAI : MonoBehaviour
     public LaneCreepCombat[] laneCreepCombat;
     // also have hero combat script here at some point
     private float stoppingDist = 0.9f;
-    private float aggroRange = 5f;
+    private float attackRange = 5f;
     List<GameObject> hostileUnits = new List<GameObject>();
 
 
@@ -19,28 +19,8 @@ public class NeutralCreepAI : MonoBehaviour
     }
 
 
-    #region
-
-    // OK FUCKO, HERES THE PLAN
-
-    // CREEPS FOLLOW AN EMPTY OBJECT DOWN THE LANES
-    // HOWEVER
-    // IF THEY ENCOUNTER ANY HOSTILE ENEMIES ON THE WAY
-    // THE ENEMIES TAKE PRIORITY OVER THE EMPTY OBJECT
-    // AND IF THEY FIND A TOWER, ATTACK IT IF THERES NO ENEMIES
-
-    #endregion
-
-
     private void Update()
     {
-        // target closest enemy within 500 units
-        if (currentTarget == null)
-        {
-            // aggro ignores wether attacker is creep or hero, make sure this isnt biased.
-            FindAndSetCreepTarget();
-        }
-
         // setting creep destination to the current target
         if (currentTarget != null)
         {
@@ -51,15 +31,36 @@ public class NeutralCreepAI : MonoBehaviour
         }
     }
 
-    void FindAndSetCreepTarget()
+    // for if a unit comes within 240 (2.4) units of them (called in other script)
+    public void FindAndSetCreepTarget()
     {
         NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
-        foreach (var obj in temp)
+        foreach (var scr in temp)
         {
-            hostileUnits.Add(obj.gameObject);
+            hostileUnits.Add(scr.gameObject);
         }
 
-        Transform closestEnemyCreep = GetClosestObjectInRadius(hostileUnits, aggroRange);
+        Transform closestEnemyCreep = GetClosestObjectInRadius(hostileUnits, attackRange);
+        hostileUnits.Clear();
+        if (closestEnemyCreep != null)
+        {
+            currentTarget = closestEnemyCreep;
+        }
+    }
+
+    // for if a unit casts a damage spell or auto attack on them from within 1800 (18) range
+    public void FindAndSetHostileCreepTarget()
+    {
+        NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
+        foreach (var scr in temp)
+        {
+            if (scr.hostile == true)
+            {
+                hostileUnits.Add(scr.gameObject);
+            }
+        }
+
+        Transform closestEnemyCreep = GetClosestObjectInRadius(hostileUnits, attackRange);
         hostileUnits.Clear();
         if (closestEnemyCreep != null)
         {
