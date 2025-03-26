@@ -48,7 +48,8 @@ public class NeutralCreepAI : MonoBehaviour
         }
     }
 
-    // for if a unit casts a damage spell or auto attack on them from within 1800 (18) range
+    // for if a unit casts a damage spell or auto attack on them from within 1800 (18) range   
+    // access this from the script of the attacking unit
     public void FindAndSetHostileCreepTarget()
     {
         NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);

@@ -20,6 +20,7 @@ public class NeutralCreepsCanAttack : MonoBehaviour
         }
     }
 
+    // set whether is hostile
     private void Update()
     {
         if (heroCombat != null)

@@ -10,6 +10,7 @@ TagManager:
   - EnemyCreep
   - EnemyTower
   - CornerMarker
+  - NeutralCreep
   layers:
   - Default
   - TransparentFX
