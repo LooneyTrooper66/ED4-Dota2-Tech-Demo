@@ -10,18 +10,36 @@ public class LaneCreepAI : MonoBehaviour
     public string enemySiegeTag;
     public string enemyTowerTag;
     private float stoppingDist = 0.9f;
-    public float aggroRange = 6f;
+    public float aggroRange = 5f;
     private float targetSwitchInterval = 0.5f;
     private float aggroSwapInterval = 3;// aggro swap of 3
     private float timeSinceLastTargetSwitch = 0f;
+    Transform closestEnemyCreep = null;
 
+    List<GameObject> TowerList = new List<GameObject>();
     List<GameObject> attackingAllyHero = new List<GameObject>();
     List<GameObject> attackingAndInRange = new List<GameObject>();
+    List<GameObject> attackingAndInRangeSiege = new List<GameObject>();
+    List<GameObject> cornerMarkers = new List<GameObject>();
 
 
     private void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
+
+        // add all enemy towers to a list at the start so dont have to make a new one each time it checks
+        GameObject[] Tower = GameObject.FindGameObjectsWithTag(enemyTowerTag);
+        foreach (GameObject t in Tower)
+        {
+            TowerList.Add(t);
+        }
+        // add all corner markers to list at start
+        GameObject[] Corners = GameObject.FindGameObjectsWithTag("CornerMarker");
+        foreach (GameObject t in Corners)
+        {
+            cornerMarkers.Add(t);
+        }
+
         FindAndSetTarget();
     }
 
@@ -77,29 +95,15 @@ public class LaneCreepAI : MonoBehaviour
 
     void FindAndSetTarget()
     {
-        // set target to closest enemy attacking self
-        // if no enemy attacking, set target to closest enemy attacking ally hero
-        // if null, set target to closest enemy attacking allies
-        // set to closest siege creep
-        // set to structures (towers, etc..)
-
-
         SortWithinRange(); // sorting all gameobjects within aggro range into 3 lists, attacking self, attacking ally hero and within range
-
-        Transform closestEnemyCreep = null;
-        if (attackingAndInRange.Count > 0)
+                
+        closestEnemyCreep = GetClosestObjectAttackingMe(attackingAndInRange, aggroRange);  // if no siege creeps, set target to closest enemy attacking self
+        if (closestEnemyCreep == null)
         {
-            closestEnemyCreep = GetClosestObjectAttackingMe(attackingAndInRange, aggroRange);  // set target to closest enemy attacking self
+            closestEnemyCreep = GetClosestObjectInRadius(attackingAllyHero, aggroRange);  // if no enemy attacking self, set target to closest enemy attacking ally hero
             if (closestEnemyCreep == null)
             {
-                if (attackingAllyHero.Count > 0)
-                {
-                    closestEnemyCreep = GetClosestObjectInRadius(attackingAllyHero, aggroRange);  // if no enemy attacking self, set target to closest enemy attacking ally hero
-                }
-                else
-                {
-                    closestEnemyCreep = GetClosestObjectInRadius(attackingAndInRange, aggroRange);  // if no enemy attacking ally hero, set target to closest enemy attacking allies
-                }
+                closestEnemyCreep = GetClosestObjectInRadius(attackingAndInRange, aggroRange);  // if no enemy attacking ally hero, set target to closest enemy attacking allies
             }
         }
 
@@ -109,22 +113,19 @@ public class LaneCreepAI : MonoBehaviour
         }
         else
         {
-            GameObject[] Siege = GameObject.FindGameObjectsWithTag(enemySiegeTag);
-            if (Siege.Length > 0 )
+            if (attackingAndInRangeSiege.Count > 0)
             {
-                currentTarget = GetClosestObject(Siege);
+                currentTarget = GetClosestObjectInRadius(attackingAndInRangeSiege, aggroRange);  // if no, set to closest siege creep
             }
-            else
+            else  // if no, set to structures (towers, etc..)
             {
-                if (Mathf.Abs(transform.position.x) < 45)
+                if (Mathf.Abs(transform.position.x) < 45)  
                 {
-                    GameObject[] Corners = GameObject.FindGameObjectsWithTag("CornerMarker");
-                    currentTarget = GetClosestObject(Corners);
+                    currentTarget = GetClosestObject(cornerMarkers);
                 }
                 else
                 {
-                    GameObject[] Towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
-                    currentTarget = GetClosestObject(Towers);
+                    currentTarget = GetClosestObject(TowerList);
                 }
             }
         }
@@ -135,7 +136,6 @@ public class LaneCreepAI : MonoBehaviour
 
     void SortWithinRange()
     {
-        float closestDist = Mathf.Infinity;
         Vector3 currentPos = transform.position;
 
         CurrentAttackingState[] temp = FindObjectsByType<CurrentAttackingState>(FindObjectsSortMode.None);
@@ -143,9 +143,13 @@ public class LaneCreepAI : MonoBehaviour
         {
             float dist = Vector3.Distance(currentPos, t.gameObject.transform.position);
 
-            if (dist < closestDist && dist <= aggroRange)
+            if (dist <= aggroRange)
             {
-                if (t.isAttackingHero == true)
+                if (t.gameObject.tag == enemySiegeTag)
+                {
+                    attackingAndInRangeSiege.Add(t.gameObject);
+                }
+                else if (t.isAttackingHero == true)
                 {
                     attackingAllyHero.Add(t.gameObject);
                 }
@@ -157,7 +161,7 @@ public class LaneCreepAI : MonoBehaviour
         }
     }
 
-    private Transform GetClosestObject(GameObject[] Things)
+    private Transform GetClosestObject(List<GameObject> Things)
     {
         float closestDist = Mathf.Infinity;
         Transform closestObject = null;
@@ -178,7 +182,7 @@ public class LaneCreepAI : MonoBehaviour
 
     private Transform GetClosestObjectInRadius(List<GameObject> Things, float radius)
     {
-        float closestDist = Mathf.Infinity;
+        float closestDist = 1000;
         Transform closestObject = null;
         Vector3 currentPos = transform.position;
 
@@ -198,14 +202,14 @@ public class LaneCreepAI : MonoBehaviour
 
     private Transform GetClosestObjectAttackingMe(List<GameObject> Things, float radius)
     {
-        float closestDist = Mathf.Infinity;
+        float closestDist = 1000;
         Transform closestObject = null;
         Vector3 currentPos = transform.position;
 
         foreach (GameObject t in Things)
         {
             CurrentAttackingState temp = t.GetComponent<CurrentAttackingState>();
-            if (temp.currentlyAttacking == t.gameObject.name)
+            if (temp.currentlyAttacking == gameObject.name)
             {
                 float dist = Vector3.Distance(currentPos, t.transform.position);
 

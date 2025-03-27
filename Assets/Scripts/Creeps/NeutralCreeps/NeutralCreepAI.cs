@@ -10,6 +10,8 @@ public class NeutralCreepAI : MonoBehaviour
     // also have hero combat script here at some point
     private float stoppingDist = 0.9f;
     private float attackRange = 5f;
+    private Transform homeCamp; // set in code on spawn, needed for deaggro
+
     List<GameObject> hostileUnits = new List<GameObject>();
 
 
@@ -31,11 +33,11 @@ public class NeutralCreepAI : MonoBehaviour
         }
     }
 
-    // for if a unit comes within 240 (2.4) units of them (called in other script)
+    // for if a unit comes within 240 (2.4) units of them (called in RadialAggroCheck script)
     public void FindAndSetCreepTarget()
     {
         NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
-        foreach (var scr in temp)
+        foreach (var scr in temp) // any unit within radius will draw aggro, does not need to be hostile
         {
             hostileUnits.Add(scr.gameObject);
         }

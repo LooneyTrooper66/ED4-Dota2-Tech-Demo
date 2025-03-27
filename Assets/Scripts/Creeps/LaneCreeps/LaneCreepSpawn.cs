@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class LaneCreepSpawn : MonoBehaviour
 {
-    public float creepMoveSpeed;
-    public float siegeCreepMoveSpeed;
-
     public GameObject meleeCreepPrefab;
     public GameObject rangedCreepPrefab;
     public GameObject siegeCreepPrefab;
@@ -14,45 +11,62 @@ public class LaneCreepSpawn : MonoBehaviour
     public float spawnInterval = 30f; // should be 30 seconds
     public int meleeCreepsPerWave = 3;
     public int rangedCreepsPerWave = 1;
-    public int wavesUntilSiegeCreep = 6;
+    public int siegeCreepsPerWave = 1;
+    public int wavesUntilSiegeCreep = 5;  // should be on the 6th, 11th, 16th, 21st, etc..
     private int waveCount = 0;
     private Timer timer;
-    private bool wavesStart;
+    private float timeSinceLastWave = 0;
 
 
     private void Start()
     {
         GameObject timerHolder = GameObject.Find("--Timer--");
         timer = timerHolder.GetComponent<Timer>();
-        wavesStart = false;
+        timeSinceLastWave = spawnInterval;
     }
 
     private void Update()
     {
-        if (timer.timeElapsed >= 0 && wavesStart == false)
+        if (timer.gamePlaying == true && timer.timeElapsed >= 0)
         {
-            StartCoroutine(SpawnCreeps());
-            wavesStart = true;
+            timeSinceLastWave += Time.deltaTime;
+            if (timeSinceLastWave >= spawnInterval)
+            {
+                SpawnCreeps();
+                timeSinceLastWave = 0;
+            }
         }
     }
 
-    IEnumerator SpawnCreeps()
+    void SpawnCreeps()
     {
-        while (true)
+        waveCount++;
+        switch (waveCount) // this is genuinely the most efficient way to do it coz the difference between the wave changes isnt consistent
         {
-            waveCount++;
-
-            if (waveCount % wavesUntilSiegeCreep == 0)
-            {
-                SpawnRegularCreeps();
-                SpawnSiegeCreep();
-                yield return new WaitForSecondsRealtime(spawnInterval);
-            }
-            else
-            {
-                SpawnRegularCreeps();
-                yield return new WaitForSecondsRealtime(spawnInterval);
-            }
+            case 16:
+                meleeCreepsPerWave = 4;
+                break;
+            case 31:
+                meleeCreepsPerWave = 5;
+                break;
+            case 36:
+                siegeCreepsPerWave = 2;
+                break;
+            case 41:
+                rangedCreepsPerWave = 2;
+                break;
+            case 46:
+                meleeCreepsPerWave = 6;
+                break;
+        }
+        if (waveCount % wavesUntilSiegeCreep == 0)
+        {
+            SpawnRegularCreeps();
+            SpawnSiegeCreep();
+        }
+        else
+        {
+            SpawnRegularCreeps();
         }
     }
 
@@ -71,6 +85,9 @@ public class LaneCreepSpawn : MonoBehaviour
 
     void SpawnSiegeCreep()
     {
-        GameObject creep = Instantiate(siegeCreepPrefab, spawnPoint.position, spawnPoint.rotation);
+        for (int i = 0; i < rangedCreepsPerWave; i++)
+        {
+            GameObject creep = Instantiate(siegeCreepPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
     }
 }

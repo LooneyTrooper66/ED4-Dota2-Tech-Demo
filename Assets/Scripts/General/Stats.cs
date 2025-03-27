@@ -5,10 +5,13 @@ public class Stats : MonoBehaviour
 {
     [Header("Base Stats")]
     public float health;
+    public float healthRegen;
     public float mana;
+    public float manaRegen;
     public float damage;
     public float secondsBetweenAttacks;
     public float attackRange;
+    public float acquisitionRange;
     public int goldWorth;
     public int xpWorth;
 

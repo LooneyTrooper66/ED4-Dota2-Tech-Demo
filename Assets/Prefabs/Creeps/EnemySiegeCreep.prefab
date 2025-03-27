@@ -13,15 +13,16 @@ GameObject:
   - component: {fileID: 797978720804243551}
   - component: {fileID: 4600145723134301527}
   - component: {fileID: 150477340067787578}
-  - component: {fileID: 8515730151964952971}
   - component: {fileID: 713797734851802151}
   - component: {fileID: 4850019302289974592}
   - component: {fileID: 388622443956853913}
   - component: {fileID: 5176968299880368219}
   - component: {fileID: 8223002616099462137}
+  - component: {fileID: 8717892638681192043}
+  - component: {fileID: 2509478824431555523}
   m_Layer: 0
   m_Name: EnemySiegeCreep
-  m_TagString: EnemyCreep
+  m_TagString: EnemySiege
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +129,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -334000983
   m_Radius: 0.5
-  m_Speed: 1.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -140,22 +141,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8515730151964952971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9408a4099d1e1245a7e0f4c449e6947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTarget: {fileID: 0}
-  enemyCreepTag: AllyCreep
-  enemyTowerTag: AllyTower
-  aggroRange: 8
 --- !u!114 &713797734851802151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +154,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 935
+  healthRegen: 0
   mana: 0
+  manaRegen: 0
   damage: 40
   secondsBetweenAttacks: 3
   attackRange: 6.9
+  acquisitionRange: 8
   goldWorth: 65
   xpWorth: 88
   damageLerpDuration: 0
@@ -241,6 +229,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8717892638681192043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646ab8a20b3a68042ad6d14a96cc056a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  enemyTowerTag: AllyTower
+  aggroRange: 8
+--- !u!114 &2509478824431555523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &5255819475624860910
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LaneCreepCombat : MonoBehaviour
 {
-    private float attackRange = 1f;
-    private float attackDamage = 20;
+    private float attackRange;
+    private float attackDamage;
     public float attackInterval;
     private float lastAttackTime;
 
@@ -58,14 +58,16 @@ public class LaneCreepCombat : MonoBehaviour
         if (laneAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
         else { state = currentState.attackingOther; }
 
-        // could use if statements here to change how attack different enemies, more useful for hero attacks tho
-        stats.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
-        switch (laneAI.currentTarget.tag)
+        if (laneAI.currentTarget.gameObject.tag != "CornerMarker")
         {
-            case "NeutralCreep":
-                NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
-                thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
-                break;
+            stats.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
+            switch (laneAI.currentTarget.tag)
+            {
+                case "NeutralCreep":
+                    NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
+                    thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+                    break;
+            }
         }
     }
 }

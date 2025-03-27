@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5924882503399682348}
   - component: {fileID: 7779332298768711539}
   - component: {fileID: 5019257847687060759}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: aggro check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,10 +157,10 @@ GameObject:
   - component: {fileID: 150477340067787578}
   - component: {fileID: 7408334696340194454}
   - component: {fileID: 1510707777639846324}
-  - component: {fileID: 7992264953086756753}
   - component: {fileID: 9085711417409776512}
   - component: {fileID: 4585874232209479443}
   - component: {fileID: 8313789594655921474}
+  - component: {fileID: 1105617474361896695}
   m_Layer: 0
   m_Name: EasyNeutralCreep
   m_TagString: NeutralCreep
@@ -336,27 +336,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 400
+  healthRegen: 0
   mana: 0
+  manaRegen: 0
   damage: 22
   secondsBetweenAttacks: 2
   attackRange: 1.1
+  acquisitionRange: 5
   goldWorth: 22
   xpWorth: 30
   damageLerpDuration: 0.2
---- !u!114 &7992264953086756753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ca6a3d3e8306348980b153ed866934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackInterval: 1
-  state: 2
 --- !u!114 &9085711417409776512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +384,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42534d55ecc230c47beac2b60f53c57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105617474361896695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0

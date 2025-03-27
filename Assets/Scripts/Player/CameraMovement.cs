@@ -34,6 +34,7 @@ public class CameraMovement : MonoBehaviour
     {
         thisCam = GetComponent<CinemachineCamera>();
         zoom = thisCam.transform.position.y;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
@@ -89,21 +90,22 @@ public class CameraMovement : MonoBehaviour
     void EdgePanInputs()
     {
         Vector3 mousePos = Input.mousePosition;
+        int mouseSizeOffset = 20;
         Vector3 camPos = transform.position;
 
-        if (mousePos.x <= 0)
+        if (mousePos.x <= mouseSizeOffset)
         {
             camPos.x -= panSpeed * Time.deltaTime;
         }
-        else if (mousePos.x >= Screen.width)
+        else if (mousePos.x >= (Screen.width - mouseSizeOffset))
         {
             camPos.x += panSpeed * Time.deltaTime;
         }
-        else if (mousePos.y <= 0)
+        else if (mousePos.y <= mouseSizeOffset)
         {
             camPos.z -= panSpeed * Time.deltaTime;
         }
-        else if (mousePos.y >= Screen.height)
+        else if (mousePos.y >= (Screen.height - mouseSizeOffset))
         {
             camPos.z += panSpeed * Time.deltaTime;
         }
