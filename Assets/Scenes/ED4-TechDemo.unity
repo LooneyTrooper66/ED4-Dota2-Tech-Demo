@@ -8786,6 +8786,7 @@ MonoBehaviour:
   spawnInterval: 30
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
+  siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 6
 --- !u!23 &7708447419875563100
 MeshRenderer:
@@ -8878,6 +8879,7 @@ MonoBehaviour:
   spawnInterval: 30
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
+  siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 6
 --- !u!33 &7782503730012048149
 MeshFilter:
@@ -9189,6 +9191,7 @@ MonoBehaviour:
   spawnInterval: 30
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
+  siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 6
 --- !u!23 &8922163215911397176
 MeshRenderer:
@@ -9254,6 +9257,7 @@ MonoBehaviour:
   spawnInterval: 30
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
+  siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 6
 --- !u!33 &9020378015547198778
 MeshFilter:

@@ -37,7 +37,6 @@ public class NeutralCreepSpawn : MonoBehaviour
     void SpawnCreeps()
     {
         campClear = CheckIfHasThingsInArea();
-        Debug.Log(campClear);
         if (campClear == true)
         {
             for (int i = 0; i < neutralCreepsPerWave; ++i)
@@ -45,7 +44,7 @@ public class NeutralCreepSpawn : MonoBehaviour
                 GameObject creep = Instantiate(neutralCreepPrefab, spawnPoint.position, spawnPoint.rotation);
             }
         }
-        Debug.Log("called spawn function, " + gameObject.name + " = " + campClear);
+        //Debug.Log("called spawn function, " + gameObject.name + " = " + campClear);
     }
 
     bool CheckIfHasThingsInArea()

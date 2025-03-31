@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CurrentAttackingState : MonoBehaviour
+public class CurrentAttackingState : MonoBehaviour // set attackers currenttarget to null when you destroy the gameobject in attack script
 {
     public enum currentState { attackingHero, attackingOther, notInCombat };
     public currentState state;

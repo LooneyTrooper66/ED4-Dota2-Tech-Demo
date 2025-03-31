@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class NeutralCreepAI : MonoBehaviour
 {
     private NavMeshAgent creepAgent;
-    public Transform currentTarget;
+    public Transform currentTarget = null;
     public LaneCreepCombat[] laneCreepCombat;
     // also have hero combat script here at some point
     private float stoppingDist = 0.9f;
     private float attackRange = 5f;
+    private bool deAggroTimerRunning;
+    private bool cannotBeAggroed;
+    private float loseAggroTimer = 0;
     private Transform homeCamp; // set in code on spawn, needed for deaggro
 
     List<GameObject> hostileUnits = new List<GameObject>();
@@ -18,19 +22,41 @@ public class NeutralCreepAI : MonoBehaviour
     private void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
+        homeCamp = transform;
     }
 
 
     private void Update()
     {
-        // setting creep destination to the current target
-        if (currentTarget != null)
+        float dist = Vector3.Distance(transform.position, homeCamp.position);
+        if (dist <= 4)
         {
-            Vector3 directionToTarget = currentTarget.position - transform.position;
-            Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
+            loseAggroTimer = 0;
+            if (currentTarget != null && cannotBeAggroed == false)
+            {
+                Vector3 directionToTarget = currentTarget.position - transform.position;
+                Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
 
-            creepAgent.SetDestination(stoppingPos);
+                creepAgent.SetDestination(stoppingPos);
+            }
         }
+        else
+        {
+            loseAggroTimer += Time.deltaTime;
+            if (loseAggroTimer > 5)
+            {
+                // if timer more than 5 seconds return to camp and make so cant be aggroed for 3
+                Debug.Log("aaaaaaaaaaa");
+                cannotBeAggroed = true;
+                StartCoroutine(CantBeAggroedTimer());
+            }
+        }
+    }
+
+    IEnumerator CantBeAggroedTimer()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        cannotBeAggroed = false;
     }
 
     // for if a unit comes within 240 (2.4) units of them (called in RadialAggroCheck script)
