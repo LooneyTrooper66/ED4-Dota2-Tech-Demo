@@ -9,7 +9,7 @@ public class SiegeCreepTargetingAI : MonoBehaviour
     public string enemyCreepTag;
     public string enemySiegeTag;
     public string enemyTowerTag;
-    private float stoppingDist = 0.9f; // needs to be less than attack/aggro range
+    public float stoppingDist = 6f; // needs to be less than attack/aggro range
     public float aggroRange = 8f;
     private float targetSwitchInterval = 0.5f;
     private float aggroSwapInterval = 3;// aggro swap of 3

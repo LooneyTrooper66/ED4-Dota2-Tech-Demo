@@ -233,7 +233,8 @@ MonoBehaviour:
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   enemyTowerTag: AllyTower
-  aggroRange: 5
+  stoppingDist: 0.9
+  aggroRange: 1
 --- !u!114 &7408334696340194454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ca6a3d3e8306348980b153ed866934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackInterval: 1
   state: 2
 --- !u!114 &2788362516057164892
 MonoBehaviour:

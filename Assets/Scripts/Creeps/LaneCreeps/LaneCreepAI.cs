@@ -9,7 +9,7 @@ public class LaneCreepAI : MonoBehaviour
     public string enemyCreepTag;
     public string enemySiegeTag;
     public string enemyTowerTag;
-    private float stoppingDist = 0.9f;
+    public float stoppingDist = 0.9f;
     public float aggroRange = 5f;
     private float targetSwitchInterval = 0.5f;
     private float aggroSwapInterval = 3;// aggro swap of 3
@@ -62,7 +62,7 @@ public class LaneCreepAI : MonoBehaviour
         // checking if any enemy units in range - different intervals depending on if has target
         AggroSwapTimer();
 
-        // setting creep destination to the current target || i am a fag cat its true -jrodan (why am i signing off my own comments idfk -fag cat)
+        // setting creep destination to the current target
         if (currentTarget != null)
         {
             Vector3 directionToTarget = currentTarget.position - transform.position;

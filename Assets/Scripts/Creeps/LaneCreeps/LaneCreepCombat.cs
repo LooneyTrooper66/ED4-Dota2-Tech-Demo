@@ -4,7 +4,7 @@ public class LaneCreepCombat : MonoBehaviour
 {
     private float attackRange;
     private float attackDamage;
-    public float attackInterval;
+    private float attackInterval;
     private float lastAttackTime;
 
     public enum currentState { attackingHero, attackingOther, travelling };
@@ -21,6 +21,7 @@ public class LaneCreepCombat : MonoBehaviour
         state = currentState.travelling;
         attackRange = stats.attackRange;
         attackDamage = stats.damage;
+        attackInterval = stats.secondsBetweenAttacks;
     }
 
     private void Update()
@@ -60,14 +61,13 @@ public class LaneCreepCombat : MonoBehaviour
 
         if (laneAI.currentTarget.gameObject.tag != "CornerMarker")
         {
-            stats.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
-            switch (laneAI.currentTarget.tag)
+            if (laneAI.currentTarget.tag == "NeutralCreep")
             {
-                case "NeutralCreep":
-                    NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
-                    thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
-                    break;
+                NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
+                thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
             }
+
+            stats.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
         }
     }
 }

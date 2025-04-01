@@ -24,11 +24,13 @@ public class Stats : MonoBehaviour
     HealthUI healthUI;
     GameObject player;
     HeroStats heroStats;
+    LaneCreepAI laneAI;
 
 
     private void Awake()
     {
         healthUI = GetComponent<HealthUI>();
+        laneAI = GetComponent<LaneCreepAI>();
 
         currentHealth = health;
         targetHealth = health;
@@ -50,6 +52,7 @@ public class Stats : MonoBehaviour
         // check if creep is dead
         if ((target.CompareTag("AllyCreep") || target.CompareTag("EnemyCreep")) && targetStats.targetHealth <= 0)
         {
+            laneAI.currentTarget = null;
             Destroy(target.gameObject); // could pool later for optimisation reasons
             AwardXP();
         }

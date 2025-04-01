@@ -75,6 +75,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1686545065694085450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464700426794694861}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &464700426794694861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686545065694085450}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.49999997, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 638135465771524559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4789948495200754454
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,11 +122,11 @@ GameObject:
   - component: {fileID: 8515730151964952971}
   - component: {fileID: 7408334696340194454}
   - component: {fileID: 1510707777639846324}
-  - component: {fileID: 7992264953086756753}
   - component: {fileID: 2788362516057164892}
   - component: {fileID: 4585874232209479443}
   - component: {fileID: 61734771550918}
   - component: {fileID: 7625220856965720887}
+  - component: {fileID: 5693069856546446480}
   m_Layer: 0
   m_Name: 'EnemyRangedLaneCreep '
   m_TagString: EnemyCreep
@@ -116,6 +147,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 464700426794694861}
   - {fileID: 207936428086191434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,6 +265,7 @@ MonoBehaviour:
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   enemyTowerTag: AllyTower
+  stoppingDist: 0.9
   aggroRange: 6
 --- !u!114 &7408334696340194454
 MonoBehaviour:
@@ -270,20 +303,6 @@ MonoBehaviour:
   goldWorth: 48
   xpWorth: 69
   damageLerpDuration: 0.2
---- !u!114 &7992264953086756753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ca6a3d3e8306348980b153ed866934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackInterval: 1
-  state: 2
 --- !u!114 &2788362516057164892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +371,21 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &5693069856546446480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088854ae6c24789429513323b0e3adeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3804553956737144536, guid: 033936f16fc289c42b9e974705508960, type: 3}
+  shootPoint: {fileID: 464700426794694861}
+  state: 2
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0

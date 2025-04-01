@@ -50,7 +50,7 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
     // set easily accessed state bools depending on current scripts enum value
     private void Update()
     {
-        if (laneCombat != null && laneAI != null)
+        if (laneCombat != null && laneAI != null && laneAI.currentTarget != null)
         {
             currentlyAttacking = laneAI.currentTarget.name;
 
@@ -71,7 +71,7 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
             }
         }
 
-        if (neutralCombat != null && neutralAi != null)
+        if (neutralCombat != null && neutralAi != null && neutralAi.currentTarget != null)
         {
             currentlyAttacking = neutralAi.currentTarget.name;
 
@@ -92,7 +92,7 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
             }
         }
 
-        if (heroCombat != null /*&& heroAI != null*/)
+        if (heroCombat != null /*&& heroAI != null && heroAI.currentTarget != null*/)
         {
             //currentlyAttacking = heroAI.currentTarget.name;
 

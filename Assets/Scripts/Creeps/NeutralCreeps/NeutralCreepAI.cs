@@ -9,7 +9,7 @@ public class NeutralCreepAI : MonoBehaviour
     public Transform currentTarget = null;
     public LaneCreepCombat[] laneCreepCombat;
     // also have hero combat script here at some point
-    private float stoppingDist = 0.9f;
+    public float stoppingDist = 0.9f;
     private float attackRange = 5f;
     private bool deAggroTimerRunning;
     private bool cannotBeAggroed;

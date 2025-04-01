@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class RangedLaneCreepCombat : MonoBehaviour
 {
+    public GameObject projectilePrefab;
+    public Transform shootPoint;
     private float attackRange = 1f;
     private float attackDamage = 20;
-    public float attackInterval;
+    private float attackInterval;
     private float lastAttackTime;
 
     public enum currentState { attackingHero, attackingOther, travelling };
@@ -21,5 +23,57 @@ public class RangedLaneCreepCombat : MonoBehaviour
         state = currentState.travelling;
         attackRange = stats.attackRange;
         attackDamage = stats.damage;
+        attackInterval = stats.secondsBetweenAttacks;
+    }
+
+    private void Update()
+    {
+        lastAttackTime += Time.deltaTime;
+        if (state == currentState.attackingHero || state == currentState.attackingOther)
+        {
+            if (lastAttackTime >= attackInterval)
+            {
+                state = currentState.travelling;
+            }
+        }
+
+        if (CanAttack())
+        {
+            Attack();
+        }
+    }
+
+    private bool CanAttack()
+    {
+        if (state == currentState.travelling && laneAI.currentTarget != null)
+        {
+            float distToTarget = Vector3.Distance(transform.position, laneAI.currentTarget.position);
+
+            return distToTarget <= attackRange;
+        }
+
+        return false;
+    }
+
+    void Attack()
+    {
+        lastAttackTime = 0;
+        if (laneAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
+        else { state = currentState.attackingOther; }
+
+        if (laneAI.currentTarget.gameObject.tag != "CornerMarker")
+        {
+            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+            CreepProjectile projectileScript = projectile.GetComponent<CreepProjectile>();
+            projectileScript.SetTarget(laneAI.currentTarget.gameObject, attackDamage);
+
+            switch (laneAI.currentTarget.tag)
+            {
+                case "NeutralCreep":
+                    NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
+                    thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+                    break;
+            }
+        }
     }
 }

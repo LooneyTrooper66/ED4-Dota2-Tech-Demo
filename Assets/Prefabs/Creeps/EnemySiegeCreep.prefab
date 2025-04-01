@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8223002616099462137}
   - component: {fileID: 8717892638681192043}
   - component: {fileID: 2509478824431555523}
+  - component: {fileID: 7699929575103312370}
   m_Layer: 0
   m_Name: EnemySiegeCreep
   m_TagString: EnemySiege
@@ -41,6 +42,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7978529724924242022}
+  - {fileID: 8881741052724888242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3716719959095594835
@@ -245,6 +247,7 @@ MonoBehaviour:
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   enemyTowerTag: AllyTower
+  stoppingDist: 6
   aggroRange: 8
 --- !u!114 &2509478824431555523
 MonoBehaviour:
@@ -262,6 +265,22 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &7699929575103312370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088854ae6c24789429513323b0e3adeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 3804553956737144536, guid: 033936f16fc289c42b9e974705508960, type: 3}
+  shootPoint: {fileID: 8881741052724888242}
+  projectileSpeed: 10
+  state: 2
 --- !u!1 &5255819475624860910
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +356,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5637468443761284851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8881741052724888242}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8881741052724888242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637468443761284851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 638135465771524559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6232639312694364273
 GameObject:
   m_ObjectHideFlags: 0

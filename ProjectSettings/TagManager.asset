@@ -13,6 +13,7 @@ TagManager:
   - EnemyTower
   - CornerMarker
   - NeutralCreep
+  - Projectile
   layers:
   - Default
   - TransparentFX
