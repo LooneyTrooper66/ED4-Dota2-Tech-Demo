@@ -265,7 +265,7 @@ MonoBehaviour:
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   enemyTowerTag: AllyTower
-  stoppingDist: 0.9
+  stoppingDist: 4
   aggroRange: 6
 --- !u!114 &7408334696340194454
 MonoBehaviour:

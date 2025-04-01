@@ -411,7 +411,7 @@ MonoBehaviour:
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   enemyTowerTag: EnemyTower
-  stoppingDist: 0.9
+  stoppingDist: 4
   aggroRange: 6
 --- !u!114 &6862839724520473946
 MonoBehaviour:

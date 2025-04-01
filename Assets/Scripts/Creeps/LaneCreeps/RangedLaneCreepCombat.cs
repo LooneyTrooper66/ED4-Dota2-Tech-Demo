@@ -67,12 +67,10 @@ public class RangedLaneCreepCombat : MonoBehaviour
             CreepProjectile projectileScript = projectile.GetComponent<CreepProjectile>();
             projectileScript.SetTarget(laneAI.currentTarget.gameObject, attackDamage);
 
-            switch (laneAI.currentTarget.tag)
+            if (laneAI.currentTarget.tag == "NeutralCreep")
             {
-                case "NeutralCreep":
-                    NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
-                    thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
-                    break;
+                NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
+                thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
             }
         }
     }
