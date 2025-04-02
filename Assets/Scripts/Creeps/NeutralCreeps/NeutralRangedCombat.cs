@@ -8,6 +8,7 @@ public class NeutralRangedCombat : MonoBehaviour
     private float attackDamage = 20;
     private float attackInterval;
     private float lastAttackTime;
+    private float offset = 0.3f;
 
     public enum currentState { attackingHero, attackingOther, travelling };
     public currentState state = currentState.travelling;
@@ -21,9 +22,9 @@ public class NeutralRangedCombat : MonoBehaviour
         neutralAI = GetComponent<NeutralCreepAI>();
 
         state = currentState.travelling;
-        attackRange = stats.attackRange;
-        attackDamage = stats.damage;
-        attackInterval = stats.secondsBetweenAttacks;
+        attackRange = stats.attackRange + offset;
+        attackDamage = stats.damage + offset;
+        attackInterval = stats.secondsBetweenAttacks + offset;
     }
 
     private void Update()

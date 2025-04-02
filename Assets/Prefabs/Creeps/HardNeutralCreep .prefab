@@ -343,7 +343,7 @@ MonoBehaviour:
   manaRegen: 1
   damage: 52
   secondsBetweenAttacks: 2
-  attackRange: 1.28
+  attackRange: 3
   acquisitionRange: 5
   goldWorth: 65
   xpWorth: 90
@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
-  laneCreepCombat: []
   stoppingDist: 0.9
 --- !u!114 &4585874232209479443
 MonoBehaviour:

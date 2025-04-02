@@ -10,76 +10,64 @@ public class LaneCreepAI : MonoBehaviour
     public string enemySiegeTag;
     public string enemyTowerTag;
     public float stoppingDist = 0.9f;
-    public float aggroRange = 5f;
-    private float targetSwitchInterval = 0.5f;
+    public float attackRange;
+    public float aggroRange;
+    private float targetSwitchInterval = 0.1f;
     private float aggroSwapInterval = 3;// aggro swap of 3
     private float timeSinceLastTargetSwitch = 0f;
+    private float offset = 0.3f; // half the creeps radius (ish)
     Transform closestEnemyCreep = null;
-
-    List<GameObject> TowerList = new List<GameObject>();
-    List<GameObject> attackingAllyHero = new List<GameObject>();
-    List<GameObject> attackingAndInRange = new List<GameObject>();
-    List<GameObject> attackingAndInRangeSiege = new List<GameObject>();
-    List<GameObject> cornerMarkers = new List<GameObject>();
+    public float distFromTarget;
+    GameObject[] cornerMarkers;
+    GameObject[] towers;
 
 
     private void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
 
-        // add all enemy towers to a list at the start so dont have to make a new one each time it checks
-        GameObject[] Tower = GameObject.FindGameObjectsWithTag(enemyTowerTag);
-        foreach (GameObject t in Tower)
-        {
-            TowerList.Add(t);
-        }
-        // add all corner markers to list at start
-        GameObject[] Corners = GameObject.FindGameObjectsWithTag("CornerMarker");
-        foreach (GameObject t in Corners)
-        {
-            cornerMarkers.Add(t);
-        }
+        cornerMarkers = GameObject.FindGameObjectsWithTag("CornerMarkers");
+        towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
+
+        OffsetAllValuesForRadius();
 
         FindAndSetTarget();
+        SetDestinationOfCreep();
     }
-
-
-    #region
-
-    // OK FUCKO, HERES THE PLAN
-
-    // CREEPS FOLLOW AN EMPTY OBJECT DOWN THE LANES
-    // HOWEVER
-    // IF THEY ENCOUNTER ANY HOSTILE ENEMIES ON THE WAY
-    // THE ENEMIES TAKE PRIORITY OVER THE EMPTY OBJECT
-    // AND IF THEY FIND A TOWER, ATTACK IT IF THERES NO ENEMIES
-
-    #endregion
-
 
     private void Update()
     {
-        // checking if any enemy units in range - different intervals depending on if has target
+        // changes enemy destination target - different intervals depending on if has current target
         AggroSwapTimer();
 
-        // setting creep destination to the current target
-        if (currentTarget != null)
+        // checks if this creep is close enough to the corner marker to go down the next lane correctly
+        if (cornerMarkers != null)
         {
-            Vector3 directionToTarget = currentTarget.position - transform.position;
-            Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
-
-            creepAgent.SetDestination(stoppingPos);
+            float dist = Vector3.Distance(currentTarget.position, transform.position);
+            if (dist < 3)
+            {
+                cornerMarkers = null;
+            }
         }
     }
 
+    private void FixedUpdate()
+    {
+        // checks the priority list for next target
+        FindAndSetTarget();
+    }
+
+    //meow meow meow 
+
     void AggroSwapTimer()
     {
+        // sets next target
         timeSinceLastTargetSwitch += Time.deltaTime;
         if (currentTarget == null)
         {
             if (timeSinceLastTargetSwitch > targetSwitchInterval)
             {
-                FindAndSetTarget();
+                SetDestinationOfCreep();
                 timeSinceLastTargetSwitch = 0f;
             }
         }
@@ -87,81 +75,66 @@ public class LaneCreepAI : MonoBehaviour
         {
             if (timeSinceLastTargetSwitch > aggroSwapInterval)
             {
-                FindAndSetTarget();
+                SetDestinationOfCreep();
                 timeSinceLastTargetSwitch = 0f;
+            }
+        }
+    }
+
+    // setting creep destination to the current target, dont move if in targeting range
+    public void SetDestinationOfCreep()
+    {
+        if (currentTarget != null)
+        {
+            distFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
+
+            if (distFromTarget > attackRange)
+            {
+                Vector3 directionToTarget = currentTarget.position - transform.position;
+                Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
+
+                creepAgent.SetDestination(stoppingPos);
+            }
+            else
+            {
+                creepAgent.SetDestination(transform.position);
             }
         }
     }
 
     void FindAndSetTarget()
     {
-        SortWithinRange(); // sorting all gameobjects within aggro range into 3 lists, attacking self, attacking ally hero and within range
-                
-        closestEnemyCreep = GetClosestObjectAttackingMe(attackingAndInRange, aggroRange);  // if no siege creeps, set target to closest enemy attacking self
-        if (closestEnemyCreep == null)
-        {
-            closestEnemyCreep = GetClosestObjectInRadius(attackingAllyHero, aggroRange);  // if no enemy attacking self, set target to closest enemy attacking ally hero
-            if (closestEnemyCreep == null)
-            {
-                closestEnemyCreep = GetClosestObjectInRadius(attackingAndInRange, aggroRange);  // if no enemy attacking ally hero, set target to closest enemy attacking allies
-            }
-        }
+        // use player attack to set creep target to the player
+
+        GameObject[] creeps = GameObject.FindGameObjectsWithTag(enemyCreepTag);
+        closestEnemyCreep = GetClosestObjectInRadius(creeps, aggroRange);
 
         if (closestEnemyCreep != null)
         {
-            currentTarget = closestEnemyCreep;
+            currentTarget = closestEnemyCreep; // get closest creep and attak
         }
         else
         {
-            if (attackingAndInRangeSiege.Count > 0)
+            GameObject[] siege = GameObject.FindGameObjectsWithTag(enemySiegeTag);
+            if (siege.Length > 0)
             {
-                currentTarget = GetClosestObjectInRadius(attackingAndInRangeSiege, aggroRange);  // if no, set to closest siege creep
+                currentTarget = GetClosestObjectInRadius(siege, aggroRange);  // if none, set to closest siege creep
             }
             else  // if no, set to structures (towers, etc..)
             {
-                if (Mathf.Abs(transform.position.x) < 45)  
+                if (cornerMarkers != null)
                 {
-                    currentTarget = GetClosestObject(cornerMarkers);
+                    currentTarget = GetClosestObject(cornerMarkers); // if none and 
                 }
                 else
                 {
-                    currentTarget = GetClosestObject(TowerList);
-                }
-            }
-        }
-
-        attackingAllyHero.Clear();
-        attackingAndInRange.Clear();
-    }
-
-    void SortWithinRange()
-    {
-        Vector3 currentPos = transform.position;
-
-        CurrentAttackingState[] temp = FindObjectsByType<CurrentAttackingState>(FindObjectsSortMode.None);
-        foreach (var t in temp)
-        {
-            float dist = Vector3.Distance(currentPos, t.gameObject.transform.position);
-
-            if (dist <= aggroRange)
-            {
-                if (t.gameObject.tag == enemySiegeTag)
-                {
-                    attackingAndInRangeSiege.Add(t.gameObject);
-                }
-                else if (t.isAttackingHero == true)
-                {
-                    attackingAllyHero.Add(t.gameObject);
-                }
-                else if (t.isAttacking == true)
-                {
-                    attackingAndInRange.Add(t.gameObject);
+                    currentTarget = GetClosestObject(towers);
                 }
             }
         }
     }
 
-    private Transform GetClosestObject(List<GameObject> Things)
+    private Transform GetClosestObject(GameObject[] Things)
     {
         float closestDist = Mathf.Infinity;
         Transform closestObject = null;
@@ -180,7 +153,7 @@ public class LaneCreepAI : MonoBehaviour
         return closestObject;
     }
 
-    private Transform GetClosestObjectInRadius(List<GameObject> Things, float radius)
+    private Transform GetClosestObjectInRadius(GameObject[] Things, float radius)
     {
         float closestDist = 1000;
         Transform closestObject = null;
@@ -200,27 +173,10 @@ public class LaneCreepAI : MonoBehaviour
         return closestObject;
     }
 
-    private Transform GetClosestObjectAttackingMe(List<GameObject> Things, float radius)
+    void OffsetAllValuesForRadius()
     {
-        float closestDist = 1000;
-        Transform closestObject = null;
-        Vector3 currentPos = transform.position;
-
-        foreach (GameObject t in Things)
-        {
-            CurrentAttackingState temp = t.GetComponent<CurrentAttackingState>();
-            if (temp.currentlyAttacking == gameObject.name)
-            {
-                float dist = Vector3.Distance(currentPos, t.transform.position);
-
-                if (dist < closestDist && dist <= radius)
-                {
-                    closestDist = dist;
-                    closestObject = t.transform;
-                }
-            }
-        }
-
-        return closestObject;
+        stoppingDist += offset;
+        attackRange += offset;
+        aggroRange += offset;
     }
 }

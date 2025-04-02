@@ -8,8 +8,10 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
     public bool isAttackingHero;
     public string currentlyAttacking;
 
-    private LaneCreepCombat laneCombat;
-    private NeutralCreepCombat neutralCombat;
+    private LaneCreepCombat laneMelee;
+    private RangedLaneCreepCombat laneRanged;
+    private NeutralMeleeCombat neutralMelee;
+    private NeutralRangedCombat neutralRanged;
     private HeroCombat heroCombat;
     private LaneCreepAI laneAI;
     private NeutralCreepAI neutralAi;
@@ -20,12 +22,22 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
     {
         if (TryGetComponent<LaneCreepCombat>(out LaneCreepCombat laneCom))
         {
-            laneCombat = laneCom.GetComponent<LaneCreepCombat>();
+            laneMelee = laneCom.GetComponent<LaneCreepCombat>();
         }
 
-        if (TryGetComponent<NeutralCreepCombat>(out NeutralCreepCombat neutralCom))
-        { 
-            neutralCombat = neutralCom.GetComponent<NeutralCreepCombat>();
+        if (TryGetComponent<RangedLaneCreepCombat>(out RangedLaneCreepCombat laneRCom))
+        {
+            laneRanged = laneRCom.GetComponent<RangedLaneCreepCombat>();
+        }
+
+        if (TryGetComponent<NeutralMeleeCombat>(out NeutralMeleeCombat neutralCom))
+        {
+            neutralMelee = neutralCom.GetComponent<NeutralMeleeCombat>();
+        }
+
+        if (TryGetComponent<NeutralRangedCombat>(out NeutralRangedCombat neutralRCom))
+        {
+            neutralRanged = neutralRCom.GetComponent<NeutralRangedCombat>();
         }
 
         if (TryGetComponent<HeroCombat>(out HeroCombat heroCom))
@@ -50,43 +62,97 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
     // set easily accessed state bools depending on current scripts enum value
     private void Update()
     {
-        if (laneCombat != null && laneAI != null && laneAI.currentTarget != null)
+        if (laneMelee != null && laneAI != null && laneAI.currentTarget != null)
         {
             currentlyAttacking = laneAI.currentTarget.name;
 
-            if (laneCombat.state == LaneCreepCombat.currentState.attackingHero)
+            if (laneMelee.state == LaneCreepCombat.currentState.attackingHero)
             {
+                state = currentState.attackingHero;
                 isAttacking = true;
                 isAttackingHero = true;
             }
-            else if (laneCombat.state == LaneCreepCombat.currentState.attackingOther)
+            else if (laneMelee.state == LaneCreepCombat.currentState.attackingOther)
             {
+                state = currentState.attackingOther;
                 isAttacking = true;
                 isAttackingHero = false;
             }
             else
             {
+                state = currentState.notInCombat;
                 isAttacking = false;
                 isAttackingHero = false;
             }
         }
 
-        if (neutralCombat != null && neutralAi != null && neutralAi.currentTarget != null)
+        if (laneRanged != null && laneAI != null && laneAI.currentTarget != null)
         {
-            currentlyAttacking = neutralAi.currentTarget.name;
+            currentlyAttacking = laneAI.currentTarget.name;
 
-            if (neutralCombat.state == NeutralCreepCombat.currentState.attackingHero)
+            if (laneRanged.state == RangedLaneCreepCombat.currentState.attackingHero)
             {
+                state = currentState.attackingHero;
                 isAttacking = true;
                 isAttackingHero = true;
             }
-            else if (neutralCombat.state == NeutralCreepCombat.currentState.attackingOther)
+            else if (laneRanged.state == RangedLaneCreepCombat.currentState.attackingOther)
             {
+                state = currentState.attackingOther;
                 isAttacking = true;
                 isAttackingHero = false;
             }
             else
             {
+                state = currentState.notInCombat;
+                isAttacking = false;
+                isAttackingHero = false;
+            }
+        }
+
+        if (neutralMelee != null && neutralAi != null && neutralAi.currentTarget != null)
+        {
+            currentlyAttacking = neutralAi.currentTarget.name;
+
+            if (neutralMelee.state == NeutralMeleeCombat.currentState.attackingHero)
+            {
+                state = currentState.attackingHero;
+                isAttacking = true;
+                isAttackingHero = true;
+            }
+            else if (neutralMelee.state == NeutralMeleeCombat.currentState.attackingOther)
+            {
+                state = currentState.attackingOther;
+                isAttacking = true;
+                isAttackingHero = false;
+            }
+            else
+            {
+                state = currentState.notInCombat;
+                isAttacking = false;
+                isAttackingHero = false;
+            }
+        }
+
+        if (neutralRanged != null && neutralAi != null && neutralAi.currentTarget != null)
+        {
+            currentlyAttacking = neutralAi.currentTarget.name;
+
+            if (neutralRanged.state == NeutralRangedCombat.currentState.attackingHero)
+            {
+                state = currentState.attackingHero;
+                isAttacking = true;
+                isAttackingHero = true;
+            }
+            else if (neutralRanged.state == NeutralRangedCombat.currentState.attackingOther)
+            {
+                state = currentState.attackingOther;
+                isAttacking = true;
+                isAttackingHero = false;
+            }
+            else
+            {
+                state = currentState.notInCombat;
                 isAttacking = false;
                 isAttackingHero = false;
             }
@@ -98,16 +164,19 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
 
             if (heroCombat.state == HeroCombat.currentState.attackingHero)
             {
+                state = currentState.attackingHero;
                 isAttacking = true;
                 isAttackingHero = true;
             }
             else if (heroCombat.state == HeroCombat.currentState.attackingOther)
             {
+                state = currentState.attackingOther;
                 isAttacking = true;
                 isAttackingHero = false;
             }
             else
             {
+                state = currentState.notInCombat;
                 isAttacking = false;
                 isAttackingHero = false;
             }

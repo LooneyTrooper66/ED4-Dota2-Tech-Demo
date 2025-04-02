@@ -38,6 +38,24 @@ public class Timer : MonoBehaviour
         }
 
 
+        // for debugging and testing
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 4;
+            }
+            else if (Time.timeScale == 4)
+            {
+                Time.timeScale = 2f;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+        }
+
+
         if (gamePlaying)
         {
             timeElapsed += Time.deltaTime;

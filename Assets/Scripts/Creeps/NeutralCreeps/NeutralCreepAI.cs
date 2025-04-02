@@ -13,6 +13,7 @@ public class NeutralCreepAI : MonoBehaviour
     private bool deAggroTimerRunning;
     private bool cannotBeAggroed;
     private float loseAggroTimer = 0;
+    private float offset = 0.3f; // half the creeps radius (ish)
     private Transform homeCamp; // set in code on spawn, needed for deaggro
 
     List<GameObject> hostileUnits = new List<GameObject>();
@@ -22,6 +23,9 @@ public class NeutralCreepAI : MonoBehaviour
     {
         creepAgent = GetComponent<NavMeshAgent>();
         homeCamp = transform;
+
+        stoppingDist += offset;
+        attackRange += offset;
     }
 
 

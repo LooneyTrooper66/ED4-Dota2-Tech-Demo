@@ -14,9 +14,10 @@ public class Stats : MonoBehaviour
     public float acquisitionRange;
     public int goldWorth;
     public int xpWorth;
+    public int visionDay;
+    public int visionNight;
 
-    [Header("HealthBar Variables")]
-    public float damageLerpDuration;
+    private float damageLerpDuration = 0.2f;
     private float currentHealth;
     private float targetHealth;
     private Coroutine damageCoroutine;
@@ -53,7 +54,8 @@ public class Stats : MonoBehaviour
         if ((target.CompareTag("AllyCreep") || target.CompareTag("EnemyCreep")) && targetStats.targetHealth <= 0)
         {
             laneAI.currentTarget = null;
-            Destroy(target.gameObject); // could pool later for optimisation reasons
+            laneAI.SetDestinationOfCreep();
+            Destroy(target.gameObject); // should pool later for optimisation reasons
             AwardXP();
         }
         else if (targetStats.damageCoroutine == null)
