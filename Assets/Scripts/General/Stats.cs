@@ -1,6 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
+public interface IDamageable
+{
+    void TakeDamage(GameObject target, float damage);
+}
+
 public class Stats : MonoBehaviour
 {
     [Header("Base Stats")]
@@ -41,11 +46,6 @@ public class Stats : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         heroStats = player.GetComponent<HeroStats>();
-    }
-
-    public virtual void TakeDamage(GameObject target, float damage)
-    {
-        Debug.Log("call this from child script");
     }
 
     public void StartLerpHealth()

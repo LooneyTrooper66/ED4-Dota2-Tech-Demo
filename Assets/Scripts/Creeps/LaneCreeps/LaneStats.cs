@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaneStats : Stats
+public class LaneStats : MonoBehaviour, IDamageable
 {
     LaneCreepAI laneAI;
     Stats stats;
@@ -12,7 +12,7 @@ public class LaneStats : Stats
         stats = GetComponent<Stats>();
     }
 
-    public override void TakeDamage(GameObject target, float damage)
+    public void TakeDamage(GameObject target, float damage)
     {
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;

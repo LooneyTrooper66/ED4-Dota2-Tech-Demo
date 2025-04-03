@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NeutralStats : Stats
+public class NeutralStats : MonoBehaviour, IDamageable
 {
     NeutralCreepAI neutralAI;
     Stats stats;
@@ -12,7 +12,7 @@ public class NeutralStats : Stats
         stats = GetComponent<Stats>();
     }
 
-    public override void TakeDamage(GameObject target, float damage)
+    public void TakeDamage(GameObject target, float damage)
     {
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;

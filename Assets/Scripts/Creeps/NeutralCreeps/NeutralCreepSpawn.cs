@@ -12,6 +12,7 @@ public class NeutralCreepSpawn : MonoBehaviour
     public float spawnInterval = 60f; // should be at the turn of each minute
     public int neutralCreepsPerWave = 4;
     private float timeSinceLastWave = 0;
+    Collider[] thingsInArea;
 
 
     private void Start()
@@ -25,6 +26,9 @@ public class NeutralCreepSpawn : MonoBehaviour
     {
         if (timer.gamePlaying == true && timer.timeElapsed >= 0)
         {
+            thingsInArea = Physics.OverlapBox(transform.position, boxSize / 2, Quaternion.identity, checkBoxesForThings, QueryTriggerInteraction.Collide);
+            campClear = CheckIfHasThingsInArea();
+
             timeSinceLastWave += Time.deltaTime;
             if (timeSinceLastWave >= spawnInterval)
             {
@@ -36,24 +40,29 @@ public class NeutralCreepSpawn : MonoBehaviour
 
     void SpawnCreeps()
     {
-        campClear = CheckIfHasThingsInArea();
+        //campClear = CheckIfHasThingsInArea();
         if (campClear == true)
         {
             for (int i = 0; i < neutralCreepsPerWave; ++i)
             {
-                GameObject creep = Instantiate(neutralCreepPrefab, spawnPoint.position, spawnPoint.rotation);
+                float intX = Random.Range(-2f, 2f);
+                float intZ = Random.Range(-2f, 2f);
+                Vector3 randomPos = new Vector3(spawnPoint.position.x + intX, spawnPoint.position.y, spawnPoint.position.z + intZ);
+
+                GameObject creep = Instantiate(neutralCreepPrefab, randomPos, spawnPoint.rotation);
             }
         }
-        //Debug.Log("called spawn function, " + gameObject.name + " = " + campClear);
     }
 
     bool CheckIfHasThingsInArea()
     {
         bool isClear;
-        Collider[] thingsInArea = Physics.OverlapBox(spawnPoint.position, boxSize / 2, Quaternion.identity, checkBoxesForThings);
+        /*foreach (Collider c in thingsInArea) { Debug.Log(c.gameObject); }*/
+
         if (thingsInArea.Length > 0) { isClear = false; }
         else { isClear = true;  }
 
+        Debug.Log(isClear); // DO NOT REMOVE THIS DEBUG. YES IT IS VERY ANNOYING. BUT FOR SOME STUPID REASON, THIS IS THE ONLY THING KEEPING THIS SYSTEM WORKING.
         return isClear;
     }
 }

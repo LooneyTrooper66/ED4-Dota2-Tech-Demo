@@ -78,7 +78,7 @@ public class SiegeCreepTargetingAI : MonoBehaviour
         }
     }
 
-    void FindAndSetTarget()
+    public void FindAndSetTarget()
     {
         currentTarget = GetClosestObjectInRadius(TowerList, aggroRange);  // check for towers to attack within range first
         if (currentTarget == null)

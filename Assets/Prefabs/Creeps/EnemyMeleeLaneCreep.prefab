@@ -90,12 +90,13 @@ GameObject:
   - component: {fileID: 150477340067787578}
   - component: {fileID: 8515730151964952971}
   - component: {fileID: 7408334696340194454}
-  - component: {fileID: 1510707777639846324}
   - component: {fileID: 7992264953086756753}
   - component: {fileID: 2788362516057164892}
   - component: {fileID: 4585874232209479443}
   - component: {fileID: 61734771550918}
   - component: {fileID: 1628795603164087879}
+  - component: {fileID: 5261984863001137600}
+  - component: {fileID: 2398730552943407486}
   m_Layer: 0
   m_Name: EnemyMeleeLaneCreep
   m_TagString: EnemyCreep
@@ -249,30 +250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 5395952022486043428}
---- !u!114 &1510707777639846324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 550
-  healthRegen: 0.5
-  mana: 0
-  manaRegen: 0
-  damage: 20
-  secondsBetweenAttacks: 1
-  attackRange: 1
-  acquisitionRange: 5
-  goldWorth: 35
-  xpWorth: 57
-  visionDay: 0
-  visionNight: 0
 --- !u!114 &7992264953086756753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +331,43 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &5261984863001137600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad47849f23da0d644b678fc381fcd0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2398730552943407486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 550
+  healthRegen: 0.5
+  mana: 0
+  manaRegen: 0
+  damage: 20
+  secondsBetweenAttacks: 1
+  attackRange: 1
+  acquisitionRange: 5
+  goldWorth: 35
+  xpWorth: 57
+  visionDay: 0
+  visionNight: 0
+  targetHealth: 0
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,10 +37,10 @@ public class CreepProjectile : MonoBehaviour
     {
         if (target.gameObject.tag != "CornerMarker")
         {
-            Stats targetStats = target.GetComponent<Stats>();
-            if (targetStats != null)
+            IDamageable damageable = target.GetComponent<IDamageable>();
+            if (damageable != null)
             {
-                targetStats.TakeDamage(target, damage);
+                damageable.TakeDamage(target, damage);
             }
         }
     }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 797978720804243551}
   - component: {fileID: 4600145723134301527}
   - component: {fileID: 150477340067787578}
-  - component: {fileID: 713797734851802151}
   - component: {fileID: 4850019302289974592}
   - component: {fileID: 388622443956853913}
   - component: {fileID: 5176968299880368219}
@@ -21,6 +20,8 @@ GameObject:
   - component: {fileID: 8717892638681192043}
   - component: {fileID: 2509478824431555523}
   - component: {fileID: 7699929575103312370}
+  - component: {fileID: 607302284883286969}
+  - component: {fileID: 973295797271100501}
   m_Layer: 0
   m_Name: EnemySiegeCreep
   m_TagString: EnemySiege
@@ -143,29 +144,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &713797734851802151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 935
-  healthRegen: 0
-  mana: 0
-  manaRegen: 0
-  damage: 40
-  secondsBetweenAttacks: 3
-  attackRange: 6.9
-  acquisitionRange: 8
-  goldWorth: 65
-  xpWorth: 88
-  damageLerpDuration: 0
 --- !u!114 &4850019302289974592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,8 +257,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 3804553956737144536, guid: 033936f16fc289c42b9e974705508960, type: 3}
   shootPoint: {fileID: 8881741052724888242}
-  projectileSpeed: 10
   state: 2
+--- !u!114 &607302284883286969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3403e12c8d498478365136ec8d21dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &973295797271100501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 935
+  healthRegen: 0
+  mana: 0
+  manaRegen: 0
+  damage: 40
+  secondsBetweenAttacks: 3
+  attackRange: 6.9
+  acquisitionRange: 8
+  goldWorth: 65
+  xpWorth: 88
+  visionDay: 0
+  visionNight: 0
+  targetHealth: 0
 --- !u!1 &5255819475624860910
 GameObject:
   m_ObjectHideFlags: 0

@@ -2006,8 +2006,8 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 60
-  neutralCreepsPerWave: 4
+  spawnInterval: 20
+  neutralCreepsPerWave: 3
 --- !u!1 &570849844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +3244,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 60
+  spawnInterval: 20
   neutralCreepsPerWave: 4
 --- !u!1001 &759281187
 PrefabInstance:
@@ -3600,8 +3600,8 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 60
-  neutralCreepsPerWave: 4
+  spawnInterval: 20
+  neutralCreepsPerWave: 3
 --- !u!1001 &815515537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5318,7 +5318,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 60
+  spawnInterval: 20
   neutralCreepsPerWave: 4
 --- !u!1 &1013714315
 GameObject:
@@ -6553,7 +6553,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 60
+  spawnInterval: 20
   neutralCreepsPerWave: 4
 --- !u!1001 &1285611846
 PrefabInstance:
@@ -8006,7 +8006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562232616}
   - component: {fileID: 1562232617}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lane creep navmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9280,7 +9280,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 60
+  spawnInterval: 20
   neutralCreepsPerWave: 4
 --- !u!1 &1707060971
 GameObject:
@@ -10969,7 +10969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1978438338}
   - component: {fileID: 1978438339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: map navmesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12345,6 +12345,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 600
+  targetHealth: 0
 --- !u!114 &3303121175425087827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12654,6 +12655,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &4616020169631877171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12943,6 +12945,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 600
+  targetHealth: 0
 --- !u!114 &5593726831171782983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13095,6 +13098,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &5996388653751705452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13259,6 +13263,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &6428097885824612520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13341,6 +13346,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &6450749670178088441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13464,6 +13470,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 600
+  targetHealth: 0
 --- !u!114 &6844544450760521930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13695,6 +13702,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &7389193390420546179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13862,6 +13870,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &7708447419875563102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14017,6 +14026,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &7892969618405342760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14225,6 +14235,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 1100
+  targetHealth: 0
 --- !u!114 &8422797137779166573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14282,6 +14293,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 1900
   visionNight: 600
+  targetHealth: 0
 --- !u!114 &8476297497798636943
 MonoBehaviour:
   m_ObjectHideFlags: 0

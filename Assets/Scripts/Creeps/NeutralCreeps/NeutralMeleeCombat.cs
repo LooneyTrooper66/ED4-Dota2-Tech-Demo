@@ -62,7 +62,11 @@ public class NeutralMeleeCombat : MonoBehaviour
 
         if (neutralAI.currentTarget.gameObject.tag != "CornerMarker")
         {
-            stats.TakeDamage(neutralAI.currentTarget.gameObject, attackDamage);
+            IDamageable damageable = GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(neutralAI.currentTarget.gameObject, attackDamage);
+            }
         }
     }
 }

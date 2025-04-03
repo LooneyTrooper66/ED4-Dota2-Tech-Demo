@@ -37,7 +37,7 @@ public class NeutralCreepProjectile : MonoBehaviour
     {
         if (target.gameObject.tag != "CornerMarker")
         {
-            Stats targetStats = target.GetComponent<Stats>();
+            IDamageable targetStats = target.GetComponent<IDamageable>();
             if (targetStats != null)
             {
                 targetStats.TakeDamage(target, damage);

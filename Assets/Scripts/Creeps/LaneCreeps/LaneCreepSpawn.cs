@@ -74,12 +74,18 @@ public class LaneCreepSpawn : MonoBehaviour
     {
         for (int i = 0; i < meleeCreepsPerWave; ++i)
         {
-            GameObject creep = Instantiate(meleeCreepPrefab, spawnPoint.position, spawnPoint.rotation);
+            int intX = Random.Range(-2, 2);
+            int intZ = Random.Range(-2, 2);
+            Vector3 randomPos = new Vector3(spawnPoint.position.x + intX, spawnPoint.position.y, spawnPoint.position.z + intZ); // using this to stop them from exploding coz they spawn inside each other
+            GameObject creep = Instantiate(meleeCreepPrefab, randomPos, spawnPoint.rotation);
         }
 
         for (int i = 0;i < rangedCreepsPerWave; i++)
         {
-            GameObject creep = Instantiate(rangedCreepPrefab, spawnPoint.position, spawnPoint.rotation);
+            int intX = Random.Range(-2, 2);
+            int intZ = Random.Range(-2, 2);
+            Vector3 randomPos = new Vector3(spawnPoint.position.x + intX, spawnPoint.position.y, spawnPoint.position.z + intZ);
+            GameObject creep = Instantiate(rangedCreepPrefab, randomPos, spawnPoint.rotation);
         }
     }
 

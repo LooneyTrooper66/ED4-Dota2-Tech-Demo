@@ -68,7 +68,11 @@ public class LaneCreepCombat : MonoBehaviour
                 thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
             }
 
-            stats.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
+            IDamageable damageable = GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
+            }
         }
     }
 }

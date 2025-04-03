@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 8313789594655921474}
   - component: {fileID: 1105617474361896695}
   - component: {fileID: 1740215326224066291}
+  - component: {fileID: 1755557502479657470}
   m_Layer: 0
   m_Name: 'HardNeutralCreep '
   m_TagString: NeutralCreep
@@ -347,7 +348,9 @@ MonoBehaviour:
   acquisitionRange: 5
   goldWorth: 65
   xpWorth: 90
-  damageLerpDuration: 0.2
+  visionDay: 0
+  visionNight: 0
+  targetHealth: 0
 --- !u!114 &9085711417409776512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,6 +420,18 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3804553956737144536, guid: 1668ffc7367578b419ef6bbdb554b66b, type: 3}
   shootPoint: {fileID: 2455621312292611466}
   state: 2
+--- !u!114 &1755557502479657470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4795240896a58f4b8ceb92dd0341c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0
