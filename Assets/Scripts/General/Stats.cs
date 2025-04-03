@@ -19,19 +19,17 @@ public class Stats : MonoBehaviour
 
     private float damageLerpDuration = 0.2f;
     private float currentHealth;
-    private float targetHealth;
-    private Coroutine damageCoroutine;
+    [HideInInspector] public float targetHealth;
+    [HideInInspector] public Coroutine damageCoroutine;
 
     HealthUI healthUI;
     GameObject player;
     HeroStats heroStats;
-    LaneCreepAI laneAI;
 
 
     private void Awake()
     {
         healthUI = GetComponent<HealthUI>();
-        laneAI = GetComponent<LaneCreepAI>();
 
         currentHealth = health;
         targetHealth = health;
@@ -45,23 +43,9 @@ public class Stats : MonoBehaviour
         heroStats = player.GetComponent<HeroStats>();
     }
 
-    public void TakeDamage(GameObject target, float damage)
+    public virtual void TakeDamage(GameObject target, float damage)
     {
-        Stats targetStats = target.GetComponent<Stats>();
-        targetStats.targetHealth -= damage;
-
-        // check if creep is dead
-        if ((target.CompareTag("AllyCreep") || target.CompareTag("EnemyCreep")) && targetStats.targetHealth <= 0)
-        {
-            laneAI.currentTarget = null;
-            laneAI.SetDestinationOfCreep();
-            Destroy(target.gameObject); // should pool later for optimisation reasons
-            AwardXP();
-        }
-        else if (targetStats.damageCoroutine == null)
-        {
-            targetStats.StartLerpHealth();
-        }
+        Debug.Log("call this from child script");
     }
 
     public void StartLerpHealth()
@@ -97,7 +81,7 @@ public class Stats : MonoBehaviour
         healthUI.Update3DSlider(currentHealth);
     }
 
-    void AwardXP()
+    public void AwardXP()
     {
         float dist = Vector3.Distance(transform.position, player.transform.position); // dont bother checking how many and spliting xp for now as only one hero should be in the game
         if (dist <= 15) // this is based on 1500 / 100

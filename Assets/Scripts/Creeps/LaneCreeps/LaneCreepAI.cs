@@ -17,17 +17,26 @@ public class LaneCreepAI : MonoBehaviour
     private float timeSinceLastTargetSwitch = 0f;
     private float offset = 0.3f; // half the creeps radius (ish)
     Transform closestEnemyCreep = null;
-    public float distFromTarget;
-    GameObject[] cornerMarkers;
-    GameObject[] towers;
+    private float distFromTarget;
+
+    List<GameObject> cornerMarkers = new List<GameObject>();
+    List<GameObject> towers = new List<GameObject>();
 
 
     private void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
 
-        cornerMarkers = GameObject.FindGameObjectsWithTag("CornerMarkers");
-        towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
+        GameObject[] cornerMarkersA = GameObject.FindGameObjectsWithTag("CornerMarker");
+        foreach (GameObject c in cornerMarkersA)
+        {
+            cornerMarkers.Add(c);
+        }
+        GameObject[] towersA = GameObject.FindGameObjectsWithTag(enemyTowerTag);
+        foreach (GameObject t in towersA)
+        {
+            towers.Add(t);
+        }
 
         OffsetAllValuesForRadius();
 
@@ -41,7 +50,7 @@ public class LaneCreepAI : MonoBehaviour
         AggroSwapTimer();
 
         // checks if this creep is close enough to the corner marker to go down the next lane correctly
-        if (cornerMarkers != null)
+        if (currentTarget != null && currentTarget.gameObject.tag == "CornerMarker")
         {
             float dist = Vector3.Distance(currentTarget.position, transform.position);
             if (dist < 3)
@@ -124,7 +133,7 @@ public class LaneCreepAI : MonoBehaviour
             {
                 if (cornerMarkers != null)
                 {
-                    currentTarget = GetClosestObject(cornerMarkers); // if none and 
+                    currentTarget = GetClosestObject(cornerMarkers); // if none and there are still corner markers
                 }
                 else
                 {
@@ -134,7 +143,7 @@ public class LaneCreepAI : MonoBehaviour
         }
     }
 
-    private Transform GetClosestObject(GameObject[] Things)
+    private Transform GetClosestObject(List<GameObject> Things)
     {
         float closestDist = Mathf.Infinity;
         Transform closestObject = null;

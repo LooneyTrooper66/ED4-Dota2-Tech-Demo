@@ -234,7 +234,8 @@ MonoBehaviour:
   enemySiegeTag: AllySiege
   enemyTowerTag: AllyTower
   stoppingDist: 0.9
-  aggroRange: 1
+  attackRange: 1
+  aggroRange: 5
 --- !u!114 &7408334696340194454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +271,8 @@ MonoBehaviour:
   acquisitionRange: 5
   goldWorth: 35
   xpWorth: 57
-  damageLerpDuration: 0.2
+  visionDay: 0
+  visionNight: 0
 --- !u!114 &7992264953086756753
 MonoBehaviour:
   m_ObjectHideFlags: 0

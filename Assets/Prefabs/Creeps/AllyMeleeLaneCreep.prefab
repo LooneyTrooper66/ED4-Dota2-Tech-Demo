@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 35041726620450166}
   - component: {fileID: 5026872141872803582}
   - component: {fileID: 5573222017657747955}
+  - component: {fileID: 3573768204718119044}
   m_Layer: 0
   m_Name: AllyMeleeLaneCreep
   m_TagString: AllyCreep
@@ -410,6 +411,8 @@ MonoBehaviour:
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   enemyTowerTag: EnemyTower
+  stoppingDist: 0.9
+  attackRange: 1
   aggroRange: 5
 --- !u!114 &6862839724520473946
 MonoBehaviour:
@@ -418,7 +421,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3702739710636024729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
@@ -433,7 +436,9 @@ MonoBehaviour:
   acquisitionRange: 5
   goldWorth: 35
   xpWorth: 57
-  damageLerpDuration: 0.2
+  visionDay: 0
+  visionNight: 0
+  targetHealth: 0
 --- !u!114 &9001843128134918185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ca6a3d3e8306348980b153ed866934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackInterval: 1
   state: 2
 --- !u!114 &8988005269464497421
 MonoBehaviour:
@@ -529,6 +533,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3573768204718119044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702739710636024729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad47849f23da0d644b678fc381fcd0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 550
+  healthRegen: 0.5
+  mana: 0
+  manaRegen: 0
+  damage: 20
+  secondsBetweenAttacks: 1
+  attackRange: 1
+  acquisitionRange: 5
+  goldWorth: 35
+  xpWorth: 57
+  visionDay: 0
+  visionNight: 0
+  targetHealth: 0
 --- !u!1 &8252041376636419045
 GameObject:
   m_ObjectHideFlags: 0

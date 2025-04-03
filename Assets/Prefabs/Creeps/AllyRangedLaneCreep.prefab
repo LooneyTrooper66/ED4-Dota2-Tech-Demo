@@ -436,7 +436,9 @@ MonoBehaviour:
   acquisitionRange: 6
   goldWorth: 48
   xpWorth: 69
-  damageLerpDuration: 0.2
+  visionDay: 0
+  visionNight: 0
+  targetHealth: 0
 --- !u!114 &9001843128134918185
 MonoBehaviour:
   m_ObjectHideFlags: 0
