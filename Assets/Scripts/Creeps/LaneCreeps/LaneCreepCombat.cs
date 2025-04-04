@@ -21,8 +21,8 @@ public class LaneCreepCombat : MonoBehaviour
 
         state = currentState.travelling;
         attackRange = stats.attackRange + offset;
-        attackDamage = stats.damage + offset;
-        attackInterval = stats.secondsBetweenAttacks + offset;
+        attackDamage = stats.damage;
+        attackInterval = stats.secondsBetweenAttacks;
     }
 
     private void Update()

@@ -848,6 +848,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 201072907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &204237003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 204237004}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &204237004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204237003}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6980469029706042109}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &212174567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1035,6 +1066,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4719437289798332728, guid: 3a0874c612d145c4cbebba57083bed36, type: 3}
   m_PrefabInstance: {fileID: 271888383}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &283457667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283457668}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283457668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283457667}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1897802189333894006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &302453355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,6 +1358,68 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 318554332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &394805166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 394805167}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &394805167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394805166}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1475886579379660398}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &405585080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405585081}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405585081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405585080}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5996388653751705450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411102357
 GameObject:
@@ -2006,7 +2130,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 20
+  spawnInterval: 60
   neutralCreepsPerWave: 3
 --- !u!1 &570849844
 GameObject:
@@ -2462,6 +2586,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 614599467}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &653675693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653675694}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653675694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653675693}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2774317117440524572}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659271188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2904,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674369685}
   m_CullTransparentMesh: 1
+--- !u!1 &677246986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677246987}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &677246987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677246986}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3811744087143044143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &681777896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3244,7 +3430,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 20
+  spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1001 &759281187
 PrefabInstance:
@@ -3600,7 +3786,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 20
+  spawnInterval: 60
   neutralCreepsPerWave: 3
 --- !u!1001 &815515537
 PrefabInstance:
@@ -5318,7 +5504,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 20
+  spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1 &1013714315
 GameObject:
@@ -6216,6 +6402,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 1189750434}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196993050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1196993051}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1196993051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196993050}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8422797137779166571}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1206315624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6553,7 +6770,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 20
+  spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1001 &1285611846
 PrefabInstance:
@@ -7264,6 +7481,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4719437289798332728, guid: 3a0874c612d145c4cbebba57083bed36, type: 3}
   m_PrefabInstance: {fileID: 1383559370}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1398736888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1398736889}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1398736889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398736888}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5947093087644324004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1428447122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7342,6 +7590,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 1428447122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1429565200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429565201}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1429565201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429565200}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 138320188480080452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1440071396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7678,6 +7957,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 1470263518}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1472141270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472141271}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472141271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472141270}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2336786725893337885}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476372810
 GameObject:
   m_ObjectHideFlags: 0
@@ -9280,7 +9590,7 @@ MonoBehaviour:
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
-  spawnInterval: 20
+  spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1 &1707060971
 GameObject:
@@ -9630,6 +9940,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1721699650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1721699651}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1721699651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721699650}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1650437585930255766}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1723501615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11332,6 +11673,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4719437289798332728, guid: 3a0874c612d145c4cbebba57083bed36, type: 3}
   m_PrefabInstance: {fileID: 2057452062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2122237920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2122237921}
+  m_Layer: 0
+  m_Name: shootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2122237921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122237920}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029672305373024344}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2123024747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11544,6 +11916,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1492777651}
+  - {fileID: 1429565201}
   m_Father: {fileID: 943708927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &385546850499990953
@@ -11823,6 +12196,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1715144622}
+  - {fileID: 394805167}
   m_Father: {fileID: 1173277220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1564069213543193314
@@ -11892,6 +12266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1038884592}
+  - {fileID: 1721699651}
   m_Father: {fileID: 943708927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1653328235482613309
@@ -12076,6 +12451,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1330974309}
+  - {fileID: 283457668}
   m_Father: {fileID: 943708927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2002095273499543731
@@ -12138,6 +12514,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1613017914}
+  - {fileID: 2122237921}
   m_Father: {fileID: 943708927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2048281373365794701
@@ -12176,6 +12553,8 @@ GameObject:
   - component: {fileID: 7708447419875563100}
   - component: {fileID: 7708447419875563101}
   - component: {fileID: 7708447419875563102}
+  - component: {fileID: 7708447419875563104}
+  - component: {fileID: 7708447419875563103}
   m_Layer: 0
   m_Name: radient tier 3
   m_TagString: AllyTower
@@ -12196,6 +12575,8 @@ GameObject:
   - component: {fileID: 5417323824359241519}
   - component: {fileID: 5593726831171782982}
   - component: {fileID: 5593726831171782983}
+  - component: {fileID: 5593726831171782985}
+  - component: {fileID: 5593726831171782984}
   m_Layer: 0
   m_Name: radient tier 1
   m_TagString: AllyTower
@@ -12225,6 +12606,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1912307774}
+  - {fileID: 1472141271}
   m_Father: {fileID: 943708927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2704362286635454420
@@ -12275,6 +12657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 873385191}
+  - {fileID: 653675694}
   m_Father: {fileID: 1173277220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3040518862719986855
@@ -12314,6 +12697,8 @@ GameObject:
   - component: {fileID: 1809027147852113079}
   - component: {fileID: 3303121175425087826}
   - component: {fileID: 3303121175425087827}
+  - component: {fileID: 3303121175425087829}
+  - component: {fileID: 3303121175425087828}
   m_Layer: 0
   m_Name: dire tier 1
   m_TagString: EnemyTower
@@ -12339,12 +12724,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 90
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 120
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 600
+  visionDay: 19
+  visionNight: 6
   targetHealth: 0
 --- !u!114 &3303121175425087827
 MonoBehaviour:
@@ -12359,6 +12744,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 75041223}
+--- !u!114 &3303121175425087828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303121175425087825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &3303121175425087829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303121175425087825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  shootPoint: {fileID: 1721699651}
 --- !u!4 &3352797750714602752
 Transform:
   m_ObjectHideFlags: 0
@@ -12486,6 +12902,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1624725153}
+  - {fileID: 677246987}
   m_Father: {fileID: 1173277220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3900512678470683659
@@ -12577,6 +12994,8 @@ GameObject:
   - component: {fileID: 1138634272094101473}
   - component: {fileID: 4616020169631877170}
   - component: {fileID: 4616020169631877171}
+  - component: {fileID: 4616020169631877173}
+  - component: {fileID: 4616020169631877172}
   m_Layer: 0
   m_Name: dire tier 2
   m_TagString: EnemyTower
@@ -12616,6 +13035,8 @@ GameObject:
   - component: {fileID: 6428097885824612518}
   - component: {fileID: 6428097885824612519}
   - component: {fileID: 6428097885824612520}
+  - component: {fileID: 6428097885824612522}
+  - component: {fileID: 6428097885824612521}
   m_Layer: 0
   m_Name: dire tier 3
   m_TagString: EnemyTower
@@ -12649,12 +13070,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 172
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 160
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &4616020169631877171
 MonoBehaviour:
@@ -12669,6 +13090,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 549938209}
+--- !u!114 &4616020169631877172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470873569546330473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &4616020169631877173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470873569546330473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  shootPoint: {fileID: 1429565201}
 --- !u!23 &4777370309913398844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12727,6 +13179,8 @@ GameObject:
   - component: {fileID: 1003586425641444976}
   - component: {fileID: 5996388653751705451}
   - component: {fileID: 5996388653751705452}
+  - component: {fileID: 5996388653751705454}
+  - component: {fileID: 5996388653751705453}
   m_Layer: 0
   m_Name: dire tier 2
   m_TagString: EnemyTower
@@ -12747,6 +13201,8 @@ GameObject:
   - component: {fileID: 6450749670178088439}
   - component: {fileID: 6450749670178088440}
   - component: {fileID: 6450749670178088441}
+  - component: {fileID: 6450749670178088443}
+  - component: {fileID: 6450749670178088442}
   m_Layer: 0
   m_Name: dire tier 3
   m_TagString: EnemyTower
@@ -12939,12 +13395,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 90
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 120
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 600
+  visionDay: 19
+  visionNight: 6
   targetHealth: 0
 --- !u!114 &5593726831171782983
 MonoBehaviour:
@@ -12959,6 +13415,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 860558955}
+--- !u!114 &5593726831171782984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175224259322451583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  enemyCreepTag: EnemyCreep
+  enemySiegeTag: EnemySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &5593726831171782985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175224259322451583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  shootPoint: {fileID: 653675694}
 --- !u!33 &5655472690363348649
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -12980,6 +13467,8 @@ GameObject:
   - component: {fileID: 6844544450760521928}
   - component: {fileID: 6844544450760521929}
   - component: {fileID: 6844544450760521930}
+  - component: {fileID: 6844544450760521932}
+  - component: {fileID: 6844544450760521931}
   m_Layer: 0
   m_Name: dire tier 1
   m_TagString: EnemyTower
@@ -13038,6 +13527,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1823694651}
+  - {fileID: 1398736889}
   m_Father: {fileID: 1173277220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5963624316495589168
@@ -13072,6 +13562,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1211342367}
+  - {fileID: 405585081}
   m_Father: {fileID: 943708927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5996388653751705451
@@ -13092,12 +13583,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 172
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 160
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &5996388653751705452
 MonoBehaviour:
@@ -13112,6 +13603,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 1440071399}
+--- !u!114 &5996388653751705453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784850591136188881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &5996388653751705454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784850591136188881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  shootPoint: {fileID: 405585081}
 --- !u!1 &6041425520873710404
 GameObject:
   m_ObjectHideFlags: 0
@@ -13257,12 +13779,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 174
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 180
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &6428097885824612520
 MonoBehaviour:
@@ -13277,6 +13799,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 1513553749}
+--- !u!114 &6428097885824612521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604118394042812145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &6428097885824612522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604118394042812145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  shootPoint: {fileID: 283457668}
 --- !u!23 &6450749670178088439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13340,12 +13893,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 174
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 180
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &6450749670178088441
 MonoBehaviour:
@@ -13360,6 +13913,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 589015303}
+--- !u!114 &6450749670178088442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909375816096593657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &6450749670178088443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909375816096593657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  shootPoint: {fileID: 1472141271}
 --- !u!1 &6479439537355326373
 GameObject:
   m_ObjectHideFlags: 0
@@ -13464,12 +14048,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 90
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 120
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 600
+  visionDay: 19
+  visionNight: 6
   targetHealth: 0
 --- !u!114 &6844544450760521930
 MonoBehaviour:
@@ -13484,6 +14068,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 1063115028}
+--- !u!114 &6844544450760521931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730600303840456124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 0}
+  enemyCreepTag: AllyCreep
+  enemySiegeTag: AllySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &6844544450760521932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730600303840456124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  shootPoint: {fileID: 2122237921}
 --- !u!4 &6980469029706042109
 Transform:
   m_ObjectHideFlags: 0
@@ -13498,6 +14113,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 36523108}
+  - {fileID: 204237004}
   m_Father: {fileID: 1173277220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7050248306612570174
@@ -13671,6 +14287,8 @@ GameObject:
   - component: {fileID: 7364640756244762648}
   - component: {fileID: 7389193390420546178}
   - component: {fileID: 7389193390420546179}
+  - component: {fileID: 7389193390420546181}
+  - component: {fileID: 7389193390420546180}
   m_Layer: 0
   m_Name: radient tier 3
   m_TagString: AllyTower
@@ -13696,12 +14314,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 174
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 180
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &7389193390420546179
 MonoBehaviour:
@@ -13716,6 +14334,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 108057055}
+--- !u!114 &7389193390420546180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389193390420546177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  enemyCreepTag: EnemyCreep
+  enemySiegeTag: EnemySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &7389193390420546181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389193390420546177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  shootPoint: {fileID: 1398736889}
 --- !u!23 &7457645613639645717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13864,12 +14513,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 174
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 180
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &7708447419875563102
 MonoBehaviour:
@@ -13884,6 +14533,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 1580532297}
+--- !u!114 &7708447419875563103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157968270797765471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  enemyCreepTag: EnemyCreep
+  enemySiegeTag: EnemySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &7708447419875563104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157968270797765471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  shootPoint: {fileID: 394805167}
 --- !u!33 &7714841957850186110
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13975,6 +14655,8 @@ GameObject:
   - component: {fileID: 7457645613639645717}
   - component: {fileID: 8422797137779166572}
   - component: {fileID: 8422797137779166573}
+  - component: {fileID: 8422797137779166575}
+  - component: {fileID: 8422797137779166574}
   m_Layer: 0
   m_Name: radient tier 2
   m_TagString: AllyTower
@@ -13995,6 +14677,8 @@ GameObject:
   - component: {fileID: 4033188512919120031}
   - component: {fileID: 7892969618405342759}
   - component: {fileID: 7892969618405342760}
+  - component: {fileID: 7892969618405342762}
+  - component: {fileID: 7892969618405342761}
   m_Layer: 0
   m_Name: radient tier 2
   m_TagString: AllyTower
@@ -14020,12 +14704,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 172
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 160
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &7892969618405342760
 MonoBehaviour:
@@ -14040,6 +14724,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 2127011615}
+--- !u!114 &7892969618405342761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892969618405342758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  enemyCreepTag: EnemyCreep
+  enemySiegeTag: EnemySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &7892969618405342762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892969618405342758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  shootPoint: {fileID: 204237004}
 --- !u!4 &7917875106370334800
 Transform:
   m_ObjectHideFlags: 0
@@ -14209,6 +14924,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 686442812}
+  - {fileID: 1196993051}
   m_Father: {fileID: 1173277220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8422797137779166572
@@ -14229,12 +14945,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 172
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 160
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 1100
+  visionDay: 19
+  visionNight: 11
   targetHealth: 0
 --- !u!114 &8422797137779166573
 MonoBehaviour:
@@ -14249,6 +14965,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 1690027425}
+--- !u!114 &8422797137779166574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863489857711483369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  enemyCreepTag: EnemyCreep
+  enemySiegeTag: EnemySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &8422797137779166575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863489857711483369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  shootPoint: {fileID: 1196993051}
 --- !u!1 &8476297497798636941
 GameObject:
   m_ObjectHideFlags: 0
@@ -14262,6 +15009,8 @@ GameObject:
   - component: {fileID: 8072927414866450548}
   - component: {fileID: 8476297497798636942}
   - component: {fileID: 8476297497798636943}
+  - component: {fileID: 8476297497798636945}
+  - component: {fileID: 8476297497798636944}
   m_Layer: 0
   m_Name: radient tier 1
   m_TagString: AllyTower
@@ -14287,12 +15036,12 @@ MonoBehaviour:
   manaRegen: 0
   damage: 90
   secondsBetweenAttacks: 0.9
-  attackRange: 700
-  acquisitionRange: 700
+  attackRange: 7
+  acquisitionRange: 7
   goldWorth: 120
   xpWorth: 0
-  visionDay: 1900
-  visionNight: 600
+  visionDay: 19
+  visionNight: 6
   targetHealth: 0
 --- !u!114 &8476297497798636943
 MonoBehaviour:
@@ -14307,6 +15056,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar3D: {fileID: 519773070}
+--- !u!114 &8476297497798636944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476297497798636941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4a632e34cf01b4d979fc140758a09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  enemyCreepTag: EnemyCreep
+  enemySiegeTag: EnemySiege
+  attackRange: 7
+  aggroRange: 7
+--- !u!114 &8476297497798636945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476297497798636941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  shootPoint: {fileID: 677246987}
 --- !u!1 &8506311156721210127
 GameObject:
   m_ObjectHideFlags: 0

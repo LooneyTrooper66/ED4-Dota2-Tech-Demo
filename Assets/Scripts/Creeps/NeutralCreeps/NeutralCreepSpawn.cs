@@ -62,7 +62,7 @@ public class NeutralCreepSpawn : MonoBehaviour
         if (thingsInArea.Length > 0) { isClear = false; }
         else { isClear = true;  }
 
-        Debug.Log(isClear); // DO NOT REMOVE THIS DEBUG. YES IT IS VERY ANNOYING. BUT FOR SOME STUPID REASON, THIS IS THE ONLY THING KEEPING THIS SYSTEM WORKING.
+        //Debug.Log(isClear); // DO NOT REMOVE THIS DEBUG. YES IT IS VERY ANNOYING. BUT FOR SOME STUPID REASON, THIS IS THE ONLY THING KEEPING THIS SYSTEM WORKING.
         return isClear;
     }
 }
