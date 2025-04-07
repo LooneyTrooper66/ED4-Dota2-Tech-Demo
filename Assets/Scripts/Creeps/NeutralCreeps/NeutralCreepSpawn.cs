@@ -27,7 +27,7 @@ public class NeutralCreepSpawn : MonoBehaviour
     {
         if (timer.gamePlaying == true && timer.timeElapsed >= 0)
         {
-            thingsInArea = Physics.OverlapBox(transform.position, boxSize / 2, Quaternion.identity, checkBoxesForThings, QueryTriggerInteraction.Collide);
+            thingsInArea = Physics.OverlapBox(transform.position, boxSize / 2, Quaternion.identity, checkBoxesForThings);
             campClear = CheckIfHasThingsInArea();
 
             timeSinceLastWave += Time.deltaTime;

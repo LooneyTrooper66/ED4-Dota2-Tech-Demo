@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NeutralStats : MonoBehaviour, IDamageable
+public class NeutralStats : MonoBehaviour
 {
     NeutralCreepAI neutralAI;
     Stats stats;
@@ -22,7 +22,7 @@ public class NeutralStats : MonoBehaviour, IDamageable
         {
             neutralAI.currentTarget = null;
             neutralAI.FindAndSetCreepTarget();
-            Destroy(target.gameObject); // should pool later for optimisation reasons
+            target.SetActive(false);
             stats.AwardXP();
         }
         else if (targetStats.damageCoroutine == null)

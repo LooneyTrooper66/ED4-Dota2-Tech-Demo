@@ -19,22 +19,17 @@ public class NeutralCreepAI : MonoBehaviour
     List<GameObject> hostileUnits = new List<GameObject>();
 
 
-    private void Start()
+    private void Awake()
     {
         creepAgent = GetComponent<NavMeshAgent>();
-        homeCamp = transform;
-        StartCoroutine(CollidePleaseGodDamnIt());
 
         stoppingDist += offset;
         attackRange += offset;
     }
 
-    IEnumerator CollidePleaseGodDamnIt()
+    private void OnEnable()
     {
-        Vector3 destination = new Vector3(homeCamp.position.x + 0.5f, homeCamp.position.y, homeCamp.position.z + 0.5f);
-        creepAgent.SetDestination(destination);
-        yield return new WaitForSecondsRealtime(0.5f);
-        creepAgent.SetDestination(homeCamp.position);
+        homeCamp = transform;
     }
 
     private void Update()

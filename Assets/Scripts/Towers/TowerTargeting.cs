@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class TowerTargeting : MonoBehaviour
 {
     public Transform currentTarget;
+    public string thisTowersAlignment;
     public string enemyCreepTag;
     public string enemySiegeTag;
     public float attackRange;
@@ -14,10 +15,12 @@ public class TowerTargeting : MonoBehaviour
     private float timeSinceLastTargetSwitch = 0f;
     private float offset = 0.5f;
     Transform closestEnemyCreep = null;
+    GameObject playerGO;
 
 
     private void Start()
     {
+        playerGO = GameObject.FindGameObjectWithTag("Player");
         OffsetAllValuesForRadius();
 
         FindAndSetTarget();
@@ -57,11 +60,10 @@ public class TowerTargeting : MonoBehaviour
 
     void FindAndSetTarget()
     {
-        GameObject playerThing = GameObject.FindGameObjectWithTag("Player");
-        float dist = Vector3.Distance(transform.position, playerThing.transform.position);
-        if (dist <= attackRange)
+        float dist = Vector3.Distance(transform.position, playerGO.transform.position);
+        if (dist <= attackRange && thisTowersAlignment == "dire")
         {
-            currentTarget = playerThing.transform;
+            currentTarget = playerGO.transform;
             return;
         }
 

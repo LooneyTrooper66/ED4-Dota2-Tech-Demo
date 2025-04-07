@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class NeutralRangedCombat : MonoBehaviour
+public class NeutralRangedCombat : MonoBehaviour, IPooledObject
 {
-    public GameObject projectilePrefab;
+    private ObjectPooler projectilePool;
+    private string projectilePoolTag = "projectilesN";
     public Transform shootPoint;
     private float attackRange = 1f;
     private float attackDamage = 20;
@@ -15,11 +16,17 @@ public class NeutralRangedCombat : MonoBehaviour
     private NeutralCreepAI neutralAI;
     private Stats stats;
 
-
-    private void Start()
+    void Awake()
     {
+        GameObject temp = GameObject.Find("--NeutralCreepPooler--");
+        projectilePool = temp.GetComponent<ObjectPooler>();
         stats = GetComponent<Stats>();
         neutralAI = GetComponent<NeutralCreepAI>();
+    }
+
+    public void OnObjectSpawn()
+    {
+        Debug.Log("i have been called i promise");
 
         state = currentState.travelling;
         attackRange = stats.attackRange + offset;
@@ -64,7 +71,7 @@ public class NeutralRangedCombat : MonoBehaviour
 
         if (neutralAI.currentTarget.gameObject.tag != "CornerMarker")
         {
-            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+            GameObject projectile = projectilePool.SpawnFromPool(projectilePoolTag, shootPoint.position, shootPoint.rotation);
             NeutralCreepProjectile projectileScript = projectile.GetComponent<NeutralCreepProjectile>();
             projectileScript.SetTarget(neutralAI.currentTarget.gameObject, attackDamage);
         }

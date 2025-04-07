@@ -3692,7 +3692,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1908375506}
-  - {fileID: 1290171026}
   - {fileID: 1339341646}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6889,60 +6888,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 1285611846}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1290171024
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1290171026}
-  - component: {fileID: 1290171025}
-  m_Layer: 0
-  m_Name: '--CreepPoolerDire-- '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1290171025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290171024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e45322039c4a54c8886d4614828de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools:
-  - tag: meleeCreepD
-    prefab: {fileID: 4789948495200754454, guid: a7b9ab66a6e85f348803f8bbfbaa92ca, type: 3}
-    size: 24
-  - tag: rangedCreepD
-    prefab: {fileID: 4789948495200754454, guid: 641a661b9b733f040b5b3e34d1b59899, type: 3}
-    size: 12
-  - tag: siegeCreepD
-    prefab: {fileID: 4789948495200754454, guid: 7c46bc4ab3a888a478f7743266828f84, type: 3}
-    size: 12
---- !u!4 &1290171026
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290171024}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4816103, y: 7.061404, z: 6.405411}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 796096739}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318695856
 GameObject:
   m_ObjectHideFlags: 0
@@ -7170,7 +7115,7 @@ GameObject:
   - component: {fileID: 1339341646}
   - component: {fileID: 1339341647}
   m_Layer: 0
-  m_Name: '--CreepPoolerNeutral-- '
+  m_Name: --NeutralCreepPooler--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7210,6 +7155,9 @@ MonoBehaviour:
   - tag: hardNeutral
     prefab: {fileID: 4789948495200754454, guid: 85a73b41187b2c345b6de4c881b3bd21, type: 3}
     size: 15
+  - tag: projectilesN
+    prefab: {fileID: 3804553956737144536, guid: 1668ffc7367578b419ef6bbdb554b66b, type: 3}
+    size: 50
 --- !u!1001 &1339828706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10963,7 +10911,7 @@ GameObject:
   - component: {fileID: 1908375506}
   - component: {fileID: 1908375507}
   m_Layer: 0
-  m_Name: --CreepPoolerRadient--
+  m_Name: --LaneCreepPooler--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10999,13 +10947,34 @@ MonoBehaviour:
   pools:
   - tag: meleeCreepR
     prefab: {fileID: 3702739710636024729, guid: 63d4f37cafad03c4daf732597f33d1ff, type: 3}
-    size: 24
+    size: 60
   - tag: rangedCreepR
     prefab: {fileID: 3702739710636024729, guid: 5cd83ff4a97c13a4bae202d9f5a9b9bc, type: 3}
-    size: 12
+    size: 20
   - tag: siegeCreepR
     prefab: {fileID: 3702739710636024729, guid: ac7fb66c0a9421748878e9f1b8b1a3c8, type: 3}
     size: 12
+  - tag: projectilesR
+    prefab: {fileID: 3804553956737144536, guid: 1e2572a1665ec9548bcdf11109cac20f, type: 3}
+    size: 40
+  - tag: towerProjectileR
+    prefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+    size: 40
+  - tag: meleeCreepD
+    prefab: {fileID: 4789948495200754454, guid: a7b9ab66a6e85f348803f8bbfbaa92ca, type: 3}
+    size: 60
+  - tag: rangedCreepD
+    prefab: {fileID: 4789948495200754454, guid: 641a661b9b733f040b5b3e34d1b59899, type: 3}
+    size: 20
+  - tag: siegeCreepD
+    prefab: {fileID: 4789948495200754454, guid: 7c46bc4ab3a888a478f7743266828f84, type: 3}
+    size: 12
+  - tag: projectilesD
+    prefab: {fileID: 3804553956737144536, guid: 033936f16fc289c42b9e974705508960, type: 3}
+    size: 40
+  - tag: towerProjectileD
+    prefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+    size: 40
 --- !u!1 &1912307773
 GameObject:
   m_ObjectHideFlags: 0
@@ -12917,6 +12886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: e1d734794cab1954b867a3ca0844d33e, type: 2}
   health: 1800
   healthRegen: 0
   mana: 0
@@ -12956,6 +12926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  thisTowersAlignment: dire
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   attackRange: 7
@@ -12972,7 +12943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 1721699651}
 --- !u!4 &3352797750714602752
 Transform:
@@ -13263,6 +13235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: 4c03859de14bb084ea632dfbcd947f85, type: 2}
   health: 2500
   healthRegen: 0
   mana: 0
@@ -13302,6 +13275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  thisTowersAlignment: dire
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   attackRange: 7
@@ -13318,7 +13292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 1429565201}
 --- !u!23 &4777370309913398844
 MeshRenderer:
@@ -13588,6 +13563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: e1d734794cab1954b867a3ca0844d33e, type: 2}
   health: 1800
   healthRegen: 0
   mana: 0
@@ -13627,6 +13603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  thisTowersAlignment: radient
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   attackRange: 7
@@ -13643,7 +13620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 653675694}
 --- !u!33 &5655472690363348649
 MeshFilter:
@@ -13776,6 +13754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: 4c03859de14bb084ea632dfbcd947f85, type: 2}
   health: 2500
   healthRegen: 0
   mana: 0
@@ -13815,6 +13794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  thisTowersAlignment: dire
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   attackRange: 7
@@ -13831,7 +13811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 405585081}
 --- !u!1 &6041425520873710404
 GameObject:
@@ -13972,6 +13953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: d8e9cc59fe04d4545a867e5b19496181, type: 2}
   health: 2600
   healthRegen: 0
   mana: 0
@@ -14011,6 +13993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  thisTowersAlignment: dire
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   attackRange: 7
@@ -14027,7 +14010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 283457668}
 --- !u!23 &6450749670178088439
 MeshRenderer:
@@ -14086,6 +14070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: d8e9cc59fe04d4545a867e5b19496181, type: 2}
   health: 2600
   healthRegen: 0
   mana: 0
@@ -14125,6 +14110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  thisTowersAlignment: dire
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   attackRange: 7
@@ -14141,7 +14127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 1472141271}
 --- !u!1 &6479439537355326373
 GameObject:
@@ -14241,6 +14228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: e1d734794cab1954b867a3ca0844d33e, type: 2}
   health: 1800
   healthRegen: 0
   mana: 0
@@ -14280,6 +14268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  thisTowersAlignment: dire
   enemyCreepTag: AllyCreep
   enemySiegeTag: AllySiege
   attackRange: 7
@@ -14296,7 +14285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: e9bb705809d5d664584a9bc9fd8341c7, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 2122237921}
 --- !u!4 &6980469029706042109
 Transform:
@@ -14507,6 +14497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: d8e9cc59fe04d4545a867e5b19496181, type: 2}
   health: 2600
   healthRegen: 0
   mana: 0
@@ -14546,6 +14537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  thisTowersAlignment: radient
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   attackRange: 7
@@ -14562,7 +14554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 1398736889}
 --- !u!23 &7457645613639645717
 MeshRenderer:
@@ -14640,7 +14633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolScript: {fileID: 1290171025}
+  poolScript: {fileID: 1908375507}
   meleeTag: meleeCreepD
   rangedTag: rangedCreepD
   siegeTag: siegeCreepD
@@ -14707,6 +14700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: d8e9cc59fe04d4545a867e5b19496181, type: 2}
   health: 2600
   healthRegen: 0
   mana: 0
@@ -14746,6 +14740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  thisTowersAlignment: radient
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   attackRange: 7
@@ -14762,7 +14757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 394805167}
 --- !u!33 &7714841957850186110
 MeshFilter:
@@ -14899,6 +14895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: 4c03859de14bb084ea632dfbcd947f85, type: 2}
   health: 2500
   healthRegen: 0
   mana: 0
@@ -14938,6 +14935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  thisTowersAlignment: radient
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   attackRange: 7
@@ -14954,7 +14952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 204237004}
 --- !u!4 &7917875106370334800
 Transform:
@@ -15140,6 +15139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: 4c03859de14bb084ea632dfbcd947f85, type: 2}
   health: 2500
   healthRegen: 0
   mana: 0
@@ -15179,6 +15179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  thisTowersAlignment: radient
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   attackRange: 7
@@ -15195,7 +15196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 1196993051}
 --- !u!1 &8476297497798636941
 GameObject:
@@ -15231,6 +15233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: e1d734794cab1954b867a3ca0844d33e, type: 2}
   health: 1800
   healthRegen: 0
   mana: 0
@@ -15270,6 +15273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 5458580954754664145, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  thisTowersAlignment: radient
   enemyCreepTag: EnemyCreep
   enemySiegeTag: EnemySiege
   attackRange: 7
@@ -15286,7 +15290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bbf16afdcb99a40a202adbb5f9d791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4510808125992082088, guid: b04c88b16c6f8e449b72026d188914b4, type: 3}
+  projectilePool: {fileID: 1908375507}
+  projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 677246987}
 --- !u!1 &8506311156721210127
 GameObject:
@@ -15404,7 +15409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolScript: {fileID: 1290171025}
+  poolScript: {fileID: 1908375507}
   meleeTag: meleeCreepD
   rangedTag: rangedCreepD
   siegeTag: siegeCreepD

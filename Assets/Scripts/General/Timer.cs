@@ -31,12 +31,12 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
+        // pause mechanic
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gamePlaying) { gamePlaying = false; Time.timeScale = 0; }
             else { gamePlaying = true; Time.timeScale = 1; }
         }
-
 
         // for debugging and testing
         if (Input.GetKeyDown(KeyCode.Space))

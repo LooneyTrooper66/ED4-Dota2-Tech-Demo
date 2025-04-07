@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaneCreepCombat : MonoBehaviour, IPooledObject
+public class LaneCreepCombat : MonoBehaviour
 {
     private float attackRange;
     private float attackDamage;
@@ -14,11 +14,14 @@ public class LaneCreepCombat : MonoBehaviour, IPooledObject
     private Stats stats;
 
 
-    public void OnObjectSpawn()
+    void Awake()
     {
         stats = GetComponent<Stats>();
         laneAI = GetComponent<LaneCreepAI>();
+    }
 
+    public void OnEnable()
+    {
         state = currentState.travelling;
         attackRange = stats.attackRange + offset;
         attackDamage = stats.damage;

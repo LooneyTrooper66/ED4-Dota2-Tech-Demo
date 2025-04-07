@@ -8,7 +8,9 @@ public interface IDamageable
 
 public class Stats : MonoBehaviour
 {
-    [Header("Base Stats")]
+    public CreepStatDefaults creepStats;
+
+    [Header("Current Stats")]
     public float health;
     public float healthRegen;
     public float mana;
@@ -35,17 +37,29 @@ public class Stats : MonoBehaviour
     private void Awake()
     {
         healthUI = GetComponent<HealthUI>();
-
-        currentHealth = health;
-        targetHealth = health;
-
-        healthUI.Start3DSlider(health);
-    }
-
-    private void Start()
-    {
         player = GameObject.FindGameObjectWithTag("Player");
         heroStats = player.GetComponent<HeroStats>();
+    }
+
+    public void OnEnable()
+    {
+        health = creepStats.health;
+        healthRegen = creepStats.healthRegen;
+        mana = creepStats.mana;
+        manaRegen = creepStats.manaRegen;
+        damage = creepStats.damage;
+        secondsBetweenAttacks = creepStats.secondsBetweenAttacks;
+        attackRange = creepStats.attackRange;
+        acquisitionRange = creepStats.acquisitionRange;
+        goldWorth = creepStats.goldWorth;
+        xpWorth = creepStats.xpWorth;
+        visionDay = creepStats.visionDay;
+        visionNight = creepStats.visionNight;
+
+        currentHealth = creepStats.health;
+        targetHealth = creepStats.health;
+
+        healthUI.Start3DSlider(creepStats.health);
     }
 
     public void StartLerpHealth()

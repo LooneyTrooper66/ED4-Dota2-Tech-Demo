@@ -2,7 +2,8 @@
 
 public class TowerShoot : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    public ObjectPooler projectilePool;
+    public string projectilePoolTag;
     public Transform shootPoint;
     private float attackRange;
     private float attackDamage;
@@ -13,11 +14,14 @@ public class TowerShoot : MonoBehaviour
     private Stats stats;
 
 
-    private void Start()
+    void Awake()
     {
         towerAI = GetComponent<TowerTargeting>();
         stats = GetComponent<Stats>();
+    }
 
+    public void OnEnable()
+    {
         attackRange = stats.attackRange + offset;
         attackDamage = stats.damage;
         attackInterval = stats.secondsBetweenAttacks;
@@ -48,7 +52,7 @@ public class TowerShoot : MonoBehaviour
     {
         lastAttackTime = 0;
 
-        GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        GameObject projectile = projectilePool.SpawnFromPool(projectilePoolTag, shootPoint.position, shootPoint.rotation);
         TowerProjectile projectileScript = projectile.GetComponent<TowerProjectile>();
         projectileScript.SetTarget(towerAI.currentTarget.gameObject, attackDamage);
     }

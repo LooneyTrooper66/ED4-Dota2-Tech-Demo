@@ -24,12 +24,12 @@ public class TowerProjectile : MonoBehaviour
             if (dir.magnitude <= distThisFrame)
             {
                 DamageTarget();
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

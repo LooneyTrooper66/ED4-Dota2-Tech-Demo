@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class LaneStats : MonoBehaviour, IDamageable, IPooledObject
+public class LaneStats : MonoBehaviour, IDamageable
 {
     LaneCreepAI laneAI;
     Stats stats;
 
 
-    public void OnObjectSpawn()
+    public void Start()
     {
         laneAI = GetComponent<LaneCreepAI>();
         stats = GetComponent<Stats>();
@@ -22,7 +22,7 @@ public class LaneStats : MonoBehaviour, IDamageable, IPooledObject
         {
             laneAI.currentTarget = null;
             laneAI.SetDestinationOfCreep();
-            Destroy(target.gameObject); // should pool later for optimisation reasons
+            target.SetActive(false);
             stats.AwardXP();
         }
         else if (targetStats.damageCoroutine == null)

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LaneCreepAI : MonoBehaviour, IPooledObject
+public class LaneCreepAI : MonoBehaviour
 {
     private NavMeshAgent creepAgent;
     public Transform currentTarget;
@@ -23,7 +23,7 @@ public class LaneCreepAI : MonoBehaviour, IPooledObject
     List<GameObject> towers = new List<GameObject>();
 
 
-    public void OnObjectSpawn()
+    void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
 
@@ -37,7 +37,10 @@ public class LaneCreepAI : MonoBehaviour, IPooledObject
         {
             towers.Add(t);
         }
+    }
 
+    public void OnEnable()
+    {
         OffsetAllValuesForRadius();
 
         FindAndSetTarget();

@@ -226,6 +226,7 @@ MonoBehaviour:
   enemySiegeTag: AllySiege
   enemyTowerTag: AllyTower
   stoppingDist: 6
+  attackRange: 6.9
   aggroRange: 8
 --- !u!114 &2509478824431555523
 MonoBehaviour:
@@ -282,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: 8c49cb4c95fde0742bd82b7eced32198, type: 2}
   health: 935
   healthRegen: 0
   mana: 0

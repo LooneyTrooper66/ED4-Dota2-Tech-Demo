@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class RangedLaneCreepCombat : MonoBehaviour, IPooledObject
+public class RangedLaneCreepCombat : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    private ObjectPooler projectilePool;
+    public string projectilePoolTag;
     public Transform shootPoint;
     private float attackRange = 1f;
     private float attackDamage = 20;
@@ -16,11 +17,16 @@ public class RangedLaneCreepCombat : MonoBehaviour, IPooledObject
     private Stats stats;
 
 
-    public void OnObjectSpawn()
+    void Awake()
     {
+        GameObject temp = GameObject.Find("--LaneCreepPooler--");
+        projectilePool = temp.GetComponent<ObjectPooler>();
         stats = GetComponent<Stats>();
         laneAI = GetComponent<LaneCreepAI>();
+    }
 
+    public void OnEnable()
+    {
         state = currentState.travelling;
         attackRange = stats.attackRange + offset;
         attackDamage = stats.damage;
@@ -64,7 +70,7 @@ public class RangedLaneCreepCombat : MonoBehaviour, IPooledObject
 
         if (laneAI.currentTarget.gameObject.tag != "CornerMarker")
         {
-            GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+            GameObject projectile = projectilePool.SpawnFromPool(projectilePoolTag, shootPoint.position, shootPoint.rotation);
             CreepProjectile projectileScript = projectile.GetComponent<CreepProjectile>();
             projectileScript.SetTarget(laneAI.currentTarget.gameObject, attackDamage);
 

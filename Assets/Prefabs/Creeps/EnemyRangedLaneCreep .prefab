@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088854ae6c24789429513323b0e3adeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3804553956737144536, guid: 033936f16fc289c42b9e974705508960, type: 3}
+  projectilePoolTag: projectilesD
   shootPoint: {fileID: 464700426794694861}
   state: 2
 --- !u!114 &7900511768800902423
@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: b6a72b053af760743a15db05f8d9f4c2, type: 2}
   health: 300
   healthRegen: 2
   mana: 500

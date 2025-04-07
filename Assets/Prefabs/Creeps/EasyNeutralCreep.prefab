@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a74204efaeced46b1684d1ba33dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creepStats: {fileID: 11400000, guid: 82ec022bcd4199144a246e2578ef1fab, type: 2}
   health: 400
   healthRegen: 0
   mana: 0
