@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public class LaneCreepSpawn : MonoBehaviour
 {
-    public GameObject meleeCreepPrefab;
-    public GameObject rangedCreepPrefab;
-    public GameObject siegeCreepPrefab;
+    public ObjectPooler poolScript;
+    public string meleeTag;
+    public string rangedTag;
+    public string siegeTag;
     public Transform spawnPoint;
     public float spawnInterval = 30f; // should be 30 seconds
     public int meleeCreepsPerWave = 3;
@@ -77,7 +78,7 @@ public class LaneCreepSpawn : MonoBehaviour
             int intX = Random.Range(-2, 2);
             int intZ = Random.Range(-2, 2);
             Vector3 randomPos = new Vector3(spawnPoint.position.x + intX, spawnPoint.position.y, spawnPoint.position.z + intZ); // using this to stop them from exploding coz they spawn inside each other
-            GameObject creep = Instantiate(meleeCreepPrefab, randomPos, spawnPoint.rotation);
+            poolScript.SpawnFromPool(meleeTag, randomPos, spawnPoint.rotation);
         }
 
         for (int i = 0;i < rangedCreepsPerWave; i++)
@@ -85,7 +86,7 @@ public class LaneCreepSpawn : MonoBehaviour
             int intX = Random.Range(-2, 2);
             int intZ = Random.Range(-2, 2);
             Vector3 randomPos = new Vector3(spawnPoint.position.x + intX, spawnPoint.position.y, spawnPoint.position.z + intZ);
-            GameObject creep = Instantiate(rangedCreepPrefab, randomPos, spawnPoint.rotation);
+            poolScript.SpawnFromPool(rangedTag, randomPos, spawnPoint.rotation);
         }
     }
 
@@ -93,7 +94,7 @@ public class LaneCreepSpawn : MonoBehaviour
     {
         for (int i = 0; i < rangedCreepsPerWave; i++)
         {
-            GameObject creep = Instantiate(siegeCreepPrefab, spawnPoint.position, spawnPoint.rotation);
+            poolScript.SpawnFromPool(siegeTag, spawnPoint.position, spawnPoint.rotation);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CurrentAttackingState : MonoBehaviour // set attackers currenttarget to null when you destroy the gameobject in attack script
+public class CurrentAttackingState : MonoBehaviour, IPooledObject // set attackers currenttarget to null when you destroy the gameobject in attack script
 {
     public enum currentState { attackingHero, attackingOther, notInCombat };
     public currentState state;
@@ -18,7 +18,7 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
     //private HeroAI heroCombat;
 
 
-    private void Start()
+    public void OnObjectSpawn()
     {
         if (TryGetComponent<LaneCreepCombat>(out LaneCreepCombat laneCom))
         {

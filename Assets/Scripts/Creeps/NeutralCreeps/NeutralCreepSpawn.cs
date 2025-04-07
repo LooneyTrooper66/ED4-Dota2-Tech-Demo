@@ -5,7 +5,8 @@ public class NeutralCreepSpawn : MonoBehaviour
     private bool campClear = true;
     private Timer timer;
 
-    public GameObject neutralCreepPrefab;
+    public ObjectPooler poolScript;
+    public string poolTag;
     private Transform spawnPoint;
     private Vector3 boxSize = new Vector3(10, 5, 10);
     public LayerMask checkBoxesForThings;
@@ -49,7 +50,7 @@ public class NeutralCreepSpawn : MonoBehaviour
                 float intZ = Random.Range(-2f, 2f);
                 Vector3 randomPos = new Vector3(spawnPoint.position.x + intX, spawnPoint.position.y, spawnPoint.position.z + intZ);
 
-                GameObject creep = Instantiate(neutralCreepPrefab, randomPos, spawnPoint.rotation);
+                poolScript.SpawnFromPool(poolTag, randomPos, spawnPoint.rotation);
             }
         }
     }
@@ -57,12 +58,10 @@ public class NeutralCreepSpawn : MonoBehaviour
     bool CheckIfHasThingsInArea()
     {
         bool isClear;
-        /*foreach (Collider c in thingsInArea) { Debug.Log(c.gameObject); }*/
 
         if (thingsInArea.Length > 0) { isClear = false; }
         else { isClear = true;  }
 
-        //Debug.Log(isClear); // DO NOT REMOVE THIS DEBUG. YES IT IS VERY ANNOYING. BUT FOR SOME STUPID REASON, THIS IS THE ONLY THING KEEPING THIS SYSTEM WORKING.
         return isClear;
     }
 }

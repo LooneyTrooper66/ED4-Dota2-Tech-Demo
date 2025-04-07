@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class LaneStats : MonoBehaviour, IDamageable
+public class LaneStats : MonoBehaviour, IDamageable, IPooledObject
 {
     LaneCreepAI laneAI;
     Stats stats;
 
 
-    void Start()
+    public void OnObjectSpawn()
     {
         laneAI = GetComponent<LaneCreepAI>();
         stats = GetComponent<Stats>();

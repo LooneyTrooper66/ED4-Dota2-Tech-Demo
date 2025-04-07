@@ -328,6 +328,7 @@ MonoBehaviour:
   enemySiegeTag: EnemySiege
   enemyTowerTag: EnemyTower
   stoppingDist: 6
+  attackRange: 6.9
   aggroRange: 8
 --- !u!114 &4838671271561733651
 MonoBehaviour:

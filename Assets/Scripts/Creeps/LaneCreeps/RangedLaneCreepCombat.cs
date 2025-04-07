@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RangedLaneCreepCombat : MonoBehaviour
+public class RangedLaneCreepCombat : MonoBehaviour, IPooledObject
 {
     public GameObject projectilePrefab;
     public Transform shootPoint;
@@ -16,7 +16,7 @@ public class RangedLaneCreepCombat : MonoBehaviour
     private Stats stats;
 
 
-    private void Start()
+    public void OnObjectSpawn()
     {
         stats = GetComponent<Stats>();
         laneAI = GetComponent<LaneCreepAI>();

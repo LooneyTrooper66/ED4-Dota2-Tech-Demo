@@ -2126,7 +2126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f699f2ccda88a4690aace6355a967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralCreepPrefab: {fileID: 4789948495200754454, guid: 85a73b41187b2c345b6de4c881b3bd21, type: 3}
+  poolScript: {fileID: 1339341647}
+  poolTag: hardNeutral
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
@@ -3426,7 +3427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f699f2ccda88a4690aace6355a967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralCreepPrefab: {fileID: 4789948495200754454, guid: a9916ebe3f7029440bc39da44d999f8b, type: 3}
+  poolScript: {fileID: 1339341647}
+  poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
@@ -3660,6 +3662,40 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &796096738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796096739}
+  m_Layer: 0
+  m_Name: --CreepPools--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796096739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796096738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.4816103, y: -7.061404, z: -6.405411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1908375506}
+  - {fileID: 1290171026}
+  - {fileID: 1339341646}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &808970350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3782,7 +3818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f699f2ccda88a4690aace6355a967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralCreepPrefab: {fileID: 4789948495200754454, guid: 85a73b41187b2c345b6de4c881b3bd21, type: 3}
+  poolScript: {fileID: 1339341647}
+  poolTag: hardNeutral
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
@@ -5500,7 +5537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f699f2ccda88a4690aace6355a967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralCreepPrefab: {fileID: 4789948495200754454, guid: a9916ebe3f7029440bc39da44d999f8b, type: 3}
+  poolScript: {fileID: 1339341647}
+  poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
@@ -6766,7 +6804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f699f2ccda88a4690aace6355a967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralCreepPrefab: {fileID: 4789948495200754454, guid: a9916ebe3f7029440bc39da44d999f8b, type: 3}
+  poolScript: {fileID: 1339341647}
+  poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
@@ -6850,6 +6889,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837205689423394387, guid: 2176179386ee2844b9763a2dc6f714de, type: 3}
   m_PrefabInstance: {fileID: 1285611846}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1290171024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290171026}
+  - component: {fileID: 1290171025}
+  m_Layer: 0
+  m_Name: '--CreepPoolerDire-- '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1290171025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290171024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e45322039c4a54c8886d4614828de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: meleeCreepD
+    prefab: {fileID: 4789948495200754454, guid: a7b9ab66a6e85f348803f8bbfbaa92ca, type: 3}
+    size: 24
+  - tag: rangedCreepD
+    prefab: {fileID: 4789948495200754454, guid: 641a661b9b733f040b5b3e34d1b59899, type: 3}
+    size: 12
+  - tag: siegeCreepD
+    prefab: {fileID: 4789948495200754454, guid: 7c46bc4ab3a888a478f7743266828f84, type: 3}
+    size: 12
+--- !u!4 &1290171026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290171024}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.4816103, y: 7.061404, z: 6.405411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 796096739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318695856
 GameObject:
   m_ObjectHideFlags: 0
@@ -7066,6 +7159,57 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1339341645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339341646}
+  - component: {fileID: 1339341647}
+  m_Layer: 0
+  m_Name: '--CreepPoolerNeutral-- '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339341646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339341645}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.4816103, y: 7.061404, z: 6.405411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 796096739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339341647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339341645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e45322039c4a54c8886d4614828de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: easyNeutral
+    prefab: {fileID: 4789948495200754454, guid: a9916ebe3f7029440bc39da44d999f8b, type: 3}
+    size: 40
+  - tag: hardNeutral
+    prefab: {fileID: 4789948495200754454, guid: 85a73b41187b2c345b6de4c881b3bd21, type: 3}
+    size: 15
 --- !u!1001 &1339828706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9586,7 +9730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f699f2ccda88a4690aace6355a967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neutralCreepPrefab: {fileID: 4789948495200754454, guid: a9916ebe3f7029440bc39da44d999f8b, type: 3}
+  poolScript: {fileID: 1339341647}
+  poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
     m_Bits: 119
@@ -10807,6 +10952,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895936765}
   m_CullTransparentMesh: 1
+--- !u!1 &1908375505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1908375506}
+  - component: {fileID: 1908375507}
+  m_Layer: 0
+  m_Name: --CreepPoolerRadient--
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1908375506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908375505}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.4816103, y: 7.061404, z: 6.405411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 796096739}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1908375507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908375505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e45322039c4a54c8886d4614828de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: meleeCreepR
+    prefab: {fileID: 3702739710636024729, guid: 63d4f37cafad03c4daf732597f33d1ff, type: 3}
+    size: 24
+  - tag: rangedCreepR
+    prefab: {fileID: 3702739710636024729, guid: 5cd83ff4a97c13a4bae202d9f5a9b9bc, type: 3}
+    size: 12
+  - tag: siegeCreepR
+    prefab: {fileID: 3702739710636024729, guid: ac7fb66c0a9421748878e9f1b8b1a3c8, type: 3}
+    size: 12
 --- !u!1 &1912307773
 GameObject:
   m_ObjectHideFlags: 0
@@ -14441,9 +14640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCreepPrefab: {fileID: 4789948495200754454, guid: a7b9ab66a6e85f348803f8bbfbaa92ca, type: 3}
-  rangedCreepPrefab: {fileID: 4789948495200754454, guid: 641a661b9b733f040b5b3e34d1b59899, type: 3}
-  siegeCreepPrefab: {fileID: 4789948495200754454, guid: 7c46bc4ab3a888a478f7743266828f84, type: 3}
+  poolScript: {fileID: 1290171025}
+  meleeTag: meleeCreepD
+  rangedTag: rangedCreepD
+  siegeTag: siegeCreepD
   spawnPoint: {fileID: 1357893278}
   spawnInterval: 30
   meleeCreepsPerWave: 3
@@ -14603,9 +14803,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCreepPrefab: {fileID: 3702739710636024729, guid: 63d4f37cafad03c4daf732597f33d1ff, type: 3}
-  rangedCreepPrefab: {fileID: 3702739710636024729, guid: 5cd83ff4a97c13a4bae202d9f5a9b9bc, type: 3}
-  siegeCreepPrefab: {fileID: 3702739710636024729, guid: ac7fb66c0a9421748878e9f1b8b1a3c8, type: 3}
+  poolScript: {fileID: 1908375507}
+  meleeTag: meleeCreepR
+  rangedTag: rangedCreepR
+  siegeTag: siegeCreepR
   spawnPoint: {fileID: 360881718}
   spawnInterval: 30
   meleeCreepsPerWave: 3
@@ -15136,9 +15337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCreepPrefab: {fileID: 3702739710636024729, guid: 63d4f37cafad03c4daf732597f33d1ff, type: 3}
-  rangedCreepPrefab: {fileID: 3702739710636024729, guid: 5cd83ff4a97c13a4bae202d9f5a9b9bc, type: 3}
-  siegeCreepPrefab: {fileID: 3702739710636024729, guid: ac7fb66c0a9421748878e9f1b8b1a3c8, type: 3}
+  poolScript: {fileID: 1908375507}
+  meleeTag: meleeCreepR
+  rangedTag: rangedCreepR
+  siegeTag: siegeCreepR
   spawnPoint: {fileID: 1628208711}
   spawnInterval: 30
   meleeCreepsPerWave: 3
@@ -15202,9 +15404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCreepPrefab: {fileID: 4789948495200754454, guid: a7b9ab66a6e85f348803f8bbfbaa92ca, type: 3}
-  rangedCreepPrefab: {fileID: 4789948495200754454, guid: 641a661b9b733f040b5b3e34d1b59899, type: 3}
-  siegeCreepPrefab: {fileID: 4789948495200754454, guid: 7c46bc4ab3a888a478f7743266828f84, type: 3}
+  poolScript: {fileID: 1290171025}
+  meleeTag: meleeCreepD
+  rangedTag: rangedCreepD
+  siegeTag: siegeCreepD
   spawnPoint: {fileID: 411102358}
   spawnInterval: 30
   meleeCreepsPerWave: 3
@@ -15228,5 +15431,6 @@ SceneRoots:
   - {fileID: 543450653325425829}
   - {fileID: 318554332}
   - {fileID: 1185979019}
+  - {fileID: 796096739}
   - {fileID: 855592051}
   - {fileID: 895736347}

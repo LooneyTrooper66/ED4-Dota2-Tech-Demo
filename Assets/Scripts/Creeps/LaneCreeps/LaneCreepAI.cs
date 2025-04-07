@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LaneCreepAI : MonoBehaviour
+public class LaneCreepAI : MonoBehaviour, IPooledObject
 {
     private NavMeshAgent creepAgent;
     public Transform currentTarget;
@@ -23,7 +23,7 @@ public class LaneCreepAI : MonoBehaviour
     List<GameObject> towers = new List<GameObject>();
 
 
-    private void Start()
+    public void OnObjectSpawn()
     {
         creepAgent = GetComponent<NavMeshAgent>();
 
@@ -121,6 +121,7 @@ public class LaneCreepAI : MonoBehaviour
         if (closestEnemyCreep != null)
         {
             currentTarget = closestEnemyCreep; // get closest creep and attak
+            return;
         }
         else
         {
