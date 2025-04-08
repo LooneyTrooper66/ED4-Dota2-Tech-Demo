@@ -59,10 +59,11 @@ public class LaneCreepAI : MonoBehaviour
             if (dist < 3)
             {
                 cornerMarkers = null;
+                FindAndSetTarget();
+                SetDestinationOfCreep();
             }
         }
     }
-
     private void FixedUpdate()
     {
         // checks the priority list for next target

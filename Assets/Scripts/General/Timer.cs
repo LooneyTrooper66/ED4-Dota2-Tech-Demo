@@ -79,8 +79,6 @@ public class Timer : MonoBehaviour
                 directionalLight.color = nightColour;
             }
             else { dayNightTimer = 0; }
-
-            // add option to pause game with the gamePlaying bool
         }
     }
 

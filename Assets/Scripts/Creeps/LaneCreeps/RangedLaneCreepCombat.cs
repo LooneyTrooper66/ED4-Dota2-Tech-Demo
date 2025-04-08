@@ -13,7 +13,7 @@ public class RangedLaneCreepCombat : MonoBehaviour
 
     public enum currentState { attackingHero, attackingOther, travelling };
     public currentState state = currentState.travelling;
-    private LaneCreepAI laneAI;
+    LaneCreepAI laneAI;
     private Stats stats;
 
 

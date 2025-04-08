@@ -19,9 +19,9 @@ GameObject:
   - component: {fileID: 8223002616099462137}
   - component: {fileID: 8717892638681192043}
   - component: {fileID: 2509478824431555523}
-  - component: {fileID: 7699929575103312370}
   - component: {fileID: 607302284883286969}
   - component: {fileID: 973295797271100501}
+  - component: {fileID: 3985404236606443957}
   m_Layer: 0
   m_Name: EnemySiegeCreep
   m_TagString: EnemySiege
@@ -130,7 +130,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4789948495200754454}
   m_Enabled: 1
-  m_AgentTypeID: -334000983
+  m_AgentTypeID: 1479372276
   m_Radius: 0.5
   m_Speed: 2
   m_Acceleration: 8
@@ -244,21 +244,6 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
---- !u!114 &7699929575103312370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088854ae6c24789429513323b0e3adeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 3804553956737144536, guid: 033936f16fc289c42b9e974705508960, type: 3}
-  shootPoint: {fileID: 8881741052724888242}
-  state: 2
 --- !u!114 &607302284883286969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +282,21 @@ MonoBehaviour:
   visionDay: 0
   visionNight: 0
   targetHealth: 0
+--- !u!114 &3985404236606443957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d328e87c62fdb4eba4deb646b2f8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePoolTag: projectilesD
+  shootPoint: {fileID: 8881741052724888242}
+  state: 2
 --- !u!1 &5255819475624860910
 GameObject:
   m_ObjectHideFlags: 0

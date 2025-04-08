@@ -13,7 +13,7 @@ public class LaneCreepSpawn : MonoBehaviour
     public int meleeCreepsPerWave = 3;
     public int rangedCreepsPerWave = 1;
     public int siegeCreepsPerWave = 1;
-    public int wavesUntilSiegeCreep = 5;  // should be on the 6th, 11th, 16th, 21st, etc..
+    public int wavesUntilSiegeCreep = 5;  // should be 5, so on the 6th, 11th, 16th, 21st, etc..
     private int waveCount = 0;
     private Timer timer;
     private float timeSinceLastWave = 0;
@@ -45,22 +45,38 @@ public class LaneCreepSpawn : MonoBehaviour
         switch (waveCount) // this is genuinely the most efficient way to do it coz the difference between the wave changes isnt consistent
         {
             case 16:
-                meleeCreepsPerWave = 4;
+                if (meleeCreepsPerWave == 3)
+                {
+                    meleeCreepsPerWave = 4;
+                }
                 break;
             case 31:
-                meleeCreepsPerWave = 5;
+                if (meleeCreepsPerWave == 4)
+                {
+                    meleeCreepsPerWave = 5;
+                }
                 break;
             case 36:
-                siegeCreepsPerWave = 2;
+                if (siegeCreepsPerWave == 1)
+                {
+                    siegeCreepsPerWave = 2;
+                }
                 break;
             case 41:
-                rangedCreepsPerWave = 2;
+                if (rangedCreepsPerWave == 1)
+                {
+                    rangedCreepsPerWave = 2;
+                }
                 break;
             case 46:
-                meleeCreepsPerWave = 6;
+                if (meleeCreepsPerWave == 5)
+                {
+                    meleeCreepsPerWave = 6;
+                }
                 break;
         }
-        if (waveCount % wavesUntilSiegeCreep == 0)
+
+        if (waveCount != 1 && (waveCount - 1) % wavesUntilSiegeCreep == 0) // (n-1)/x works c:
         {
             SpawnRegularCreeps();
             SpawnSiegeCreep();

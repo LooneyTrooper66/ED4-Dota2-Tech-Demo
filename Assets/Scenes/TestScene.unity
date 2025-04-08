@@ -937,9 +937,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCreepPrefab: {fileID: 0}
-  rangedCreepPrefab: {fileID: 0}
-  siegeCreepPrefab: {fileID: 3702739710636024729, guid: ac7fb66c0a9421748878e9f1b8b1a3c8, type: 3}
+  poolScript: {fileID: 0}
+  meleeTag: 
+  rangedTag: 
+  siegeTag: 
   spawnPoint: {fileID: 511654232}
   spawnInterval: 30
   meleeCreepsPerWave: 3
@@ -1575,9 +1576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c3d4e3d26aa5e4a8c2304a53da6fbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeCreepPrefab: {fileID: 0}
-  rangedCreepPrefab: {fileID: 0}
-  siegeCreepPrefab: {fileID: 4789948495200754454, guid: 7c46bc4ab3a888a478f7743266828f84, type: 3}
+  poolScript: {fileID: 0}
+  meleeTag: 
+  rangedTag: 
+  siegeTag: 
   spawnPoint: {fileID: 965314338}
   spawnInterval: 30
   meleeCreepsPerWave: 3
@@ -2309,6 +2311,7 @@ GameObject:
   - component: {fileID: 1318392440}
   - component: {fileID: 1318392439}
   - component: {fileID: 1318392438}
+  - component: {fileID: 1318392442}
   m_Layer: 3
   m_Name: Floor
   m_TagString: Ground
@@ -2406,6 +2409,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1193226980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318392442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318392437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85325d01a28157478c22b5873e991ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1332590812
 GameObject:
   m_ObjectHideFlags: 0

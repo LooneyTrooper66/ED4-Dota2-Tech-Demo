@@ -10,13 +10,18 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
 
     private LaneCreepCombat laneMelee;
     private RangedLaneCreepCombat laneRanged;
+    private SiegeCombat siegeCombat;
     private NeutralMeleeCombat neutralMelee;
     private NeutralRangedCombat neutralRanged;
     private HeroCombat heroCombat;
     private LaneCreepAI laneAI;
+    private SiegeCreepTargetingAI siegeAi;
     private NeutralCreepAI neutralAi;
-    //private HeroAI heroCombat;
 
+
+    // i am genuinely stupid i shouldve just set this shit in the scripts ive had to reference but im too tired and lazy to fix that rn so suffer with me scott at least i figured out a better way to do it ;-;
+    // i also potentially couldve used interfaces for this, but idk if you can make a return class or not?
+    // meh probably wouldnt need one anyway
 
     void Start()
     {
@@ -28,6 +33,11 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
         if (TryGetComponent<RangedLaneCreepCombat>(out RangedLaneCreepCombat laneRCom))
         {
             laneRanged = laneRCom.GetComponent<RangedLaneCreepCombat>();
+        }
+
+        if (TryGetComponent<SiegeCombat>(out SiegeCombat laneSCom))
+        {
+            siegeCombat = laneSCom.GetComponent<SiegeCombat>();
         }
 
         if (TryGetComponent<NeutralMeleeCombat>(out NeutralMeleeCombat neutralCom))
@@ -46,17 +56,21 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
         }
 
 
+
         if (TryGetComponent<LaneCreepAI>(out LaneCreepAI laneAAA))
         {
             laneAI = laneAAA.GetComponent<LaneCreepAI>();
+        }
+
+        if (TryGetComponent<SiegeCreepTargetingAI>(out SiegeCreepTargetingAI siegeAAA))
+        {
+            siegeAi = siegeAAA.GetComponent<SiegeCreepTargetingAI>();
         }
 
         if (TryGetComponent<NeutralCreepAI>(out NeutralCreepAI neutralAAA))
         {
             neutralAi = neutralAAA.GetComponent<NeutralCreepAI>();
         }
-
-        // add hero one when made
     }
 
     // set easily accessed state bools depending on current scripts enum value
@@ -97,6 +111,30 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
                 isAttackingHero = true;
             }
             else if (laneRanged.state == RangedLaneCreepCombat.currentState.attackingOther)
+            {
+                state = currentState.attackingOther;
+                isAttacking = true;
+                isAttackingHero = false;
+            }
+            else
+            {
+                state = currentState.notInCombat;
+                isAttacking = false;
+                isAttackingHero = false;
+            }
+        }
+
+        if (siegeCombat != null && siegeAi != null && siegeAi.currentTarget != null)
+        {
+            currentlyAttacking = siegeAi.currentTarget.name;
+
+            if (siegeCombat.state == SiegeCombat.currentState.attackingHero)
+            {
+                state = currentState.attackingHero;
+                isAttacking = true;
+                isAttackingHero = true;
+            }
+            else if (siegeCombat.state == SiegeCombat.currentState.attackingOther)
             {
                 state = currentState.attackingOther;
                 isAttacking = true;
@@ -158,9 +196,9 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
             }
         }
 
-        if (heroCombat != null /*&& heroAI != null && heroAI.currentTarget != null*/)
+        if (heroCombat != null && heroCombat.currentTarget != null)
         {
-            //currentlyAttacking = heroAI.currentTarget.name;
+            currentlyAttacking = heroCombat.currentTarget.name;
 
             if (heroCombat.state == HeroCombat.currentState.attackingHero)
             {

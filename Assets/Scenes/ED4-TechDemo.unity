@@ -1328,6 +1328,70 @@ Transform:
   - {fileID: 857765957}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &337614953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337614954}
+  - component: {fileID: 337614955}
+  m_Layer: 3
+  m_Name: siege creep navmesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &337614954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337614953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450653325425829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &337614955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337614953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 1479372276
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.13333334
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: fe6cccb5f4d74cf499232a703d2f4b43, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &360881717
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2172,7 @@ Transform:
   m_GameObject: {fileID: 556406701}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27, y: 3, z: -6}
+  m_LocalPosition: {x: -28, y: 3, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3687,7 +3751,7 @@ Transform:
   m_GameObject: {fileID: 796096738}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4816103, y: -7.061404, z: -6.405411}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3799,7 +3863,7 @@ Transform:
   m_GameObject: {fileID: 809753845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27, y: 3, z: 6}
+  m_LocalPosition: {x: 28, y: 3, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7129,8 +7193,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339341645}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4816103, y: 7.061404, z: 6.405411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10925,8 +10989,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908375505}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.4816103, y: 7.061404, z: 6.405411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11283,6 +11347,7 @@ GameObject:
   - component: {fileID: 1958115144}
   - component: {fileID: 1958115143}
   - component: {fileID: 1958115151}
+  - component: {fileID: 1958115152}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -11468,6 +11533,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostile: 0
+--- !u!114 &1958115152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958115142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &1978438337
 GameObject:
   m_ObjectHideFlags: 0
@@ -12113,6 +12194,7 @@ Transform:
   - {fileID: 7917875106370334800}
   - {fileID: 1978438338}
   - {fileID: 1562232616}
+  - {fileID: 337614954}
   - {fileID: 943708927}
   - {fileID: 1173277220}
   - {fileID: 1615747867}
@@ -14642,7 +14724,7 @@ MonoBehaviour:
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
-  wavesUntilSiegeCreep: 6
+  wavesUntilSiegeCreep: 5
 --- !u!23 &7708447419875563100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14808,7 +14890,7 @@ MonoBehaviour:
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
-  wavesUntilSiegeCreep: 6
+  wavesUntilSiegeCreep: 5
 --- !u!33 &7782503730012048149
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15011,7 +15093,7 @@ MonoBehaviour:
   m_GenerateLinks: 0
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
-  m_AffectedAgents: a98c17ec
+  m_AffectedAgents: a98c17ecf46d2d58
 --- !u!23 &8009102038638443351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15351,7 +15433,7 @@ MonoBehaviour:
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
-  wavesUntilSiegeCreep: 6
+  wavesUntilSiegeCreep: 5
 --- !u!23 &8922163215911397176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15418,7 +15500,7 @@ MonoBehaviour:
   meleeCreepsPerWave: 3
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
-  wavesUntilSiegeCreep: 6
+  wavesUntilSiegeCreep: 5
 --- !u!33 &9020378015547198778
 MeshFilter:
   m_ObjectHideFlags: 0
