@@ -3,7 +3,7 @@ using UnityEngine;
 public class CurrentAttackingState : MonoBehaviour // set attackers currenttarget to null when you destroy the gameobject in attack script
 {
     public enum currentState { attackingHero, attackingOther, notInCombat };
-    public currentState state;
+    public currentState state = currentState.notInCombat;
     public bool isAttacking;
     public bool isAttackingHero;
     public string currentlyAttacking;
@@ -14,6 +14,7 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
     private NeutralMeleeCombat neutralMelee;
     private NeutralRangedCombat neutralRanged;
     private HeroCombat heroCombat;
+    private Movement heroMovement;
     private LaneCreepAI laneAI;
     private SiegeCreepTargetingAI siegeAi;
     private NeutralCreepAI neutralAi;
@@ -28,48 +29,37 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
         if (TryGetComponent<LaneCreepCombat>(out LaneCreepCombat laneCom))
         {
             laneMelee = laneCom.GetComponent<LaneCreepCombat>();
+            laneAI = GetComponent<LaneCreepAI>();
         }
 
         if (TryGetComponent<RangedLaneCreepCombat>(out RangedLaneCreepCombat laneRCom))
         {
             laneRanged = laneRCom.GetComponent<RangedLaneCreepCombat>();
+            laneAI = GetComponent<LaneCreepAI>();
         }
 
         if (TryGetComponent<SiegeCombat>(out SiegeCombat laneSCom))
         {
             siegeCombat = laneSCom.GetComponent<SiegeCombat>();
+            siegeAi = GetComponent<SiegeCreepTargetingAI>();
         }
 
         if (TryGetComponent<NeutralMeleeCombat>(out NeutralMeleeCombat neutralCom))
         {
             neutralMelee = neutralCom.GetComponent<NeutralMeleeCombat>();
+            neutralAi = GetComponent<NeutralCreepAI>();
         }
 
         if (TryGetComponent<NeutralRangedCombat>(out NeutralRangedCombat neutralRCom))
         {
             neutralRanged = neutralRCom.GetComponent<NeutralRangedCombat>();
+            neutralAi = GetComponent<NeutralCreepAI>();
         }
 
         if (TryGetComponent<HeroCombat>(out HeroCombat heroCom))
         {
             heroCombat = heroCom.GetComponent<HeroCombat>();
-        }
-
-
-
-        if (TryGetComponent<LaneCreepAI>(out LaneCreepAI laneAAA))
-        {
-            laneAI = laneAAA.GetComponent<LaneCreepAI>();
-        }
-
-        if (TryGetComponent<SiegeCreepTargetingAI>(out SiegeCreepTargetingAI siegeAAA))
-        {
-            siegeAi = siegeAAA.GetComponent<SiegeCreepTargetingAI>();
-        }
-
-        if (TryGetComponent<NeutralCreepAI>(out NeutralCreepAI neutralAAA))
-        {
-            neutralAi = neutralAAA.GetComponent<NeutralCreepAI>();
+            heroMovement = GetComponent<Movement>();
         }
     }
 
@@ -196,9 +186,9 @@ public class CurrentAttackingState : MonoBehaviour // set attackers currenttarge
             }
         }
 
-        if (heroCombat != null && heroCombat.currentTarget != null)
+        if (heroCombat != null && heroMovement.currentTarget != null)
         {
-            currentlyAttacking = heroCombat.currentTarget.name;
+            currentlyAttacking = heroMovement.currentTarget.name;
 
             if (heroCombat.state == HeroCombat.currentState.attackingHero)
             {

@@ -8,32 +8,49 @@ public class Movement : MonoBehaviour
     public float rotateSpeed = 0.1f;
     float rotateVelocity;
 
-    public Animator anim;
-    float motionSmoothTime = 0.1f;
-
     [Header("Enemy Targeting")]
-    public GameObject targetEnemy;
-    public float stoppingDist;
+    public Transform currentTarget;
+    private float stoppingDist = 0;
+    private float attackRange;
+    [Tooltip("half the heroes radius pretty please")] public float offset;
+    public LayerMask layerMask;
+    HeroCombat combat;
+    HeroStats stats;
 
 
     private void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
+        combat = GetComponent<HeroCombat>();
+        stats = GetComponent<HeroStats>();
+        stoppingDist += offset;
+        attackRange = stats.attackRange;
     }
 
     private void Update()
     {
-        //Animation();
         Move();
     }
 
-    void Animation()
+    void Move()
     {
-        float speed = agent.velocity.magnitude / agent.speed;
-        anim.SetFloat("Speed", speed, motionSmoothTime, Time.deltaTime);
+        GetInputs();
+
+        if (currentTarget != null)
+        {
+            float dist = Vector3.Distance(transform.position, currentTarget.position);
+            if (dist >= attackRange && combat.state == HeroCombat.currentState.travelling) // only move closer if not attacking and not in attack range
+            {
+                MoveToEnemy(currentTarget);
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+            }
+        }
     }
 
-    void Move()
+    void GetInputs()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -42,19 +59,25 @@ public class Movement : MonoBehaviour
             {
                 if (hit.collider.tag == "Ground")
                 {
+                    currentTarget = null;
                     MoveToPos(hit.point);
                 }
             }
         }
 
-        // use this if end up using MoveToEnemy function
-        /*if (targetEnemy != null)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Vector3.Distance(transform.position, targetEnemy.transform.position) > stoppingDist)
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
             {
-                agent.SetDestination(targetEnemy.transform.position);
+                Debug.Log(hit.collider.gameObject);
+                CurrentAttackingState attackable = hit.collider.gameObject.GetComponent<CurrentAttackingState>();
+                if (attackable != null)
+                {
+                    currentTarget = hit.collider.gameObject.transform;
+                }
             }
-        }*/
+        }
     }
 
     void MoveToPos(Vector3 pos)
@@ -64,14 +87,13 @@ public class Movement : MonoBehaviour
         RotateHero(pos);
     }
 
-    // access this if cast an ability while not within range of target (only dismember probably)
-    public void MoveToEnemy(GameObject enemy)
+    public void MoveToEnemy(Transform enemy)
     {
-        targetEnemy = enemy;
-        agent.SetDestination(targetEnemy.transform.position);
+        currentTarget = enemy;
+        agent.SetDestination(currentTarget.transform.position);
         agent.stoppingDistance = stoppingDist;
 
-        RotateHero(targetEnemy.transform.position);
+        RotateHero(currentTarget.position);
     }
 
     void RotateHero(Vector3 lookPos)

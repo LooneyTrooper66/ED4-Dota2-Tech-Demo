@@ -2,18 +2,101 @@ using UnityEngine;
 
 public class HeroCombat : MonoBehaviour
 {
-    public Transform currentTarget;
+    public Movement heroTarget;
+    private float attackDamage;
+    private float attackRange;
+    private float acquisitionRange;
+    private HeroStats stats;
+    private float attackInterval;
+    private float lastAttackTime;
+
     public enum currentState { attackingHero, attackingOther, travelling };
     public currentState state = currentState.travelling;
 
 
+    private void Start()
+    {
+        heroTarget = GetComponent<Movement>();
+        stats = GetComponent<HeroStats>();
+
+        // making hero base modular (hopefully)
+        attackDamage = stats.damage;
+        attackRange = stats.attackRange + heroTarget.offset;
+        acquisitionRange = stats.acquisitionRange + heroTarget.offset;
+        attackInterval = stats.secondsBetweenAttacks;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        lastAttackTime += Time.deltaTime;
+        if (state == currentState.attackingHero || state == currentState.attackingOther)
         {
-            // send raycast to find if attackable (have neutral aggro thing)
-            // use layermask so cant hit player
-            // set anything hit that has the scr to the current target
+            if (lastAttackTime >= attackInterval)
+            {
+                state = currentState.travelling;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && heroTarget.currentTarget != null)
+        {
+            GameObject currentTargetGO = heroTarget.currentTarget.gameObject;
+
+            // check layer, if its an ally then only attack if health is below 50%, if enemy then attack anyway
+            if (currentTargetGO.layer == 8) // 8 is Enemy
+            {
+                if (CanAttack())
+                {
+                    Attack();
+                }
+            }
+            else if (currentTargetGO.layer == 7) // 7 is Ally
+            {
+                Stats stats = currentTargetGO.GetComponent<Stats>();
+
+                float currentHealth = stats.currentHealth;
+                float targetHealth = stats.targetHealth;
+                float howMuchHealthLeft = currentHealth % targetHealth;
+
+                // if health is below 50%
+                if (howMuchHealthLeft <= 5)
+                {
+                    if (CanAttack())
+                    {
+                        Attack();
+                    }
+                }
+            }
+        }
+    }
+
+    private bool CanAttack()
+    {
+        if (state == currentState.travelling && heroTarget.currentTarget != null)
+        {
+            float distToTarget = Vector3.Distance(transform.position, heroTarget.currentTarget.position);
+
+            Debug.Log(distToTarget <= attackRange);
+            return distToTarget <= attackRange;
+        }
+
+        return false;
+    }
+
+    void Attack()
+    {
+        lastAttackTime = 0;
+        state = currentState.attackingOther; // cant be attacking hero so ye
+
+        if (heroTarget.currentTarget.tag == "NeutralCreep")
+        {
+            NeutralCreepAI thisAi = heroTarget.currentTarget.GetComponent<NeutralCreepAI>();
+            thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+        }
+
+        IDamageable damageable = GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.TakeDamage(heroTarget.currentTarget.gameObject, attackDamage);
         }
     }
 }

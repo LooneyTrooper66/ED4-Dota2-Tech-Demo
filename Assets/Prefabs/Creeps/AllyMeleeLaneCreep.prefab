@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7141504324745716115}
   - component: {fileID: 145078715954594478}
   - component: {fileID: 7932591086109569848}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 6367270749773859202}
   - component: {fileID: 915090985198767389}
   - component: {fileID: 2682647455799344409}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 1598414073357541935}
   - component: {fileID: 3618916039721069552}
   - component: {fileID: 4102086693027164277}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 5573222017657747955}
   - component: {fileID: 3573768204718119044}
   - component: {fileID: 6553969398636354997}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AllyMeleeLaneCreep
   m_TagString: AllyCreep
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8194401827976529015}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 4043729236320720702}
   - component: {fileID: 1731190662738985313}
   - component: {fileID: 1550305489933020744}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

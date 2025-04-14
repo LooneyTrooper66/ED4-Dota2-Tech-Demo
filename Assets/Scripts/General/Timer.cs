@@ -55,7 +55,7 @@ public class Timer : MonoBehaviour
             }
         }
 
-
+        // updates day/night cycle
         if (gamePlaying)
         {
             timeElapsed += Time.deltaTime;

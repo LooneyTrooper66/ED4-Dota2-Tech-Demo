@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   health: 120
+  healthRegen: 1.75
   mana: 75
+  manaRegen: 0
   damage: 70
-  movementSpeed: 280
-  attackSpeed: 1.7
+  movementSpeed: 2.8
+  secondsBetweenAttacks: 0.59
+  attackRange: 1.75
+  acquisitionRange: 6
   strength: 25
   agility: 11
   intelligence: 16
-  gold: 0
+  visionDay: 18
+  visionNight: 8
+  reliableGold: 600
+  unreliableGold: 0
   xp: 0

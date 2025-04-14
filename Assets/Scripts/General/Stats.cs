@@ -25,7 +25,7 @@ public class Stats : MonoBehaviour
     public int visionNight;
 
     private float damageLerpDuration = 0.2f;
-    private float currentHealth;
+    [HideInInspector] public float currentHealth;
     [HideInInspector] public float targetHealth;
     [HideInInspector] public Coroutine damageCoroutine;
 

@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 36523111}
   - component: {fileID: 36523110}
   - component: {fileID: 36523109}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 75041221}
   - component: {fileID: 75041223}
   - component: {fileID: 75041222}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 108057053}
   - component: {fileID: 108057055}
   - component: {fileID: 108057054}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 164407392}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 200973209}
   - component: {fileID: 200973211}
   - component: {fileID: 200973210}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 204237004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1075,7 +1075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283457668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 302453356}
   - component: {fileID: 302453358}
   - component: {fileID: 302453357}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1259,7 +1259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 309977034}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,7 +1432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 394805167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1463,7 +1463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 405585081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1915,7 +1915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 517694009}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 519773068}
   - component: {fileID: 519773070}
   - component: {fileID: 519773069}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2055,7 +2055,7 @@ GameObject:
   - component: {fileID: 549938207}
   - component: {fileID: 549938209}
   - component: {fileID: 549938208}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2407,7 +2407,7 @@ GameObject:
   - component: {fileID: 589015301}
   - component: {fileID: 589015303}
   - component: {fileID: 589015302}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2509,7 +2509,7 @@ GameObject:
   - component: {fileID: 599247234}
   - component: {fileID: 599247236}
   - component: {fileID: 599247235}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2660,7 +2660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 653675694}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2905,7 +2905,7 @@ GameObject:
   - component: {fileID: 674369686}
   - component: {fileID: 674369688}
   - component: {fileID: 674369687}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2978,7 +2978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677246987}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3087,7 +3087,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 682891206}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3204,7 +3204,7 @@ GameObject:
   - component: {fileID: 686442815}
   - component: {fileID: 686442814}
   - component: {fileID: 686442813}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3383,7 +3383,7 @@ GameObject:
   - component: {fileID: 695588602}
   - component: {fileID: 695588604}
   - component: {fileID: 695588603}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3585,7 +3585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769895000}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3699,7 +3699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 794595130}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4055,7 +4055,7 @@ GameObject:
   - component: {fileID: 848601341}
   - component: {fileID: 848601343}
   - component: {fileID: 848601342}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4214,7 +4214,7 @@ GameObject:
   - component: {fileID: 860558953}
   - component: {fileID: 860558955}
   - component: {fileID: 860558954}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4317,7 +4317,7 @@ GameObject:
   - component: {fileID: 873385194}
   - component: {fileID: 873385193}
   - component: {fileID: 873385192}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4418,7 +4418,7 @@ GameObject:
   - component: {fileID: 874572121}
   - component: {fileID: 874572123}
   - component: {fileID: 874572122}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4491,7 +4491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880503845}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4529,7 +4529,7 @@ GameObject:
   - component: {fileID: 884609033}
   - component: {fileID: 884609035}
   - component: {fileID: 884609034}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4761,7 +4761,7 @@ GameObject:
   - component: {fileID: 909253979}
   - component: {fileID: 909253981}
   - component: {fileID: 909253980}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4836,7 +4836,7 @@ GameObject:
   - component: {fileID: 915607204}
   - component: {fileID: 915607206}
   - component: {fileID: 915607205}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4911,7 +4911,7 @@ GameObject:
   - component: {fileID: 923580358}
   - component: {fileID: 923580360}
   - component: {fileID: 923580359}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5105,7 +5105,7 @@ GameObject:
   - component: {fileID: 944291608}
   - component: {fileID: 944291610}
   - component: {fileID: 944291609}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5336,7 +5336,7 @@ GameObject:
   - component: {fileID: 982903933}
   - component: {fileID: 982903935}
   - component: {fileID: 982903934}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5618,7 +5618,7 @@ GameObject:
   - component: {fileID: 1013714316}
   - component: {fileID: 1013714318}
   - component: {fileID: 1013714317}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5772,7 +5772,7 @@ GameObject:
   - component: {fileID: 1038884595}
   - component: {fileID: 1038884594}
   - component: {fileID: 1038884593}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5951,7 +5951,7 @@ GameObject:
   - component: {fileID: 1060160416}
   - component: {fileID: 1060160418}
   - component: {fileID: 1060160417}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6026,7 +6026,7 @@ GameObject:
   - component: {fileID: 1063115026}
   - component: {fileID: 1063115028}
   - component: {fileID: 1063115027}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6512,7 +6512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196993051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6624,7 +6624,7 @@ GameObject:
   - component: {fileID: 1211342370}
   - component: {fileID: 1211342369}
   - component: {fileID: 1211342368}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6961,7 +6961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1318695857}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7078,7 +7078,7 @@ GameObject:
   - component: {fileID: 1330974312}
   - component: {fileID: 1330974311}
   - component: {fileID: 1330974310}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7311,7 +7311,7 @@ GameObject:
   - component: {fileID: 1344605305}
   - component: {fileID: 1344605307}
   - component: {fileID: 1344605306}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7386,7 +7386,7 @@ GameObject:
   - component: {fileID: 1357819562}
   - component: {fileID: 1357819564}
   - component: {fileID: 1357819563}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7646,7 +7646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1398736889}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7755,7 +7755,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1429565201}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7788,7 +7788,7 @@ GameObject:
   - component: {fileID: 1440071397}
   - component: {fileID: 1440071399}
   - component: {fileID: 1440071398}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8122,7 +8122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472141271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8153,7 +8153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1476372811}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8270,7 +8270,7 @@ GameObject:
   - component: {fileID: 1492777654}
   - component: {fileID: 1492777653}
   - component: {fileID: 1492777652}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8371,7 +8371,7 @@ GameObject:
   - component: {fileID: 1513553747}
   - component: {fileID: 1513553749}
   - component: {fileID: 1513553748}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8615,7 +8615,7 @@ GameObject:
   - component: {fileID: 1580532295}
   - component: {fileID: 1580532297}
   - component: {fileID: 1580532296}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8715,7 +8715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1586470096}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8751,7 +8751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1605699640}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8868,7 +8868,7 @@ GameObject:
   - component: {fileID: 1613017917}
   - component: {fileID: 1613017916}
   - component: {fileID: 1613017915}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9090,7 +9090,7 @@ GameObject:
   - component: {fileID: 1615945488}
   - component: {fileID: 1615945490}
   - component: {fileID: 1615945489}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9244,7 +9244,7 @@ GameObject:
   - component: {fileID: 1624725156}
   - component: {fileID: 1624725155}
   - component: {fileID: 1624725154}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9532,7 +9532,7 @@ GameObject:
   - component: {fileID: 1688348086}
   - component: {fileID: 1688348088}
   - component: {fileID: 1688348087}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9607,7 +9607,7 @@ GameObject:
   - component: {fileID: 1690027423}
   - component: {fileID: 1690027425}
   - component: {fileID: 1690027424}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9760,7 +9760,7 @@ GameObject:
   - component: {fileID: 1707060972}
   - component: {fileID: 1707060974}
   - component: {fileID: 1707060973}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10007,7 +10007,7 @@ GameObject:
   - component: {fileID: 1715144625}
   - component: {fileID: 1715144624}
   - component: {fileID: 1715144623}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10106,7 +10106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721699651}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10510,7 +10510,7 @@ GameObject:
   - component: {fileID: 1823694654}
   - component: {fileID: 1823694653}
   - component: {fileID: 1823694652}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10723,7 +10723,7 @@ GameObject:
   - component: {fileID: 1874093360}
   - component: {fileID: 1874093362}
   - component: {fileID: 1874093361}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10900,7 +10900,7 @@ GameObject:
   - component: {fileID: 1895936766}
   - component: {fileID: 1895936768}
   - component: {fileID: 1895936767}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11051,7 +11051,7 @@ GameObject:
   - component: {fileID: 1912307777}
   - component: {fileID: 1912307776}
   - component: {fileID: 1912307775}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11228,7 +11228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1953382478}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11266,7 +11266,7 @@ GameObject:
   - component: {fileID: 1957776505}
   - component: {fileID: 1957776507}
   - component: {fileID: 1957776506}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11348,6 +11348,7 @@ GameObject:
   - component: {fileID: 1958115143}
   - component: {fileID: 1958115151}
   - component: {fileID: 1958115152}
+  - component: {fileID: 1958115153}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -11370,14 +11371,22 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 195486b8391b06b4c9a4cdc984d07379, type: 2}
   level: 0
   health: 0
+  healthRegen: 0
   mana: 0
+  manaRegen: 0
   damage: 0
   movementSpeed: 0
-  attackSpeed: 0
+  secondsBetweenAttacks: 0
+  attackRange: 0
+  acquisitionRange: 0
   strength: 0
   agility: 0
   intelligence: 0
-  gold: 0
+  visionDay: 0
+  visionNight: 0
+  currentNetworth: 0
+  reliableGold: 0
+  unreliableGold: 0
   xp: 0
 --- !u!114 &1958115144
 MonoBehaviour:
@@ -11392,9 +11401,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 0.1
-  anim: {fileID: 0}
-  targetEnemy: {fileID: 0}
-  stoppingDist: 0
+  currentTarget: {fileID: 0}
+  offset: 0.5
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 440
 --- !u!114 &1958115145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11549,6 +11560,20 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &1958115153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958115142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6729fc310236d664aab5e51b4810a547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroTarget: {fileID: 0}
+  state: 2
 --- !u!1 &1978438337
 GameObject:
   m_ObjectHideFlags: 0
@@ -11780,7 +11805,7 @@ GameObject:
   - component: {fileID: 2002875372}
   - component: {fileID: 2002875374}
   - component: {fileID: 2002875373}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11931,7 +11956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2122237921}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12042,7 +12067,7 @@ GameObject:
   - component: {fileID: 2127011613}
   - component: {fileID: 2127011615}
   - component: {fileID: 2127011614}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12144,7 +12169,8 @@ GameObject:
   - component: {fileID: 7119986127987518888}
   - component: {fileID: 8047775245301244469}
   - component: {fileID: 5362469947520439682}
-  m_Layer: 0
+  - component: {fileID: 8047775245301244470}
+  m_Layer: 7
   m_Name: radient ancient
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -12805,7 +12831,8 @@ GameObject:
   - component: {fileID: 7708447419875563102}
   - component: {fileID: 7708447419875563104}
   - component: {fileID: 7708447419875563103}
-  m_Layer: 0
+  - component: {fileID: 7708447419875563105}
+  m_Layer: 7
   m_Name: radient tier 3
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -12827,7 +12854,8 @@ GameObject:
   - component: {fileID: 5593726831171782983}
   - component: {fileID: 5593726831171782985}
   - component: {fileID: 5593726831171782984}
-  m_Layer: 0
+  - component: {fileID: 5593726831171782986}
+  m_Layer: 7
   m_Name: radient tier 1
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -12949,7 +12977,8 @@ GameObject:
   - component: {fileID: 3303121175425087827}
   - component: {fileID: 3303121175425087829}
   - component: {fileID: 3303121175425087828}
-  m_Layer: 0
+  - component: {fileID: 3303121175425087830}
+  m_Layer: 8
   m_Name: dire tier 1
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -12981,6 +13010,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 6
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &3303121175425087827
 MonoBehaviour:
@@ -13028,6 +13058,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 1721699651}
+--- !u!114 &3303121175425087830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303121175425087825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!4 &3352797750714602752
 Transform:
   m_ObjectHideFlags: 0
@@ -13249,7 +13295,8 @@ GameObject:
   - component: {fileID: 4616020169631877171}
   - component: {fileID: 4616020169631877173}
   - component: {fileID: 4616020169631877172}
-  m_Layer: 0
+  - component: {fileID: 4616020169631877174}
+  m_Layer: 8
   m_Name: dire tier 2
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -13268,7 +13315,8 @@ GameObject:
   - component: {fileID: 3900512678470683659}
   - component: {fileID: 8922163215911397176}
   - component: {fileID: 8922163215911397177}
-  m_Layer: 0
+  - component: {fileID: 8922163215911397178}
+  m_Layer: 8
   m_Name: direbarracks
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -13290,7 +13338,8 @@ GameObject:
   - component: {fileID: 6428097885824612520}
   - component: {fileID: 6428097885824612522}
   - component: {fileID: 6428097885824612521}
-  m_Layer: 0
+  - component: {fileID: 6428097885824612523}
+  m_Layer: 8
   m_Name: dire tier 3
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -13330,6 +13379,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &4616020169631877171
 MonoBehaviour:
@@ -13377,6 +13427,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 1429565201}
+--- !u!114 &4616020169631877174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470873569546330473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &4777370309913398844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13437,7 +13503,8 @@ GameObject:
   - component: {fileID: 5996388653751705452}
   - component: {fileID: 5996388653751705454}
   - component: {fileID: 5996388653751705453}
-  m_Layer: 0
+  - component: {fileID: 5996388653751705455}
+  m_Layer: 8
   m_Name: dire tier 2
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -13459,7 +13526,8 @@ GameObject:
   - component: {fileID: 6450749670178088441}
   - component: {fileID: 6450749670178088443}
   - component: {fileID: 6450749670178088442}
-  m_Layer: 0
+  - component: {fileID: 6450749670178088444}
+  m_Layer: 8
   m_Name: dire tier 3
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -13658,6 +13726,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 6
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &5593726831171782983
 MonoBehaviour:
@@ -13705,6 +13774,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 653675694}
+--- !u!114 &5593726831171782986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175224259322451583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!33 &5655472690363348649
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -13728,7 +13813,8 @@ GameObject:
   - component: {fileID: 6844544450760521930}
   - component: {fileID: 6844544450760521932}
   - component: {fileID: 6844544450760521931}
-  m_Layer: 0
+  - component: {fileID: 6844544450760521933}
+  m_Layer: 8
   m_Name: dire tier 1
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -13800,7 +13886,8 @@ GameObject:
   - component: {fileID: 1653328235482613309}
   - component: {fileID: 9020378015547198778}
   - component: {fileID: 8009102038638443351}
-  m_Layer: 0
+  - component: {fileID: 9020378015547198779}
+  m_Layer: 7
   m_Name: radient fountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13849,6 +13936,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &5996388653751705452
 MonoBehaviour:
@@ -13896,6 +13984,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 405585081}
+--- !u!114 &5996388653751705455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784850591136188881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &6041425520873710404
 GameObject:
   m_ObjectHideFlags: 0
@@ -14048,6 +14152,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &6428097885824612520
 MonoBehaviour:
@@ -14095,6 +14200,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 283457668}
+--- !u!114 &6428097885824612523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604118394042812145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &6450749670178088439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14165,6 +14286,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &6450749670178088441
 MonoBehaviour:
@@ -14212,6 +14334,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 1472141271}
+--- !u!114 &6450749670178088444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909375816096593657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &6479439537355326373
 GameObject:
   m_ObjectHideFlags: 0
@@ -14323,6 +14461,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 6
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &6844544450760521930
 MonoBehaviour:
@@ -14370,6 +14509,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileD
   shootPoint: {fileID: 2122237921}
+--- !u!114 &6844544450760521933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730600303840456124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!4 &6980469029706042109
 Transform:
   m_ObjectHideFlags: 0
@@ -14493,13 +14648,30 @@ GameObject:
   - component: {fileID: 6661126404131290735}
   - component: {fileID: 6647595429404183984}
   - component: {fileID: 1568668405906131131}
-  m_Layer: 0
+  - component: {fileID: 7328933541498439000}
+  m_Layer: 8
   m_Name: dire fountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7328933541498439000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7328933541498438999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &7364640756244762648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14560,7 +14732,8 @@ GameObject:
   - component: {fileID: 7389193390420546179}
   - component: {fileID: 7389193390420546181}
   - component: {fileID: 7389193390420546180}
-  m_Layer: 0
+  - component: {fileID: 7389193390420546182}
+  m_Layer: 7
   m_Name: radient tier 3
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -14592,6 +14765,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &7389193390420546179
 MonoBehaviour:
@@ -14639,6 +14813,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 1398736889}
+--- !u!114 &7389193390420546182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389193390420546177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &7457645613639645717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14696,7 +14886,8 @@ GameObject:
   - component: {fileID: 5655472690363348649}
   - component: {fileID: 4777370309913398844}
   - component: {fileID: 7685204120156058080}
-  m_Layer: 0
+  - component: {fileID: 7685204120156058081}
+  m_Layer: 8
   m_Name: direbarracks
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
@@ -14725,6 +14916,22 @@ MonoBehaviour:
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 5
+--- !u!114 &7685204120156058081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685204120156058079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &7708447419875563100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14795,6 +15002,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &7708447419875563102
 MonoBehaviour:
@@ -14842,6 +15050,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 394805167}
+--- !u!114 &7708447419875563105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157968270797765471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!33 &7714841957850186110
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14862,7 +15086,8 @@ GameObject:
   - component: {fileID: 2142010089871104286}
   - component: {fileID: 782492530332821241}
   - component: {fileID: 7752065131912044963}
-  m_Layer: 0
+  - component: {fileID: 7752065131912044964}
+  m_Layer: 7
   m_Name: radientbarracks
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -14891,6 +15116,22 @@ MonoBehaviour:
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 5
+--- !u!114 &7752065131912044964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752065131912044962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!33 &7782503730012048149
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14936,7 +15177,8 @@ GameObject:
   - component: {fileID: 8422797137779166573}
   - component: {fileID: 8422797137779166575}
   - component: {fileID: 8422797137779166574}
-  m_Layer: 0
+  - component: {fileID: 8422797137779166576}
+  m_Layer: 7
   m_Name: radient tier 2
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -14958,7 +15200,8 @@ GameObject:
   - component: {fileID: 7892969618405342760}
   - component: {fileID: 7892969618405342762}
   - component: {fileID: 7892969618405342761}
-  m_Layer: 0
+  - component: {fileID: 7892969618405342763}
+  m_Layer: 7
   m_Name: radient tier 2
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -14990,6 +15233,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &7892969618405342760
 MonoBehaviour:
@@ -15037,6 +15281,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 204237004}
+--- !u!114 &7892969618405342763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892969618405342758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!4 &7917875106370334800
 Transform:
   m_ObjectHideFlags: 0
@@ -15147,6 +15407,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51163958364657400}
   m_Mesh: {fileID: -5415334014417605277, guid: e7184fdf745aba24e8ed1bff22276ad7, type: 3}
+--- !u!114 &8047775245301244470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51163958364657400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &8072927414866450548
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15234,6 +15510,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 11
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &8422797137779166573
 MonoBehaviour:
@@ -15281,6 +15558,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 1196993051}
+--- !u!114 &8422797137779166576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863489857711483369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &8476297497798636941
 GameObject:
   m_ObjectHideFlags: 0
@@ -15296,7 +15589,8 @@ GameObject:
   - component: {fileID: 8476297497798636943}
   - component: {fileID: 8476297497798636945}
   - component: {fileID: 8476297497798636944}
-  m_Layer: 0
+  - component: {fileID: 8476297497798636946}
+  m_Layer: 7
   m_Name: radient tier 1
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -15328,6 +15622,7 @@ MonoBehaviour:
   xpWorth: 0
   visionDay: 19
   visionNight: 6
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &8476297497798636943
 MonoBehaviour:
@@ -15375,6 +15670,22 @@ MonoBehaviour:
   projectilePool: {fileID: 1908375507}
   projectilePoolTag: towerProjectileR
   shootPoint: {fileID: 677246987}
+--- !u!114 &8476297497798636946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476297497798636941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &8506311156721210127
 GameObject:
   m_ObjectHideFlags: 0
@@ -15386,13 +15697,30 @@ GameObject:
   - component: {fileID: 6368295018352852412}
   - component: {fileID: 1126212349657548082}
   - component: {fileID: 3603919528849978984}
-  m_Layer: 0
+  - component: {fileID: 8506311156721210128}
+  m_Layer: 8
   m_Name: dire ancient
   m_TagString: EnemyTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8506311156721210128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506311156721210127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1 &8766032360010973331
 GameObject:
   m_ObjectHideFlags: 0
@@ -15405,7 +15733,8 @@ GameObject:
   - component: {fileID: 960794182724899310}
   - component: {fileID: 3367360306328451246}
   - component: {fileID: 8766032360010973332}
-  m_Layer: 0
+  - component: {fileID: 8766032360010973333}
+  m_Layer: 7
   m_Name: radientbarracks
   m_TagString: AllyTower
   m_Icon: {fileID: 0}
@@ -15434,6 +15763,22 @@ MonoBehaviour:
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 5
+--- !u!114 &8766032360010973333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766032360010973331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!23 &8922163215911397176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15501,6 +15846,22 @@ MonoBehaviour:
   rangedCreepsPerWave: 1
   siegeCreepsPerWave: 1
   wavesUntilSiegeCreep: 5
+--- !u!114 &8922163215911397178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4550673119024169749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!33 &9020378015547198778
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15509,6 +15870,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5963624316495589168}
   m_Mesh: {fileID: -2878296673502438222, guid: 3079752078451b2488a593594932cf90, type: 3}
+--- !u!114 &9020378015547198779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963624316495589168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df437353e78dd34a9f03813512298a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  isAttacking: 0
+  isAttackingHero: 0
+  currentlyAttacking: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
