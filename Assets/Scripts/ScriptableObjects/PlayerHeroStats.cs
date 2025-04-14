@@ -5,10 +5,10 @@ public class PlayerHeroStats : ScriptableObject
 {
     // all stats here are base stats and will change as the hero levels up, will be changed in hero stats script, not this object
     [Header("Primary Stats")]
-    public int level;
-    public int health;
+    public float level;
+    public float health;
     public float healthRegen;
-    public int mana;
+    public float mana;
     public float manaRegen;
     public float damage;
     public float movementSpeed;
@@ -17,9 +17,9 @@ public class PlayerHeroStats : ScriptableObject
     public float acquisitionRange;
 
     [Header("Secondary Stats")]
-    public int strength;
-    public int agility;
-    public int intelligence;
+    public float strength;
+    public float agility;
+    public float intelligence;
     public int visionDay;
     public int visionNight;
 

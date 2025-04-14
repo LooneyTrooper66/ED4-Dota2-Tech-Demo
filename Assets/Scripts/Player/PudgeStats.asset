@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a85e8fec425701428b80717dc4d1832, type: 3}
   m_Name: PudgeStats
   m_EditorClassIdentifier: 
-  level: 0
-  health: 120
-  healthRegen: 1.75
-  mana: 75
-  manaRegen: 0
-  damage: 70
+  level: 1
+  health: 670
+  healthRegen: 4
+  mana: 267
+  manaRegen: 0.8
+  damage: 74
   movementSpeed: 2.8
-  secondsBetweenAttacks: 0.59
+  secondsBetweenAttacks: 0.67
   attackRange: 1.75
   acquisitionRange: 6
   strength: 25
-  agility: 11
+  agility: 14
   intelligence: 16
   visionDay: 18
   visionNight: 8

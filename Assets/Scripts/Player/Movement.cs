@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Movement : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public float rotateSpeed = 0.1f;
     float rotateVelocity;
 
@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
         combat = GetComponent<HeroCombat>();
         stats = GetComponent<HeroStats>();
         stoppingDist += offset;
-        attackRange = stats.attackRange;
+        attackRange = stats.attackRange - offset;
     }
 
     private void Update()
@@ -70,7 +70,6 @@ public class Movement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
             {
-                Debug.Log(hit.collider.gameObject);
                 CurrentAttackingState attackable = hit.collider.gameObject.GetComponent<CurrentAttackingState>();
                 if (attackable != null)
                 {

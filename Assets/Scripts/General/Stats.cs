@@ -1,11 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-public interface IDamageable
-{
-    void TakeDamage(GameObject target, float damage);
-}
-
 public class Stats : MonoBehaviour
 {
     public CreepStatDefaults creepStats;

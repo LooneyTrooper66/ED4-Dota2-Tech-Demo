@@ -1,18 +1,20 @@
 using UnityEngine;
+using System.Collections;
 
 public class HeroStats : MonoBehaviour, IDamageable
 {
     public PlayerHeroStats playerStats;  // if adding multiple characters, pass this from the character selection screen so gets correct hero stats
     Movement heroMovement;
     Timer timer;
+    HealthUI healthUI;
     float timeSinceLastGold = 0;
     float addGoldIncrement;
 
     [Header("Primary Stats")]
-    public int level;
-    public int health;
+    public float level;
+    public float health;
     public float healthRegen;
-    public int mana;
+    public float mana;
     public float manaRegen;
     public float damage;
     public float movementSpeed;
@@ -21,9 +23,9 @@ public class HeroStats : MonoBehaviour, IDamageable
     public float acquisitionRange;
 
     [Header("Secondary Stats")]
-    public int strength;
-    public int agility;
-    public int intelligence;
+    public float strength;
+    public float agility;
+    public float intelligence;
     public int visionDay;
     public int visionNight;
     public int currentNetworth;
@@ -33,11 +35,16 @@ public class HeroStats : MonoBehaviour, IDamageable
     public int unreliableGold;
     public int xp;
 
+    private float damageLerpDuration = 0.2f;
+    [HideInInspector] public float currentHealth;
+    [HideInInspector] public float targetHealth;
+    [HideInInspector] public Coroutine damageCoroutine;
 
-    private void Start()
+
+    void Awake()
     {
         #region // set all base stats for game start
-        level = 0;
+        level = playerStats.level;
         health = playerStats.health;
         healthRegen = playerStats.healthRegen;
         mana = playerStats.mana;
@@ -57,11 +64,52 @@ public class HeroStats : MonoBehaviour, IDamageable
         unreliableGold = 0;
         xp = 0;
         #endregion
+    }
 
+    private void Start()
+    {
         heroMovement = GetComponent<Movement>();
+        healthUI = GetComponent<HealthUI>();
         GameObject timerHolder = GameObject.Find("--Timer--");
         timer = timerHolder.GetComponent<Timer>();
         addGoldIncrement = 0.667f; // 60/90
+
+        currentHealth = health;
+        targetHealth = health;
+        healthUI.Start3DSlider(health);
+    }
+
+    public void StartLerpHealth()
+    {
+        if (damageCoroutine == null)
+        {
+            damageCoroutine = StartCoroutine(LerpHealth());
+        }
+    }
+
+    private IEnumerator LerpHealth()
+    {
+        float timeElapsed = 0;
+        float initialHealth = currentHealth;
+        float target = targetHealth;
+
+        while (timeElapsed < damageLerpDuration)
+        {
+            currentHealth = Mathf.Lerp(initialHealth, target, timeElapsed / damageLerpDuration);
+            UpdateHealthUI();
+
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        currentHealth = target;
+        UpdateHealthUI();
+
+        damageCoroutine = null;
+    }
+
+    void UpdateHealthUI()
+    {
+        healthUI.Update3DSlider(currentHealth);
     }
 
     void Update()
@@ -83,25 +131,32 @@ public class HeroStats : MonoBehaviour, IDamageable
         }
         #endregion
 
-        timeSinceLastGold += Time.deltaTime;
+        #region // increases reliable gold 
+        if (timer.gamePlaying == true)
+        {
+            timeSinceLastGold += Time.deltaTime;
+        }
         if (timeSinceLastGold >= addGoldIncrement)
         {
             reliableGold++;
         }
+        #endregion
 
         currentNetworth = unreliableGold / 40;
     }
 
     public void TakeDamage(GameObject target, float damage)
     {
+        Debug.Log("damage taken by heroStats");
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;
+        targetStats.health -= damage;
 
-        // check if creep is dead
         if (targetStats != null && targetStats.targetHealth <= 0)
         {
             heroMovement.currentTarget = null;
-            target.SetActive(false);
+            target.transform.position = new Vector3(-42.67f, 2.5f, -44.69f);
+            heroMovement.agent.SetDestination(transform.position);
             LoseResorcesOnDeath();
         }
         else if (targetStats.damageCoroutine == null)
@@ -117,6 +172,8 @@ public class HeroStats : MonoBehaviour, IDamageable
 
     void UpdateUI()
     {
-        // update all stats for ui and that
+        // update all stat based ui
+
+        // reliable gold, unreliable gold, all gold, mana, health, etc...
     }
 }
