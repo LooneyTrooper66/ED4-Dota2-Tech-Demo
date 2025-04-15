@@ -20,6 +20,7 @@ public class LaneCreepAI : MonoBehaviour
     private float distFromTarget;
 
     List<GameObject> cornerMarkers = new List<GameObject>();
+    List<GameObject> cornerMarkersStore = new List<GameObject>();
     List<GameObject> towers = new List<GameObject>();
 
 
@@ -31,6 +32,7 @@ public class LaneCreepAI : MonoBehaviour
         foreach (GameObject c in cornerMarkersA)
         {
             cornerMarkers.Add(c);
+            cornerMarkersStore.Add(c);
         }
         GameObject[] towersA = GameObject.FindGameObjectsWithTag(enemyTowerTag);
         foreach (GameObject t in towersA)
@@ -42,6 +44,11 @@ public class LaneCreepAI : MonoBehaviour
     public void OnEnable()
     {
         OffsetAllValuesForRadius();
+
+        foreach (GameObject c in cornerMarkersStore)
+        {
+            cornerMarkers.Add(c);
+        }
 
         FindAndSetTarget();
         SetDestinationOfCreep();

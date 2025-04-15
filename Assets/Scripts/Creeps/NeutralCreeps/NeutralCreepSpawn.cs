@@ -27,6 +27,11 @@ public class NeutralCreepSpawn : MonoBehaviour
     {
         if (timer.gamePlaying == true && timer.timeElapsed >= 0)
         {
+            bool thingsInArea = Physics.CheckBox(transform.position, boxSize / 2, transform.rotation, checkBoxesForThings);
+            if (!thingsInArea) { campClear = true; }
+            else { campClear = false; }
+            //Debug.Log(campClear);
+
             timeSinceLastWave += Time.deltaTime;
             if (timeSinceLastWave >= spawnInterval)
             {
@@ -38,10 +43,6 @@ public class NeutralCreepSpawn : MonoBehaviour
 
     void SpawnCreeps()
     {
-        bool thingsInArea = Physics.CheckBox(transform.position, boxSize / 2, transform.rotation, checkBoxesForThings);
-        if (!thingsInArea) { campClear = true; }
-        else { campClear = false; }
-
         if (campClear == true)
         {
             for (int i = 0; i < neutralCreepsPerWave; ++i)
