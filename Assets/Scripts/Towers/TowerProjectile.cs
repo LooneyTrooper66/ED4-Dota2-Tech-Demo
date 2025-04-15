@@ -35,10 +35,17 @@ public class TowerProjectile : MonoBehaviour
 
     void DamageTarget()
     {
+        if (target.tag == "Player")
+        {
+            HeroStats stats = target.GetComponent<HeroStats>();
+            stats.DamageHero(target.gameObject, damage);
+            return;
+        }
+
         IDamageable damageable = target.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            damageable.TakeDamage(target, damage);
+            damageable.DealDamage(target, damage);
         }
     }
 }

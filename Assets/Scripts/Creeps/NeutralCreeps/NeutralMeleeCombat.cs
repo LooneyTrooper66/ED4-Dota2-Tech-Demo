@@ -57,15 +57,22 @@ public class NeutralMeleeCombat : MonoBehaviour
     void Attack()
     {
         lastAttackTime = 0;
-        if (neutralAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
+        if (neutralAI.currentTarget.tag == "Player") { state = currentState.attackingHero; }
         else { state = currentState.attackingOther; }
 
         if (neutralAI.currentTarget.gameObject.tag != "CornerMarker")
         {
+            if (neutralAI.currentTarget.tag == "Player")
+            {
+                HeroStats stats = neutralAI.currentTarget.GetComponent<HeroStats>();
+                stats.DamageHero(neutralAI.currentTarget.gameObject, attackDamage);
+                return;
+            }
+
             IDamageable damageable = GetComponent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(neutralAI.currentTarget.gameObject, attackDamage);
+                damageable.DealDamage(neutralAI.currentTarget.gameObject, attackDamage);
             }
         }
     }

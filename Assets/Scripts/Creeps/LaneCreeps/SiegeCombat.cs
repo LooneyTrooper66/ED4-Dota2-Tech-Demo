@@ -65,11 +65,18 @@ public class SiegeCombat : MonoBehaviour
     void Attack()
     {
         lastAttackTime = 0;
-        if (laneAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
+        if (laneAI.currentTarget.tag == "Player") { state = currentState.attackingHero; }
         else { state = currentState.attackingOther; }
 
         if (laneAI.currentTarget.gameObject.tag != "CornerMarker")
         {
+            if (laneAI.currentTarget.gameObject.tag == "Player")
+            {
+                HeroStats stats = laneAI.currentTarget.gameObject.GetComponent<HeroStats>();
+                stats.DamageHero(laneAI.currentTarget.gameObject.gameObject, attackDamage);
+                return;
+            }
+
             GameObject projectile = projectilePool.SpawnFromPool(projectilePoolTag, shootPoint.position, shootPoint.rotation);
             CreepProjectile projectileScript = projectile.GetComponent<CreepProjectile>();
             projectileScript.SetTarget(laneAI.currentTarget.gameObject, attackDamage);

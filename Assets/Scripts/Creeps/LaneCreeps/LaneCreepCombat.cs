@@ -60,11 +60,18 @@ public class LaneCreepCombat : MonoBehaviour
     void Attack()
     {
         lastAttackTime = 0;
-        if (laneAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
+        if (laneAI.currentTarget.tag == "Player") { state = currentState.attackingHero; }
         else { state = currentState.attackingOther; }
 
         if (laneAI.currentTarget.gameObject.tag != "CornerMarker")
         {
+            if (laneAI.currentTarget.gameObject.tag == "Player")
+            {
+                HeroStats stats = laneAI.currentTarget.gameObject.GetComponent<HeroStats>();
+                stats.DamageHero(laneAI.currentTarget.gameObject.gameObject, attackDamage);
+                return;
+            }
+
             if (laneAI.currentTarget.tag == "NeutralCreep")
             {
                 NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
@@ -74,7 +81,7 @@ public class LaneCreepCombat : MonoBehaviour
             IDamageable damageable = GetComponent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(laneAI.currentTarget.gameObject, attackDamage);
+                damageable.DealDamage(laneAI.currentTarget.gameObject, attackDamage);
             }
         }
     }

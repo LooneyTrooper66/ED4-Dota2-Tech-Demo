@@ -97,7 +97,7 @@ public class HeroCombat : MonoBehaviour
         IDamageable damageable = GetComponent<IDamageable>();
         if (damageable != null)
         {
-            damageable.TakeDamage(currentTargetGO, attackDamage);
+            damageable.DealDamage(currentTargetGO, attackDamage);
         }
 
         if (currentTargetGO.tag == "NeutralCreep")

@@ -12,7 +12,7 @@ public class NeutralStats : MonoBehaviour
         stats = GetComponent<Stats>();
     }
 
-    public void TakeDamage(GameObject target, float damage)
+    public void DealDamage(GameObject target, float damage)
     {
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;

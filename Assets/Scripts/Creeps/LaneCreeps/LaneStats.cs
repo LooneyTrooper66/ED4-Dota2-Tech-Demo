@@ -12,9 +12,8 @@ public class LaneStats : MonoBehaviour, IDamageable
         stats = GetComponent<Stats>();
     }
 
-    public void TakeDamage(GameObject target, float damage)
+    public void DealDamage(GameObject target, float damage)
     {
-        Debug.Log("damage taken by laneStats");
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;
 

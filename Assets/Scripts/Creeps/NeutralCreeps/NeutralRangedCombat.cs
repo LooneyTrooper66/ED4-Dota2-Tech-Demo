@@ -66,7 +66,7 @@ public class NeutralRangedCombat : MonoBehaviour, IPooledObject
     void Attack()
     {
         lastAttackTime = 0;
-        if (neutralAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
+        if (neutralAI.currentTarget.tag == "Player") { state = currentState.attackingHero; }
         else { state = currentState.attackingOther; }
 
         if (neutralAI.currentTarget.gameObject.tag != "CornerMarker")

@@ -7,6 +7,7 @@ public class HeroStats : MonoBehaviour, IDamageable
     Movement heroMovement;
     Timer timer;
     HealthUI healthUI;
+    RespawnHero respawn;
     float timeSinceLastGold = 0;
     float addGoldIncrement;
 
@@ -37,7 +38,7 @@ public class HeroStats : MonoBehaviour, IDamageable
 
     private float damageLerpDuration = 0.2f;
     [HideInInspector] public float currentHealth;
-    [HideInInspector] public float targetHealth;
+    [HideInInspector] public float targetHealth; // need to update this whenever level up or get item that increases health
     [HideInInspector] public Coroutine damageCoroutine;
 
 
@@ -72,6 +73,8 @@ public class HeroStats : MonoBehaviour, IDamageable
         healthUI = GetComponent<HealthUI>();
         GameObject timerHolder = GameObject.Find("--Timer--");
         timer = timerHolder.GetComponent<Timer>();
+        GameObject eventHolder = GameObject.Find("EventSystem");
+        respawn = eventHolder.GetComponent<RespawnHero>();
         addGoldIncrement = 0.667f; // 60/90
 
         currentHealth = health;
@@ -145,23 +148,50 @@ public class HeroStats : MonoBehaviour, IDamageable
         currentNetworth = unreliableGold / 40;
     }
 
-    public void TakeDamage(GameObject target, float damage)
+    public void DealDamage(GameObject target, float damage)
     {
-        Debug.Log("damage taken by heroStats");
         Stats targetStats = target.GetComponent<Stats>();
         targetStats.targetHealth -= damage;
-        targetStats.health -= damage;
 
+        // check if creep is dead
         if (targetStats != null && targetStats.targetHealth <= 0)
         {
             heroMovement.currentTarget = null;
-            target.transform.position = new Vector3(-42.67f, 2.5f, -44.69f);
-            heroMovement.agent.SetDestination(transform.position);
-            LoseResorcesOnDeath();
+            target.SetActive(false);
+            AwardXP(target, targetStats);
         }
         else if (targetStats.damageCoroutine == null)
         {
             targetStats.StartLerpHealth();
+        }
+    }
+
+    public void DamageHero(GameObject target, float damage)
+    {
+        HeroStats targetStats = target.GetComponent<HeroStats>();
+        targetStats.targetHealth -= damage;
+
+        if (targetStats != null && targetStats.targetHealth <= 0)
+        {
+            heroMovement.currentTarget = null;
+            LoseResorcesOnDeath();
+            targetHealth = health;
+            currentHealth = health;
+            UpdateHealthUI();
+            respawn.RespawnPlayer();
+        }
+        else if (targetStats.damageCoroutine == null)
+        {
+            targetStats.StartLerpHealth();
+        }
+    }
+
+    public void AwardXP(GameObject target, Stats targetStats)
+    {
+        float dist = Vector3.Distance(target.transform.position, transform.position); // dont bother checking how many and spliting xp for now as only one hero should be in the game
+        if (dist <= 15) // this is based on 1500 / 100
+        {
+            xp += targetStats.xpWorth;
         }
     }
 
