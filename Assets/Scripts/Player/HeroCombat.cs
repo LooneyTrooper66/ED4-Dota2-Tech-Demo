@@ -11,7 +11,7 @@ public class HeroCombat : MonoBehaviour
 
     public enum currentState { attackingHero, attackingOther, travelling };
     public currentState state = currentState.travelling;
-    private GameObject currentTargetGO = null;
+    public GameObject currentTargetGO = null;
 
 
     private void Start()
@@ -37,9 +37,9 @@ public class HeroCombat : MonoBehaviour
         }
 
         // changing the target gameobject coz ye
-        if (Input.GetKeyDown(KeyCode.Mouse0) && heroTarget.currentTarget != null)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            currentTargetGO = heroTarget.currentTarget.gameObject;
+            Invoke("ChangeTarget", 0.2f);
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
@@ -61,12 +61,11 @@ public class HeroCombat : MonoBehaviour
             {
                 Stats stats = currentTargetGO.GetComponent<Stats>();
 
-                float currentHealth = stats.currentHealth;
-                float targetHealth = stats.targetHealth;
-                float howMuchHealthLeft = currentHealth % targetHealth;
+                float tCurrentHealth = stats.currentHealth;
+                float halfOfAllHealth = stats.health / 2;
 
                 // if health is below 50%
-                if (howMuchHealthLeft <= 5)
+                if (tCurrentHealth <= halfOfAllHealth)
                 {
                     if (CanAttack())
                     {
@@ -74,6 +73,14 @@ public class HeroCombat : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    void ChangeTarget()
+    {
+        if (heroTarget.currentTarget != null)
+        {
+            currentTargetGO = heroTarget.currentTarget.gameObject;
         }
     }
 
@@ -100,10 +107,16 @@ public class HeroCombat : MonoBehaviour
             damageable.DealDamage(currentTargetGO, attackDamage);
         }
 
-        if (currentTargetGO.tag == "NeutralCreep")
+        switch (currentTargetGO.tag)
         {
-            NeutralCreepAI thisAi = heroTarget.currentTarget.GetComponent<NeutralCreepAI>();
-            thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+            case "NeutralCreep":
+                NeutralCreepAI thisAi = currentTargetGO.GetComponent<NeutralCreepAI>();
+                thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+                break;
+            case "EnemyCreep":
+                LaneCreepAI laneAI = currentTargetGO.GetComponent<LaneCreepAI>();
+                laneAI.currentTarget = transform;
+                break;
         }
     }
 }

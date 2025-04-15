@@ -10,7 +10,7 @@ public class NeutralCreepSpawn : MonoBehaviour
     private Transform spawnPoint;
     private Vector3 boxSize = new Vector3(10, 5, 10);
     public LayerMask checkBoxesForThings;
-    public float spawnInterval = 60f; // should be at the turn of each minute
+    public float spawnInterval = 59f; // should be at the turn of each minute
     public int neutralCreepsPerWave = 4;
     private float timeSinceLastWave = 0;
     Collider[] thingsInArea;
@@ -27,9 +27,6 @@ public class NeutralCreepSpawn : MonoBehaviour
     {
         if (timer.gamePlaying == true && timer.timeElapsed >= 0)
         {
-            thingsInArea = Physics.OverlapBox(transform.position, boxSize / 2, Quaternion.identity, checkBoxesForThings);
-            campClear = CheckIfHasThingsInArea();
-
             timeSinceLastWave += Time.deltaTime;
             if (timeSinceLastWave >= spawnInterval)
             {
@@ -41,7 +38,10 @@ public class NeutralCreepSpawn : MonoBehaviour
 
     void SpawnCreeps()
     {
-        //campClear = CheckIfHasThingsInArea();
+        bool thingsInArea = Physics.CheckBox(transform.position, boxSize / 2, transform.rotation, checkBoxesForThings);
+        if (!thingsInArea) { campClear = true; }
+        else { campClear = false; }
+
         if (campClear == true)
         {
             for (int i = 0; i < neutralCreepsPerWave; ++i)
@@ -53,15 +53,5 @@ public class NeutralCreepSpawn : MonoBehaviour
                 poolScript.SpawnFromPool(poolTag, randomPos, spawnPoint.rotation);
             }
         }
-    }
-
-    bool CheckIfHasThingsInArea()
-    {
-        bool isClear;
-
-        if (thingsInArea.Length > 0) { isClear = false; }
-        else { isClear = true;  }
-
-        return isClear;
     }
 }

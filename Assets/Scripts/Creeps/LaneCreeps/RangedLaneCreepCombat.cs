@@ -65,7 +65,7 @@ public class RangedLaneCreepCombat : MonoBehaviour
     void Attack()
     {
         lastAttackTime = 0;
-        if (laneAI.currentTarget.tag == "hero") { state = currentState.attackingHero; }
+        if (laneAI.currentTarget.tag == "Player") { state = currentState.attackingHero; }
         else { state = currentState.attackingOther; }
 
         if (laneAI.currentTarget.gameObject.tag != "CornerMarker")

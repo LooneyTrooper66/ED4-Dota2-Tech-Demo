@@ -5,6 +5,7 @@ public class HeroStats : MonoBehaviour, IDamageable
 {
     public PlayerHeroStats playerStats;  // if adding multiple characters, pass this from the character selection screen so gets correct hero stats
     Movement heroMovement;
+    HeroCombat heroCombat;
     Timer timer;
     HealthUI healthUI;
     RespawnHero respawn;
@@ -40,6 +41,7 @@ public class HeroStats : MonoBehaviour, IDamageable
     [HideInInspector] public float currentHealth;
     [HideInInspector] public float targetHealth; // need to update this whenever level up or get item that increases health
     [HideInInspector] public Coroutine damageCoroutine;
+    public LayerMask layerMask;
 
 
     void Awake()
@@ -70,6 +72,7 @@ public class HeroStats : MonoBehaviour, IDamageable
     private void Start()
     {
         heroMovement = GetComponent<Movement>();
+        heroCombat = GetComponent<HeroCombat>();
         healthUI = GetComponent<HealthUI>();
         GameObject timerHolder = GameObject.Find("--Timer--");
         timer = timerHolder.GetComponent<Timer>();
@@ -138,10 +141,10 @@ public class HeroStats : MonoBehaviour, IDamageable
         if (timer.gamePlaying == true)
         {
             timeSinceLastGold += Time.deltaTime;
-        }
-        if (timeSinceLastGold >= addGoldIncrement)
-        {
-            reliableGold++;
+            if (timeSinceLastGold >= addGoldIncrement)
+            {
+                reliableGold++;
+            }
         }
         #endregion
 
@@ -156,9 +159,11 @@ public class HeroStats : MonoBehaviour, IDamageable
         // check if creep is dead
         if (targetStats != null && targetStats.targetHealth <= 0)
         {
+            unreliableGold += targetStats.goldWorth;
+            xp += targetStats.xpWorth; // not wirth checking dist coz no attacks have more than 15 range
             heroMovement.currentTarget = null;
+            FindNewClosestEnemyCreep();
             target.SetActive(false);
-            AwardXP(target, targetStats);
         }
         else if (targetStats.damageCoroutine == null)
         {
@@ -174,6 +179,7 @@ public class HeroStats : MonoBehaviour, IDamageable
         if (targetStats != null && targetStats.targetHealth <= 0)
         {
             heroMovement.currentTarget = null;
+            heroCombat.currentTargetGO = null;
             LoseResorcesOnDeath();
             targetHealth = health;
             currentHealth = health;
@@ -186,12 +192,26 @@ public class HeroStats : MonoBehaviour, IDamageable
         }
     }
 
-    public void AwardXP(GameObject target, Stats targetStats)
+    void FindNewClosestEnemyCreep()
     {
-        float dist = Vector3.Distance(target.transform.position, transform.position); // dont bother checking how many and spliting xp for now as only one hero should be in the game
-        if (dist <= 15) // this is based on 1500 / 100
+        float closestDist = Mathf.Infinity;
+        GameObject closestObject = null;
+        Vector3 currentPos = transform.position;
+        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, 6, layerMask); // any gameobjects within a 6 unit radius (600/100) on layer 8
+        foreach (Collider enemy in enemiesInRange)
         {
-            xp += targetStats.xpWorth;
+            float dist = Vector3.Distance(currentPos, enemy.transform.position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closestObject = enemy.gameObject;
+            }
+        }
+
+        if (closestObject != null)
+        {
+            heroMovement.currentTarget = closestObject.transform;
+            heroCombat.currentTargetGO = closestObject;
         }
     }
 

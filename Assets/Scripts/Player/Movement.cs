@@ -54,6 +54,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            combat.state = HeroCombat.currentState.travelling;
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {

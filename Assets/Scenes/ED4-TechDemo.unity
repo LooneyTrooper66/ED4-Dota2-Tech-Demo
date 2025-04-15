@@ -2230,7 +2230,7 @@ MonoBehaviour:
   poolTag: hardNeutral
   checkBoxesForThings:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 448
   spawnInterval: 60
   neutralCreepsPerWave: 3
 --- !u!1 &570849844
@@ -3531,7 +3531,7 @@ MonoBehaviour:
   poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 448
   spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1001 &759281187
@@ -3921,7 +3921,7 @@ MonoBehaviour:
   poolTag: hardNeutral
   checkBoxesForThings:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 448
   spawnInterval: 60
   neutralCreepsPerWave: 3
 --- !u!1001 &815515537
@@ -5654,7 +5654,7 @@ MonoBehaviour:
   poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 448
   spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1 &1013714315
@@ -7023,7 +7023,7 @@ MonoBehaviour:
   poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 448
   spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1001 &1285611846
@@ -10048,7 +10048,7 @@ MonoBehaviour:
   poolTag: easyNeutral
   checkBoxesForThings:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 448
   spawnInterval: 60
   neutralCreepsPerWave: 4
 --- !u!1 &1707060971
@@ -11795,6 +11795,9 @@ MonoBehaviour:
   xp: 0
   currentHealth: 0
   targetHealth: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1958115144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11983,6 +11986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heroTarget: {fileID: 0}
   state: 2
+  currentTargetGO: {fileID: 0}
 --- !u!114 &1958115154
 MonoBehaviour:
   m_ObjectHideFlags: 0
