@@ -14,7 +14,7 @@ public class NeutralCreepAI : MonoBehaviour
     private bool cannotBeAggroed;
     private float loseAggroTimer = 0;
     private float offset = 0.3f; // half the creeps radius (ish)
-    private Transform homeCamp; // set in code on spawn, needed for deaggro
+    private Vector3 homeCamp; // set in code on spawn, needed for deaggro
 
     List<GameObject> hostileUnits = new List<GameObject>();
 
@@ -29,22 +29,16 @@ public class NeutralCreepAI : MonoBehaviour
 
     private void OnEnable()
     {
-        homeCamp = transform;
+        homeCamp = transform.position;
     }
 
     private void Update()
     {
-        float dist = Vector3.Distance(transform.position, homeCamp.position);
+        float dist = Vector3.Distance(transform.position, homeCamp);
+
         if (dist <= 4)
         {
             loseAggroTimer = 0;
-            if (currentTarget != null && cannotBeAggroed == false)
-            {
-                Vector3 directionToTarget = currentTarget.position - transform.position;
-                Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
-
-                creepAgent.SetDestination(stoppingPos);
-            }
         }
         else
         {
@@ -52,15 +46,24 @@ public class NeutralCreepAI : MonoBehaviour
             if (loseAggroTimer > 5)
             {
                 // if timer more than 5 seconds return to camp and make so cant be aggroed for 3
-                Debug.Log("aaaaaaaaaaa");
                 cannotBeAggroed = true;
                 StartCoroutine(CantBeAggroedTimer());
             }
+        }
+
+        if (currentTarget != null && cannotBeAggroed == false)
+        {
+            Vector3 directionToTarget = currentTarget.position - transform.position;
+            Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
+
+            creepAgent.SetDestination(stoppingPos);
         }
     }
 
     IEnumerator CantBeAggroedTimer()
     {
+        creepAgent.SetDestination(homeCamp);
+        currentTarget = null;
         yield return new WaitForSecondsRealtime(3);
         cannotBeAggroed = false;
     }
@@ -89,10 +92,7 @@ public class NeutralCreepAI : MonoBehaviour
         NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
         foreach (var scr in temp)
         {
-            if (scr.hostile == true)
-            {
-                hostileUnits.Add(scr.gameObject);
-            }
+            hostileUnits.Add(scr.gameObject);
         }
 
         Transform closestEnemyCreep = GetClosestObjectInRadius(hostileUnits, attackRange);
