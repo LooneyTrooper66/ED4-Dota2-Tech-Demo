@@ -10,7 +10,6 @@ public class NeutralCreepAI : MonoBehaviour
     // also have hero combat script here at some point
     public float stoppingDist = 0.9f;
     private float attackRange = 5f;
-    private bool deAggroTimerRunning;
     private bool cannotBeAggroed;
     private float loseAggroTimer = 0;
     private float offset = 0.3f; // half the creeps radius (ish)

@@ -86,6 +86,7 @@ public class Movement : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
             {
+                //Debug.Log(hit.collider.gameObject.name);
                 CurrentAttackingState attackable = hit.collider.gameObject.GetComponent<CurrentAttackingState>();
                 if (attackable != null)
                 {
