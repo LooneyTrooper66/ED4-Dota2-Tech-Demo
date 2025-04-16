@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     public LayerMask layerMask;
     HeroCombat combat;
     HeroStats stats;
+    Timer timer;
 
 
     private void Start()
@@ -23,6 +24,8 @@ public class Movement : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         combat = GetComponent<HeroCombat>();
         stats = GetComponent<HeroStats>();
+        GameObject timerHolder = GameObject.Find("--Timer--");
+        timer = timerHolder.GetComponent<Timer>();
         stoppingDist += offset;
         attackRange = stats.attackRange - offset;
     }
@@ -30,6 +33,18 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         Move();
+
+        #region // setting speed depending on time of day
+        if (timer.currentTime == Timer.timeOfDay.day && agent.speed == 2.29f)
+        {
+            agent.speed = 2.07f;
+        }
+
+        if (timer.currentTime == Timer.timeOfDay.night && agent.speed == 2.07f)
+        {
+            agent.speed = 2.29f;
+        }
+        #endregion
     }
 
     void Move()
@@ -56,7 +71,7 @@ public class Movement : MonoBehaviour
         {
             combat.state = HeroCombat.currentState.travelling;
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, ~0, QueryTriggerInteraction.Ignore))
             {
                 if (hit.collider.tag == "Ground")
                 {

@@ -9,7 +9,6 @@ public class HeroStats : MonoBehaviour, IDamageable
     Timer timer;
     HealthUI healthUI;
     RespawnHero respawn;
-    float timeSinceLastGold = 0;
     float addGoldIncrement;
 
     [Header("Primary Stats")]
@@ -30,11 +29,11 @@ public class HeroStats : MonoBehaviour, IDamageable
     public float intelligence;
     public int visionDay;
     public int visionNight;
-    public int currentNetworth;
+    public float currentNetworth;
 
     [Header("Resorces")]
-    public int reliableGold;
-    public int unreliableGold;
+    public float reliableGold;
+    public float unreliableGold;
     public int xp;
 
     private float damageLerpDuration = 0.2f;
@@ -140,15 +139,26 @@ public class HeroStats : MonoBehaviour, IDamageable
         #region // increases reliable gold 
         if (timer.gamePlaying == true)
         {
-            timeSinceLastGold += Time.deltaTime;
-            if (timeSinceLastGold >= addGoldIncrement)
-            {
-                reliableGold++;
-            }
+            reliableGold += addGoldIncrement * Time.deltaTime;
         }
         #endregion
 
         currentNetworth = unreliableGold / 40;
+
+        #region // incrementing health and mana regen
+        if (currentHealth < health)
+        {
+            currentHealth += healthRegen * Time.deltaTime;
+        }
+
+        /*if (mana != 0)
+        {
+            if (currentMana < mana)
+            {
+                currentMana += manaRegen * Time.deltaTime;
+            }
+        }*/
+        #endregion
     }
 
     public void DealDamage(GameObject target, float damage)

@@ -24,7 +24,7 @@ public class PlayerHeroStats : ScriptableObject
     public int visionNight;
 
     [Header("Resorces")]
-    public int reliableGold;
-    public int unreliableGold;
+    public float reliableGold;
+    public float unreliableGold;
     public int xp;
 }

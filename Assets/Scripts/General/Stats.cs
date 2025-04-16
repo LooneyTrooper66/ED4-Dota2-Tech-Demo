@@ -57,6 +57,24 @@ public class Stats : MonoBehaviour
         healthUI.Start3DSlider(creepStats.health);
     }
 
+    private void Update()
+    {
+        #region // incrementing health and mana regen
+        if (currentHealth < health)
+        {
+            currentHealth += healthRegen * Time.deltaTime;
+        }
+
+        /*if (mana != 0)
+        {
+            if (currentMana < mana)
+            {
+                currentMana += manaRegen * Time.deltaTime;
+            }
+        }*/
+        #endregion
+    }
+
     public void StartLerpHealth()
     {
         if (damageCoroutine == null)

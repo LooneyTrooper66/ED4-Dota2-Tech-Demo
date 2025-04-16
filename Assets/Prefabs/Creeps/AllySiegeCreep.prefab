@@ -234,7 +234,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 1479372276
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 2.4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -383,6 +383,7 @@ MonoBehaviour:
   xpWorth: 88
   visionDay: 0
   visionNight: 0
+  currentHealth: 0
   targetHealth: 0
 --- !u!114 &4472057315545696263
 MonoBehaviour:
