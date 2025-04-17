@@ -43,6 +43,7 @@ public class LaneCreepAI : MonoBehaviour
 
     public void OnEnable()
     {
+        timeSinceLastTargetSwitch = aggroSwapInterval - 0.1f;
         OffsetAllValuesForRadius();
 
         foreach (GameObject c in cornerMarkersStore)
@@ -63,7 +64,7 @@ public class LaneCreepAI : MonoBehaviour
         if (currentTarget != null && currentTarget.gameObject.tag == "CornerMarker")
         {
             float dist = Vector3.Distance(currentTarget.position, transform.position);
-            if (dist < 3)
+            if (dist < 6)
             {
                 cornerMarkers = null;
                 FindAndSetTarget();
@@ -140,6 +141,17 @@ public class LaneCreepAI : MonoBehaviour
             if (siege.Length > 0)
             {
                 currentTarget = GetClosestObjectInRadius(siege, aggroRange);  // if none, set to closest siege creep
+                if (currentTarget == null)  // if no, set to structures (towers, etc..)
+                {
+                    if (cornerMarkers != null)
+                    {
+                        currentTarget = GetClosestObject(cornerMarkers); // if none and there are still corner markers
+                    }
+                    else
+                    {
+                        currentTarget = GetClosestObject(towers);
+                    }
+                }
             }
             else  // if no, set to structures (towers, etc..)
             {

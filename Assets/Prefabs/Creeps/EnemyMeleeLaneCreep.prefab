@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 7992264953086756753}
   - component: {fileID: 2788362516057164892}
   - component: {fileID: 4585874232209479443}
-  - component: {fileID: 61734771550918}
   - component: {fileID: 1628795603164087879}
   - component: {fileID: 5261984863001137600}
   - component: {fileID: 2398730552943407486}
@@ -288,33 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &61734771550918
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789948495200754454}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &1628795603164087879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +340,7 @@ MonoBehaviour:
   xpWorth: 57
   visionDay: 0
   visionNight: 0
+  currentHealth: 0
   targetHealth: 0
 --- !u!1 &4863242948207397649
 GameObject:

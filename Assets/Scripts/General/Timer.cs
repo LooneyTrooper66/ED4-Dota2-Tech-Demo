@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
         }
 
         // for debugging and testing
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gamePlaying == true)
         {
             if (Time.timeScale == 1)
             {

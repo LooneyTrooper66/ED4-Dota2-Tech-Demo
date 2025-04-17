@@ -15,7 +15,7 @@ public class CreepProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
+        if (target.activeSelf == true)
         {
             Vector3 dir = target.transform.position - transform.position;
             float distThisFrame = speed * Time.deltaTime;

@@ -12,12 +12,15 @@ public class NeutralMeleeCombat : MonoBehaviour
     public currentState state = currentState.travelling;
     private NeutralCreepAI neutralAI;
     private Stats stats;
+    HeroStats heroStats;
 
 
-    private void Start()
+    private void Awake()
     {
         stats = GetComponent<Stats>();
         neutralAI = GetComponent<NeutralCreepAI>();
+        GameObject player = GameObject.Find("Player");
+        heroStats = player.GetComponent<HeroStats>();
 
         state = currentState.travelling;
         attackRange = stats.attackRange + offset;
@@ -64,8 +67,9 @@ public class NeutralMeleeCombat : MonoBehaviour
         {
             if (neutralAI.currentTarget.tag == "Player")
             {
-                HeroStats stats = neutralAI.currentTarget.GetComponent<HeroStats>();
-                stats.DamageHero(neutralAI.currentTarget.gameObject, attackDamage);
+                heroStats.DamageHero(neutralAI.currentTarget.gameObject, attackDamage);
+                neutralAI.currentTarget = null;
+                neutralAI.FindAndSetCreepTarget();
                 return;
             }
 

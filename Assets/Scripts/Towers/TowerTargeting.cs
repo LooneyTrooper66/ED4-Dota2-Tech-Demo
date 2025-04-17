@@ -58,7 +58,7 @@ public class TowerTargeting : MonoBehaviour
         }
     }
 
-    void FindAndSetTarget()
+    public void FindAndSetTarget()
     {
         float dist = Vector3.Distance(transform.position, playerGO.transform.position);
         if (dist <= attackRange && thisTowersAlignment == "dire")

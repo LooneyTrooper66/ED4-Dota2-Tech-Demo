@@ -75,7 +75,8 @@ public class LaneCreepCombat : MonoBehaviour
             if (laneAI.currentTarget.tag == "NeutralCreep")
             {
                 NeutralCreepAI thisAi = laneAI.currentTarget.GetComponent<NeutralCreepAI>();
-                thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+                thisAi.loseAggroTimer = 0;
+                thisAi.FindAndSetCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
             }
 
             IDamageable damageable = GetComponent<IDamageable>();

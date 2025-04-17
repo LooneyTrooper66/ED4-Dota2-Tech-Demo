@@ -9,11 +9,12 @@ public class NeutralCreepAI : MonoBehaviour
     public Transform currentTarget = null;
     // also have hero combat script here at some point
     public float stoppingDist = 0.9f;
-    private float attackRange = 5f;
+    private float attackRange = 3f;
     private bool cannotBeAggroed;
-    private float loseAggroTimer = 0;
+    [HideInInspector] public float loseAggroTimer = 0;
     private float offset = 0.3f; // half the creeps radius (ish)
     private Vector3 homeCamp; // set in code on spawn, needed for deaggro
+    private float distFromTarget;
 
     List<GameObject> hostileUnits = new List<GameObject>();
 
@@ -23,7 +24,6 @@ public class NeutralCreepAI : MonoBehaviour
         creepAgent = GetComponent<NavMeshAgent>();
 
         stoppingDist += offset;
-        attackRange += offset;
     }
 
     private void OnEnable()
@@ -52,10 +52,19 @@ public class NeutralCreepAI : MonoBehaviour
 
         if (currentTarget != null && cannotBeAggroed == false)
         {
-            Vector3 directionToTarget = currentTarget.position - transform.position;
-            Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
+            distFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
 
-            creepAgent.SetDestination(stoppingPos);
+            if (distFromTarget > attackRange)
+            {
+                Vector3 directionToTarget = currentTarget.position - transform.position;
+                Vector3 stoppingPos = currentTarget.position - directionToTarget.normalized * stoppingDist;
+
+                creepAgent.SetDestination(stoppingPos);
+            }
+            else
+            {
+                creepAgent.SetDestination(transform.position);
+            }
         }
     }
 
@@ -68,6 +77,7 @@ public class NeutralCreepAI : MonoBehaviour
     }
 
     // for if a unit comes within 240 (2.4) units of them (called in RadialAggroCheck script)
+    // for when another unit attacks (call in attacking units combat script)
     public void FindAndSetCreepTarget()
     {
         NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
@@ -81,24 +91,12 @@ public class NeutralCreepAI : MonoBehaviour
         if (closestEnemyCreep != null)
         {
             currentTarget = closestEnemyCreep;
-        }
-    }
-
-    // for if a unit casts a damage spell or auto attack on them from within 1800 (18) range   
-    // access this from the script of the attacking unit
-    public void FindAndSetHostileCreepTarget()
-    {
-        NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
-        foreach (var scr in temp)
-        {
-            hostileUnits.Add(scr.gameObject);
+            return;
         }
 
-        Transform closestEnemyCreep = GetClosestObjectInRadius(hostileUnits, attackRange);
-        hostileUnits.Clear();
-        if (closestEnemyCreep != null)
+        if (currentTarget == null)
         {
-            currentTarget = closestEnemyCreep;
+            creepAgent.SetDestination(homeCamp);
         }
     }
 

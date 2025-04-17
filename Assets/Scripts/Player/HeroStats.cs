@@ -170,8 +170,9 @@ public class HeroStats : MonoBehaviour, IDamageable
         if (targetStats != null && targetStats.targetHealth <= 0)
         {
             unreliableGold += targetStats.goldWorth;
-            xp += targetStats.xpWorth; // not wirth checking dist coz no attacks have more than 15 range
+            xp += targetStats.xpWorth; // not wirth checking dist coz no pudge attacks have more than 15 range
             heroMovement.currentTarget = null;
+            heroCombat.currentTargetGO = null;
             FindNewClosestEnemyCreep();
             target.SetActive(false);
         }
@@ -194,7 +195,7 @@ public class HeroStats : MonoBehaviour, IDamageable
             targetHealth = health;
             currentHealth = health;
             UpdateHealthUI();
-            respawn.RespawnPlayer();
+            respawn.RespawnPlayer(level);
         }
         else if (targetStats.damageCoroutine == null)
         {
@@ -204,10 +205,20 @@ public class HeroStats : MonoBehaviour, IDamageable
 
     void FindNewClosestEnemyCreep()
     {
+        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, 6, layerMask); // any gameobjects within a 6 unit radius (600/100) on layer 8
+
+        if (enemiesInRange.Length <= 0)
+        {
+            heroMovement.currentTarget = null;
+            heroCombat.currentTargetGO = null;
+            heroMovement.agent.SetDestination(transform.position);
+            return;
+        }
+
         float closestDist = Mathf.Infinity;
         GameObject closestObject = null;
         Vector3 currentPos = transform.position;
-        Collider[] enemiesInRange = Physics.OverlapSphere(transform.position, 6, layerMask); // any gameobjects within a 6 unit radius (600/100) on layer 8
+
         foreach (Collider enemy in enemiesInRange)
         {
             float dist = Vector3.Distance(currentPos, enemy.transform.position);

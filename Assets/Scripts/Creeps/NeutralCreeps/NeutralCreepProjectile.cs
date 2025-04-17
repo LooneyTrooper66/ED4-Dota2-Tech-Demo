@@ -15,13 +15,13 @@ public class NeutralCreepProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
+        if (target.activeSelf == true)
         {
             Vector3 dir = target.transform.position - transform.position;
             float distThisFrame = speed * Time.deltaTime;
             transform.Translate(dir.normalized * distThisFrame, Space.World);
 
-            if (dir.magnitude > distThisFrame)
+            if (dir.magnitude <= distThisFrame)
             {
                 DamageTarget();
                 gameObject.SetActive(false);
@@ -35,20 +35,17 @@ public class NeutralCreepProjectile : MonoBehaviour
 
     void DamageTarget()
     {
-        if (target.tag != "CornerMarker")
+        if (target.tag == "Player")
         {
-            if (target.tag == "Player")
-            {
-                HeroStats stats = target.GetComponent<HeroStats>();
-                stats.DamageHero(target, damage);
-                return;
-            }
+            HeroStats stats = target.GetComponent<HeroStats>();
+            stats.DamageHero(target, damage);
+            return;
+        }
 
-            IDamageable targetStats = target.GetComponent<IDamageable>();
-            if (targetStats != null)
-            {
-                targetStats.DealDamage(target, damage);
-            }
+        IDamageable targetStats = target.GetComponent<IDamageable>();
+        if (targetStats != null)
+        {
+            targetStats.DealDamage(target, damage);
         }
     }
 }

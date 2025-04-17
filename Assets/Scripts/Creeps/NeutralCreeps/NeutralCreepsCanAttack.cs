@@ -2,21 +2,45 @@ using UnityEngine;
 
 public class NeutralCreepsCanAttack : MonoBehaviour
 {
-    private LaneCreepCombat creepCombat;
+    private LaneCreepCombat laneMelee;
+    private RangedLaneCreepCombat laneRanged;
+    private SiegeCombat siegeCombat;
+    private NeutralMeleeCombat neutralMelee;
+    private NeutralRangedCombat neutralRanged;
     private HeroCombat heroCombat;
     public bool hostile = false;
 
 
     private void Start()
     {
-        if (TryGetComponent<LaneCreepCombat>(out LaneCreepCombat laneAI))
+        if (TryGetComponent<LaneCreepCombat>(out LaneCreepCombat laneCom))
         {
-            creepCombat = laneAI.GetComponent<LaneCreepCombat>();
+            laneMelee = laneCom.GetComponent<LaneCreepCombat>();
         }
 
-        if (TryGetComponent<HeroCombat>(out HeroCombat heroAI))
+        if (TryGetComponent<RangedLaneCreepCombat>(out RangedLaneCreepCombat laneRCom))
         {
-            heroCombat = heroAI.GetComponent<HeroCombat>();
+            laneRanged = laneRCom.GetComponent<RangedLaneCreepCombat>();
+        }
+
+        if (TryGetComponent<SiegeCombat>(out SiegeCombat laneSCom))
+        {
+            siegeCombat = laneSCom.GetComponent<SiegeCombat>();
+        }
+
+        if (TryGetComponent<NeutralMeleeCombat>(out NeutralMeleeCombat neutralCom))
+        {
+            neutralMelee = neutralCom.GetComponent<NeutralMeleeCombat>();
+        }
+
+        if (TryGetComponent<NeutralRangedCombat>(out NeutralRangedCombat neutralRCom))
+        {
+            neutralRanged = neutralRCom.GetComponent<NeutralRangedCombat>();
+        }
+
+        if (TryGetComponent<HeroCombat>(out HeroCombat heroCom))
+        {
+            heroCombat = heroCom.GetComponent<HeroCombat>();
         }
     }
 
@@ -35,9 +59,57 @@ public class NeutralCreepsCanAttack : MonoBehaviour
             }
         }
 
-        if (creepCombat != null)
+        if (laneMelee != null)
         {
-            if (creepCombat.state == LaneCreepCombat.currentState.attackingOther)
+            if (laneMelee.state == LaneCreepCombat.currentState.attackingOther)
+            {
+                hostile = true;
+            }
+            else
+            {
+                hostile = false;
+            }
+        }
+
+        if (laneRanged != null)
+        {
+            if (laneRanged.state == RangedLaneCreepCombat.currentState.attackingOther)
+            {
+                hostile = true;
+            }
+            else
+            {
+                hostile = false;
+            }
+        }
+
+        if (siegeCombat != null)
+        {
+            if (siegeCombat.state == SiegeCombat.currentState.attackingOther)
+            {
+                hostile = true;
+            }
+            else
+            {
+                hostile = false;
+            }
+        }
+
+        if (neutralMelee != null)
+        {
+            if (neutralMelee.state == NeutralMeleeCombat.currentState.attackingOther)
+            {
+                hostile = true;
+            }
+            else
+            {
+                hostile = false;
+            }
+        }
+        
+        if (neutralRanged != null)
+        {
+            if (neutralRanged.state == NeutralRangedCombat.currentState.attackingOther)
             {
                 hostile = true;
             }

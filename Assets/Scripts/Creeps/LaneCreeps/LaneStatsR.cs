@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class LaneStatsR : MonoBehaviour, IDamageable, IPooledObject
+public class LaneStatsR : MonoBehaviour, IDamageable
 {
     SiegeCreepTargetingAI laneAI;
     Stats stats;
 
 
-    public void OnObjectSpawn()
+    void Start()
     {
         laneAI = GetComponent<SiegeCreepTargetingAI>();
         stats = GetComponent<Stats>();

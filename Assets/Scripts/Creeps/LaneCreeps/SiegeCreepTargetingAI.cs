@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SiegeCreepTargetingAI : MonoBehaviour, IPooledObject
+public class SiegeCreepTargetingAI : MonoBehaviour
 {
     private NavMeshAgent creepAgent;
     public Transform currentTarget;
@@ -19,10 +19,11 @@ public class SiegeCreepTargetingAI : MonoBehaviour, IPooledObject
     private float distFromTarget;
 
     List<GameObject> cornerMarkers = new List<GameObject>();
+    List<GameObject> cornerMarkersStore = new List<GameObject>();
     List<GameObject> towers = new List<GameObject>();
 
 
-    public void OnObjectSpawn()
+    void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
 
@@ -30,14 +31,26 @@ public class SiegeCreepTargetingAI : MonoBehaviour, IPooledObject
         foreach (GameObject c in cornerMarkersA)
         {
             cornerMarkers.Add(c);
+            cornerMarkersStore.Add(c);
         }
         GameObject[] towersA = GameObject.FindGameObjectsWithTag(enemyTowerTag);
         foreach (GameObject t in towersA)
         {
             towers.Add(t);
         }
+    }
+
+    public void OnEnable()
+    {
+        timeSinceLastTargetSwitch = aggroSwapInterval - 0.1f;
+
+        foreach (GameObject c in cornerMarkersStore)
+        {
+            cornerMarkers.Add(c);
+        }
 
         FindAndSetTarget();
+        SetDestinationOfCreep();
     }
 
     private void Update()
@@ -49,9 +62,11 @@ public class SiegeCreepTargetingAI : MonoBehaviour, IPooledObject
         if (currentTarget != null && currentTarget.gameObject.tag == "CornerMarker")
         {
             float dist = Vector3.Distance(currentTarget.position, transform.position);
-            if (dist < 3)
+            if (dist < 7)
             {
                 cornerMarkers = null;
+                FindAndSetTarget();
+                SetDestinationOfCreep();
             }
         }
     }
@@ -120,7 +135,6 @@ public class SiegeCreepTargetingAI : MonoBehaviour, IPooledObject
             closestEnemy = GetClosestObjectInRadius(siegeInRange, aggroRange); // closest siege creep
         }
 
-
         if (closestEnemy != null)
         {
             currentTarget = closestEnemy; 
@@ -131,8 +145,19 @@ public class SiegeCreepTargetingAI : MonoBehaviour, IPooledObject
             if (creeps.Length > 0)
             {
                 currentTarget = GetClosestObjectInRadius(creeps, aggroRange);  // if none, set to closest creep
+                if (currentTarget == null)  // if no, set to structures (towers, etc..)
+                {
+                    if (cornerMarkers != null)
+                    {
+                        currentTarget = GetClosestObject(cornerMarkers); // if none and there are still corner markers
+                    }
+                    else
+                    {
+                        currentTarget = GetClosestObject(towers);
+                    }
+                }
             }
-            else  // if no, set to structures (towers, etc..)
+            else
             {
                 if (cornerMarkers != null)
                 {

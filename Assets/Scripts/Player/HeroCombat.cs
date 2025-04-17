@@ -101,22 +101,23 @@ public class HeroCombat : MonoBehaviour
         lastAttackTime = 0;
         state = currentState.attackingOther; // cant be attacking hero so ye
 
-        IDamageable damageable = GetComponent<IDamageable>();
-        if (damageable != null)
-        {
-            damageable.DealDamage(currentTargetGO, attackDamage);
-        }
-
         switch (currentTargetGO.tag)
         {
             case "NeutralCreep":
                 NeutralCreepAI thisAi = currentTargetGO.GetComponent<NeutralCreepAI>();
-                thisAi.FindAndSetHostileCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
+                thisAi.loseAggroTimer = 0;
+                thisAi.FindAndSetCreepTarget(); // dont need to check if its within the 18 unit radius coz the creeps dont have that much attack range
                 break;
             case "EnemyCreep":
                 LaneCreepAI laneAI = currentTargetGO.GetComponent<LaneCreepAI>();
                 laneAI.currentTarget = transform;
                 break;
+        }
+
+        IDamageable damageable = GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.DealDamage(currentTargetGO, attackDamage);
         }
     }
 }

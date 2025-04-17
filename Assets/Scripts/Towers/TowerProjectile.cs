@@ -4,7 +4,7 @@ public class TowerProjectile : MonoBehaviour
 {
     private GameObject target;
     private float damage;
-    private float speed = 10;
+    private float speed = 4;
 
 
     public void SetTarget(GameObject newTarget, float attackDamage)
@@ -15,7 +15,7 @@ public class TowerProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
+        if (target.activeSelf == true)
         {
             Vector3 dir = target.transform.position - transform.position;
             float distThisFrame = speed * Time.deltaTime;

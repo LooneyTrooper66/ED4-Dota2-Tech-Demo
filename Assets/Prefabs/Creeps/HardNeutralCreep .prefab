@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5924882503399682348}
   - component: {fileID: 7779332298768711539}
   - component: {fileID: 5019257847687060759}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: aggro check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

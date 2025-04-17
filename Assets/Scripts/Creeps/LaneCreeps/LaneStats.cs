@@ -6,7 +6,7 @@ public class LaneStats : MonoBehaviour, IDamageable
     Stats stats;
 
 
-    public void Start()
+    void Start()
     {
         laneAI = GetComponent<LaneCreepAI>();
         stats = GetComponent<Stats>();

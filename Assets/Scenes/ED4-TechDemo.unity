@@ -13286,6 +13286,8 @@ GameObject:
   - component: {fileID: 7708447419875563104}
   - component: {fileID: 7708447419875563103}
   - component: {fileID: 7708447419875563105}
+  - component: {fileID: 7708447419875563106}
+  - component: {fileID: 7708447419875563107}
   m_Layer: 7
   m_Name: radient tier 3
   m_TagString: AllyTower
@@ -13309,6 +13311,8 @@ GameObject:
   - component: {fileID: 5593726831171782985}
   - component: {fileID: 5593726831171782984}
   - component: {fileID: 5593726831171782986}
+  - component: {fileID: 5593726831171782987}
+  - component: {fileID: 5593726831171782988}
   m_Layer: 7
   m_Name: radient tier 1
   m_TagString: AllyTower
@@ -13432,6 +13436,8 @@ GameObject:
   - component: {fileID: 3303121175425087829}
   - component: {fileID: 3303121175425087828}
   - component: {fileID: 3303121175425087830}
+  - component: {fileID: 3303121175425087831}
+  - component: {fileID: 3303121175425087832}
   m_Layer: 8
   m_Name: dire tier 1
   m_TagString: EnemyTower
@@ -13457,7 +13463,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 90
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 120
@@ -13528,6 +13534,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &3303121175425087831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303121175425087825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &3303121175425087832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303121175425087825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3352797750714602752
 Transform:
   m_ObjectHideFlags: 0
@@ -13750,6 +13789,8 @@ GameObject:
   - component: {fileID: 4616020169631877173}
   - component: {fileID: 4616020169631877172}
   - component: {fileID: 4616020169631877174}
+  - component: {fileID: 4616020169631877175}
+  - component: {fileID: 4616020169631877176}
   m_Layer: 8
   m_Name: dire tier 2
   m_TagString: EnemyTower
@@ -13793,6 +13834,8 @@ GameObject:
   - component: {fileID: 6428097885824612522}
   - component: {fileID: 6428097885824612521}
   - component: {fileID: 6428097885824612523}
+  - component: {fileID: 6428097885824612524}
+  - component: {fileID: 6428097885824612525}
   m_Layer: 8
   m_Name: dire tier 3
   m_TagString: EnemyTower
@@ -13826,7 +13869,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 172
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 160
@@ -13897,6 +13940,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &4616020169631877175
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470873569546330473}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &4616020169631877176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470873569546330473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &4777370309913398844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13958,6 +14034,8 @@ GameObject:
   - component: {fileID: 5996388653751705454}
   - component: {fileID: 5996388653751705453}
   - component: {fileID: 5996388653751705455}
+  - component: {fileID: 5996388653751705456}
+  - component: {fileID: 5996388653751705457}
   m_Layer: 8
   m_Name: dire tier 2
   m_TagString: EnemyTower
@@ -13981,6 +14059,8 @@ GameObject:
   - component: {fileID: 6450749670178088443}
   - component: {fileID: 6450749670178088442}
   - component: {fileID: 6450749670178088444}
+  - component: {fileID: 6450749670178088445}
+  - component: {fileID: 6450749670178088446}
   m_Layer: 8
   m_Name: dire tier 3
   m_TagString: EnemyTower
@@ -14173,7 +14253,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 90
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 120
@@ -14244,6 +14324,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &5593726831171782987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175224259322451583}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &5593726831171782988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175224259322451583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &5655472690363348649
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14268,6 +14381,8 @@ GameObject:
   - component: {fileID: 6844544450760521932}
   - component: {fileID: 6844544450760521931}
   - component: {fileID: 6844544450760521933}
+  - component: {fileID: 6844544450760521934}
+  - component: {fileID: 6844544450760521935}
   m_Layer: 8
   m_Name: dire tier 1
   m_TagString: EnemyTower
@@ -14383,7 +14498,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 172
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 160
@@ -14454,6 +14569,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &5996388653751705456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784850591136188881}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &5996388653751705457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784850591136188881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6041425520873710404
 GameObject:
   m_ObjectHideFlags: 0
@@ -14599,7 +14747,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 174
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 180
@@ -14670,6 +14818,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &6428097885824612524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604118394042812145}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &6428097885824612525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604118394042812145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &6450749670178088439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14733,7 +14914,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 174
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 180
@@ -14804,6 +14985,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &6450749670178088445
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909375816096593657}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &6450749670178088446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909375816096593657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6479439537355326373
 GameObject:
   m_ObjectHideFlags: 0
@@ -14908,7 +15122,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 90
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 120
@@ -14979,6 +15193,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &6844544450760521934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730600303840456124}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &6844544450760521935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730600303840456124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6980469029706042109
 Transform:
   m_ObjectHideFlags: 0
@@ -15187,6 +15434,8 @@ GameObject:
   - component: {fileID: 7389193390420546181}
   - component: {fileID: 7389193390420546180}
   - component: {fileID: 7389193390420546182}
+  - component: {fileID: 7389193390420546183}
+  - component: {fileID: 7389193390420546184}
   m_Layer: 7
   m_Name: radient tier 3
   m_TagString: AllyTower
@@ -15212,7 +15461,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 174
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 180
@@ -15283,6 +15532,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &7389193390420546183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389193390420546177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &7389193390420546184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389193390420546177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7457645613639645717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15449,7 +15731,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 174
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 180
@@ -15520,6 +15802,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &7708447419875563106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157968270797765471}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &7708447419875563107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157968270797765471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7714841957850186110
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15632,6 +15947,8 @@ GameObject:
   - component: {fileID: 8422797137779166575}
   - component: {fileID: 8422797137779166574}
   - component: {fileID: 8422797137779166576}
+  - component: {fileID: 8422797137779166577}
+  - component: {fileID: 8422797137779166578}
   m_Layer: 7
   m_Name: radient tier 2
   m_TagString: AllyTower
@@ -15655,6 +15972,8 @@ GameObject:
   - component: {fileID: 7892969618405342762}
   - component: {fileID: 7892969618405342761}
   - component: {fileID: 7892969618405342763}
+  - component: {fileID: 7892969618405342764}
+  - component: {fileID: 7892969618405342765}
   m_Layer: 7
   m_Name: radient tier 2
   m_TagString: AllyTower
@@ -15680,7 +15999,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 172
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 160
@@ -15751,6 +16070,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &7892969618405342764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892969618405342758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &7892969618405342765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892969618405342758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7917875106370334800
 Transform:
   m_ObjectHideFlags: 0
@@ -15957,7 +16309,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 172
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 160
@@ -16028,6 +16380,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &8422797137779166577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863489857711483369}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &8422797137779166578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863489857711483369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8476297497798636941
 GameObject:
   m_ObjectHideFlags: 0
@@ -16044,6 +16429,8 @@ GameObject:
   - component: {fileID: 8476297497798636945}
   - component: {fileID: 8476297497798636944}
   - component: {fileID: 8476297497798636946}
+  - component: {fileID: 8476297497798636947}
+  - component: {fileID: 8476297497798636948}
   m_Layer: 7
   m_Name: radient tier 1
   m_TagString: AllyTower
@@ -16069,7 +16456,7 @@ MonoBehaviour:
   mana: 0
   manaRegen: 0
   damage: 90
-  secondsBetweenAttacks: 0.9
+  secondsBetweenAttacks: 1.1
   attackRange: 7
   acquisitionRange: 7
   goldWorth: 120
@@ -16140,6 +16527,39 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!65 &8476297497798636947
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476297497798636941}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01903429}
+  m_Center: {x: -0.000000019092113, y: 0.00000003811494, z: -0.0011623752}
+--- !u!114 &8476297497798636948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476297497798636941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8506311156721210127
 GameObject:
   m_ObjectHideFlags: 0

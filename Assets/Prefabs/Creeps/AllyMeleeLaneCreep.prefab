@@ -271,7 +271,6 @@ GameObject:
   - component: {fileID: 8988005269464497421}
   - component: {fileID: 35041726620450166}
   - component: {fileID: 5026872141872803582}
-  - component: {fileID: 5573222017657747955}
   - component: {fileID: 3573768204718119044}
   - component: {fileID: 6553969398636354997}
   m_Layer: 7
@@ -481,33 +480,6 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
---- !u!54 &5573222017657747955
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3702739710636024729}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &3573768204718119044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +517,7 @@ MonoBehaviour:
   xpWorth: 57
   visionDay: 0
   visionNight: 0
+  currentHealth: 0
   targetHealth: 0
 --- !u!1 &8252041376636419045
 GameObject:
