@@ -65,12 +65,21 @@ public class NeutralMeleeCombat : MonoBehaviour
 
         if (neutralAI.currentTarget.gameObject.tag != "CornerMarker")
         {
-            if (neutralAI.currentTarget.tag == "Player")
+            switch (neutralAI.currentTarget.tag) // if attacking lane creep set its target to you
             {
-                heroStats.DamageHero(neutralAI.currentTarget.gameObject, attackDamage);
-                neutralAI.currentTarget = null;
-                neutralAI.FindAndSetCreepTarget();
-                return;
+                case "Player":
+                    heroStats.DamageHero(neutralAI.currentTarget.gameObject, attackDamage);
+                    neutralAI.currentTarget = null;
+                    neutralAI.FindAndSetCreepTarget();
+                    break;
+                case "AllyCreep":
+                    LaneCreepAI laneAI = neutralAI.currentTarget.GetComponent<LaneCreepAI>();
+                    laneAI.currentTarget = transform;
+                    break;
+                case "EnemyCreep":
+                    LaneCreepAI laneAi = neutralAI.currentTarget.GetComponent<LaneCreepAI>();
+                    laneAi.currentTarget = transform;
+                    break;
             }
 
             IDamageable damageable = GetComponent<IDamageable>();

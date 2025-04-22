@@ -71,6 +71,21 @@ public class NeutralRangedCombat : MonoBehaviour
         NeutralCreepProjectile projectileScript = projectile.GetComponent<NeutralCreepProjectile>();
         projectileScript.SetTarget(neutralAI.currentTarget.gameObject, attackDamage);
 
-        neutralAI.FindAndSetCreepTarget();
+        if (neutralAI.currentTarget.tag == "AllyCreep" || neutralAI.currentTarget.tag == "EnemyCreep")
+        {
+            LaneCreepAI laneAI = neutralAI.currentTarget.GetComponent<LaneCreepAI>();
+            laneAI.currentTarget = transform;
+        }
+
+        Invoke("Check", 1);
+    }
+
+    void Check()
+    {
+        if (neutralAI.currentTarget != null && neutralAI.currentTarget.gameObject.activeSelf == false)
+        {
+            neutralAI.currentTarget = null;
+            neutralAI.FindAndSetCreepTarget();
+        }
     }
 }

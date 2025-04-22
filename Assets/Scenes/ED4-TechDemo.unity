@@ -12624,6 +12624,7 @@ GameObject:
   - component: {fileID: 8047775245301244469}
   - component: {fileID: 5362469947520439682}
   - component: {fileID: 8047775245301244470}
+  - component: {fileID: 8047775245301244471}
   m_Layer: 7
   m_Name: radient ancient
   m_TagString: AllyTower
@@ -13288,6 +13289,7 @@ GameObject:
   - component: {fileID: 7708447419875563105}
   - component: {fileID: 7708447419875563106}
   - component: {fileID: 7708447419875563107}
+  - component: {fileID: 7708447419875563108}
   m_Layer: 7
   m_Name: radient tier 3
   m_TagString: AllyTower
@@ -13313,6 +13315,7 @@ GameObject:
   - component: {fileID: 5593726831171782986}
   - component: {fileID: 5593726831171782987}
   - component: {fileID: 5593726831171782988}
+  - component: {fileID: 5593726831171782989}
   m_Layer: 7
   m_Name: radient tier 1
   m_TagString: AllyTower
@@ -13438,6 +13441,7 @@ GameObject:
   - component: {fileID: 3303121175425087830}
   - component: {fileID: 3303121175425087831}
   - component: {fileID: 3303121175425087832}
+  - component: {fileID: 3303121175425087833}
   m_Layer: 8
   m_Name: dire tier 1
   m_TagString: EnemyTower
@@ -13565,6 +13569,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3303121175425087833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303121175425087825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &3352797750714602752
@@ -13791,6 +13807,7 @@ GameObject:
   - component: {fileID: 4616020169631877174}
   - component: {fileID: 4616020169631877175}
   - component: {fileID: 4616020169631877176}
+  - component: {fileID: 4616020169631877177}
   m_Layer: 8
   m_Name: dire tier 2
   m_TagString: EnemyTower
@@ -13811,6 +13828,7 @@ GameObject:
   - component: {fileID: 8922163215911397176}
   - component: {fileID: 8922163215911397177}
   - component: {fileID: 8922163215911397178}
+  - component: {fileID: 8922163215911397179}
   m_Layer: 8
   m_Name: direbarracks
   m_TagString: EnemyTower
@@ -13836,6 +13854,7 @@ GameObject:
   - component: {fileID: 6428097885824612523}
   - component: {fileID: 6428097885824612524}
   - component: {fileID: 6428097885824612525}
+  - component: {fileID: 6428097885824612526}
   m_Layer: 8
   m_Name: dire tier 3
   m_TagString: EnemyTower
@@ -13973,6 +13992,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4616020169631877177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470873569546330473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &4777370309913398844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14036,6 +14067,7 @@ GameObject:
   - component: {fileID: 5996388653751705455}
   - component: {fileID: 5996388653751705456}
   - component: {fileID: 5996388653751705457}
+  - component: {fileID: 5996388653751705458}
   m_Layer: 8
   m_Name: dire tier 2
   m_TagString: EnemyTower
@@ -14061,6 +14093,7 @@ GameObject:
   - component: {fileID: 6450749670178088444}
   - component: {fileID: 6450749670178088445}
   - component: {fileID: 6450749670178088446}
+  - component: {fileID: 6450749670178088447}
   m_Layer: 8
   m_Name: dire tier 3
   m_TagString: EnemyTower
@@ -14357,6 +14390,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5593726831171782989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175224259322451583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &5655472690363348649
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14383,6 +14428,7 @@ GameObject:
   - component: {fileID: 6844544450760521933}
   - component: {fileID: 6844544450760521934}
   - component: {fileID: 6844544450760521935}
+  - component: {fileID: 6844544450760521936}
   m_Layer: 8
   m_Name: dire tier 1
   m_TagString: EnemyTower
@@ -14456,6 +14502,7 @@ GameObject:
   - component: {fileID: 9020378015547198778}
   - component: {fileID: 8009102038638443351}
   - component: {fileID: 9020378015547198779}
+  - component: {fileID: 9020378015547198780}
   m_Layer: 7
   m_Name: radient fountain
   m_TagString: Untagged
@@ -14600,6 +14647,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5996388653751705458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784850591136188881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6041425520873710404
@@ -14851,6 +14910,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6428097885824612526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604118394042812145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &6450749670178088439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15016,6 +15087,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6450749670178088447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909375816096593657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6479439537355326373
@@ -15226,6 +15309,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6844544450760521936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730600303840456124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6980469029706042109
 Transform:
   m_ObjectHideFlags: 0
@@ -15350,6 +15445,7 @@ GameObject:
   - component: {fileID: 6647595429404183984}
   - component: {fileID: 1568668405906131131}
   - component: {fileID: 7328933541498439000}
+  - component: {fileID: 7328933541498439001}
   m_Layer: 8
   m_Name: dire fountain
   m_TagString: Untagged
@@ -15373,6 +15469,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &7328933541498439001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7328933541498438999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7364640756244762648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15436,6 +15544,7 @@ GameObject:
   - component: {fileID: 7389193390420546182}
   - component: {fileID: 7389193390420546183}
   - component: {fileID: 7389193390420546184}
+  - component: {fileID: 7389193390420546185}
   m_Layer: 7
   m_Name: radient tier 3
   m_TagString: AllyTower
@@ -15565,6 +15674,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7389193390420546185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7389193390420546177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7457645613639645717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15623,6 +15744,7 @@ GameObject:
   - component: {fileID: 4777370309913398844}
   - component: {fileID: 7685204120156058080}
   - component: {fileID: 7685204120156058081}
+  - component: {fileID: 7685204120156058082}
   m_Layer: 8
   m_Name: direbarracks
   m_TagString: EnemyTower
@@ -15668,6 +15790,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &7685204120156058082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685204120156058079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &7708447419875563100
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15835,6 +15969,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7708447419875563108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2157968270797765471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7714841957850186110
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15856,6 +16002,7 @@ GameObject:
   - component: {fileID: 782492530332821241}
   - component: {fileID: 7752065131912044963}
   - component: {fileID: 7752065131912044964}
+  - component: {fileID: 7752065131912044965}
   m_Layer: 7
   m_Name: radientbarracks
   m_TagString: AllyTower
@@ -15901,6 +16048,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &7752065131912044965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752065131912044962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7782503730012048149
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15949,6 +16108,7 @@ GameObject:
   - component: {fileID: 8422797137779166576}
   - component: {fileID: 8422797137779166577}
   - component: {fileID: 8422797137779166578}
+  - component: {fileID: 8422797137779166579}
   m_Layer: 7
   m_Name: radient tier 2
   m_TagString: AllyTower
@@ -15974,6 +16134,7 @@ GameObject:
   - component: {fileID: 7892969618405342763}
   - component: {fileID: 7892969618405342764}
   - component: {fileID: 7892969618405342765}
+  - component: {fileID: 7892969618405342766}
   m_Layer: 7
   m_Name: radient tier 2
   m_TagString: AllyTower
@@ -16103,6 +16264,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7892969618405342766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892969618405342758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7917875106370334800
 Transform:
   m_ObjectHideFlags: 0
@@ -16229,6 +16402,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &8047775245301244471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51163958364657400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8072927414866450548
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16413,6 +16598,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8422797137779166579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7863489857711483369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8476297497798636941
 GameObject:
   m_ObjectHideFlags: 0
@@ -16431,6 +16628,7 @@ GameObject:
   - component: {fileID: 8476297497798636946}
   - component: {fileID: 8476297497798636947}
   - component: {fileID: 8476297497798636948}
+  - component: {fileID: 8476297497798636949}
   m_Layer: 7
   m_Name: radient tier 1
   m_TagString: AllyTower
@@ -16560,6 +16758,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a287dbb3ea5043b428113c8da326e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8476297497798636949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8476297497798636941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8506311156721210127
 GameObject:
   m_ObjectHideFlags: 0
@@ -16572,6 +16782,7 @@ GameObject:
   - component: {fileID: 1126212349657548082}
   - component: {fileID: 3603919528849978984}
   - component: {fileID: 8506311156721210128}
+  - component: {fileID: 8506311156721210129}
   m_Layer: 8
   m_Name: dire ancient
   m_TagString: EnemyTower
@@ -16595,6 +16806,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &8506311156721210129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8506311156721210127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8766032360010973331
 GameObject:
   m_ObjectHideFlags: 0
@@ -16608,6 +16831,7 @@ GameObject:
   - component: {fileID: 3367360306328451246}
   - component: {fileID: 8766032360010973332}
   - component: {fileID: 8766032360010973333}
+  - component: {fileID: 8766032360010973334}
   m_Layer: 7
   m_Name: radientbarracks
   m_TagString: AllyTower
@@ -16653,6 +16877,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &8766032360010973334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766032360010973331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8922163215911397176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16736,6 +16972,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &8922163215911397179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4550673119024169749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &9020378015547198778
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16760,6 +17008,18 @@ MonoBehaviour:
   isAttacking: 0
   isAttackingHero: 0
   currentlyAttacking: 
+--- !u!114 &9020378015547198780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963624316495589168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62130e0a26fed844dac8c67813a287db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
