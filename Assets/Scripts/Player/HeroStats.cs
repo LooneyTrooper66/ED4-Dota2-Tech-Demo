@@ -149,6 +149,7 @@ public class HeroStats : MonoBehaviour, IDamageable
         if (currentHealth < health)
         {
             currentHealth += healthRegen * Time.deltaTime;
+            UpdateHealthUI();
         }
 
         /*if (mana != 0)

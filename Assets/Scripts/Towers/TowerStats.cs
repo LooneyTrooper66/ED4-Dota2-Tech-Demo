@@ -22,7 +22,7 @@ public class TowerStats : MonoBehaviour, IDamageable
         {
             towerAI.currentTarget = null;
             towerAI.FindAndSetTarget();
-            Destroy(target.gameObject); // should pool later for optimisation reasons
+            target.SetActive(false);
             stats.AwardXP();
         }
         else if (targetStats.damageCoroutine == null)

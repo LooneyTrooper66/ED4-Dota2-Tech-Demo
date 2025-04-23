@@ -15,7 +15,7 @@ public class TowerProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (target.activeSelf == true)
+        if (target != null && target.activeSelf == true)
         {
             Vector3 dir = target.transform.position - transform.position;
             float distThisFrame = speed * Time.deltaTime;

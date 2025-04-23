@@ -18,27 +18,13 @@ public class LaneCreepAI : MonoBehaviour
     private float offset = 0.3f; // half the creeps radius (ish)
     Transform closestEnemyCreep = null;
     private float distFromTarget;
-
-    List<GameObject> cornerMarkers = new List<GameObject>();
-    List<GameObject> cornerMarkersStore = new List<GameObject>();
-    List<GameObject> towers = new List<GameObject>();
+    bool gotToCornerMarker;
 
 
     void Start()
     {
         creepAgent = GetComponent<NavMeshAgent>();
-
-        GameObject[] cornerMarkersA = GameObject.FindGameObjectsWithTag("CornerMarker");
-        foreach (GameObject c in cornerMarkersA)
-        {
-            cornerMarkers.Add(c);
-            cornerMarkersStore.Add(c);
-        }
-        GameObject[] towersA = GameObject.FindGameObjectsWithTag(enemyTowerTag);
-        foreach (GameObject t in towersA)
-        {
-            towers.Add(t);
-        }
+        gotToCornerMarker = false;
     }
 
     public void OnEnable()
@@ -46,13 +32,10 @@ public class LaneCreepAI : MonoBehaviour
         timeSinceLastTargetSwitch = aggroSwapInterval - 0.1f;
         OffsetAllValuesForRadius();
 
-        foreach (GameObject c in cornerMarkersStore)
-        {
-            cornerMarkers.Add(c);
-        }
+        gotToCornerMarker = false;
 
         FindAndSetTarget();
-        SetDestinationOfCreep();
+        //SetDestinationOfCreep();
     }
 
     private void Update()
@@ -66,12 +49,13 @@ public class LaneCreepAI : MonoBehaviour
             float dist = Vector3.Distance(currentTarget.position, transform.position);
             if (dist < 6)
             {
-                cornerMarkers = null;
+                gotToCornerMarker = true;
                 FindAndSetTarget();
                 SetDestinationOfCreep();
             }
         }
     }
+
     private void FixedUpdate()
     {
         // checks the priority list for next target
@@ -125,7 +109,22 @@ public class LaneCreepAI : MonoBehaviour
 
     void FindAndSetTarget()
     {
-        // use player attack to set creep target to the player
+        if (currentTarget != null && currentTarget.tag == "NeutralCreep")
+        {
+            return;
+        }
+
+        // for neutral creep aggro for pulling and that 
+        GameObject[] neutralCreeps = GameObject.FindGameObjectsWithTag("NeutralCreep");
+        if (neutralCreeps.Length > 0)
+        {
+            closestEnemyCreep = ClosestNeutralAttackingHero(neutralCreeps, aggroRange);
+            if (closestEnemyCreep != null)
+            {
+                currentTarget = closestEnemyCreep;
+                return;
+            }
+        }
 
         GameObject[] creeps = GameObject.FindGameObjectsWithTag(enemyCreepTag);
         closestEnemyCreep = GetClosestObjectInRadius(creeps, aggroRange);
@@ -143,31 +142,35 @@ public class LaneCreepAI : MonoBehaviour
                 currentTarget = GetClosestObjectInRadius(siege, aggroRange);  // if none, set to closest siege creep
                 if (currentTarget == null)  // if no, set to structures (towers, etc..)
                 {
-                    if (cornerMarkers != null)
+                    if (gotToCornerMarker == false)
                     {
+                        GameObject[] cornerMarkers = GameObject.FindGameObjectsWithTag("CornerMarker");
                         currentTarget = GetClosestObject(cornerMarkers); // if none and there are still corner markers
                     }
                     else
                     {
+                        GameObject[] towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
                         currentTarget = GetClosestObject(towers);
                     }
                 }
             }
             else  // if no, set to structures (towers, etc..)
             {
-                if (cornerMarkers != null)
+                if (gotToCornerMarker == false)
                 {
+                    GameObject[] cornerMarkers = GameObject.FindGameObjectsWithTag("CornerMarker");
                     currentTarget = GetClosestObject(cornerMarkers); // if none and there are still corner markers
                 }
                 else
                 {
-                    currentTarget = GetClosestObject(towers);
+                    GameObject[] towers = GameObject.FindGameObjectsWithTag(enemyTowerTag);
+                    currentTarget = GetClosestObject(towers); 
                 }
             }
         }
     }
 
-    private Transform GetClosestObject(List<GameObject> Things)
+    private Transform GetClosestObject(GameObject[] Things)
     {
         float closestDist = Mathf.Infinity;
         Transform closestObject = null;
@@ -200,6 +203,30 @@ public class LaneCreepAI : MonoBehaviour
             {
                 closestDist = dist;
                 closestObject = t.transform;
+            }
+        }
+
+        return closestObject;
+    }
+
+    private Transform ClosestNeutralAttackingHero(GameObject[] neutrals, float radius)
+    {
+        float closestDist = 1000;
+        Transform closestObject = null;
+        Vector3 currentPos = transform.position;
+
+        foreach (GameObject n in neutrals)
+        {
+            CurrentAttackingState currentState = n.GetComponent<CurrentAttackingState>();
+            if (currentState.isAttackingHero == true)
+            {
+                float dist = Vector3.Distance(currentPos, n.transform.position);
+
+                if (dist < closestDist && dist <= radius)
+                {
+                    closestDist = dist;
+                    closestObject = n.transform;
+                }
             }
         }
 
