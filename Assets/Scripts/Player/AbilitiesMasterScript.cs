@@ -17,15 +17,23 @@ public class AbilitiesMasterScript : MonoBehaviour
     [Header("Rot")]
     public int rotLevel = 1;
     public float areaOfEffect;
+    private bool rotActive;
 
     [Header("Meat Shield")]
     public int meatShhieldLevel = 1;
     public float damageStop;
+    private bool meatShieldActive;
 
     [Header("Dismember")]
     public int dismemberLevel = 1;
     public float castRange;
 
+
+    private void OnEnable()
+    {
+        rotActive = false;
+        meatShieldActive = false;
+    }
 
     private void Update() // make sure to check for cooldowns
     {
@@ -48,6 +56,32 @@ public class AbilitiesMasterScript : MonoBehaviour
         {
             CastDismember();
         }
+
+
+        // below is functionality for rot and meatshield
+
+        #region // rot
+
+        if (rotActive)
+        {
+            // anything in radius takes damage at set intervals
+            // pudge takes damage to but cant die from it, check that pudges current health is bigger than the damage to be taken
+            // its a chennel ability so will need to drain mana continuously
+
+            // use checksphere at set intervals 
+        }
+
+        #endregion
+
+
+        #region // meat shield
+
+        if (meatShieldActive)
+        {
+            // just change a value in the herostats damagehero function to reduce incoming damage by a certain amount
+        }
+
+        #endregion
     }
 
     void CastMeatHook()
@@ -59,14 +93,15 @@ public class AbilitiesMasterScript : MonoBehaviour
 
     void CastRot()
     {
-        // anything in radius takes damage at set intervals
-        // pudge takes damage to but cant die from it, check that pudges current health is bigger than the damage to be taken
-        // its a chennel ability so will need to drain mana continuously
+        if (rotActive) { rotActive = false; }
+        else { rotActive = true; }
     }
 
     void CastMeatShield()
     {
-        // just change a value in the herostats damagehero function to reduce incoming damage by a certain amount
+        // this one is timed and will deactivate itself if not deactivated by player
+        if (meatShieldActive) { meatShieldActive = false; }
+        else { meatShieldActive = true; }
     }
 
     void CastDismember()
