@@ -11907,6 +11907,8 @@ GameObject:
   - component: {fileID: 1958115153}
   - component: {fileID: 1958115154}
   - component: {fileID: 1958115155}
+  - component: {fileID: 1958115157}
+  - component: {fileID: 1958115156}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -12180,6 +12182,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1958115156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958115142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6394bbc91a2d6d44a0d5968daaa201e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 0}
+  meatHookLevel: 1
+  travelDist: 13
+  hookSearchRadius: 1
+  damage: 150
+  cooldown: 0
+  manaCost: 0
+  hook: {fileID: 0}
+  rotLevel: 1
+  areaOfEffect: 0
+  meatShhieldLevel: 1
+  damageStop: 0
+  dismemberLevel: 1
+  castRange: 0
+--- !u!114 &1958115157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958115142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086208edea7974f40a127a374ffda436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1978438337
 GameObject:
   m_ObjectHideFlags: 0
