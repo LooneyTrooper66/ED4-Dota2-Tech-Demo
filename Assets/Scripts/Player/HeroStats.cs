@@ -112,7 +112,7 @@ public class HeroStats : MonoBehaviour, IDamageable
         damageCoroutine = null;
     }
 
-    void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
         healthUI.Update3DSlider(currentHealth);
     }

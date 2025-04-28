@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class LaneCreepAI : MonoBehaviour
+public class LaneCreepAI : MonoBehaviour, INavmeshSpeed
 {
     private NavMeshAgent creepAgent;
     public Transform currentTarget;
@@ -19,6 +19,7 @@ public class LaneCreepAI : MonoBehaviour
     Transform closestEnemyCreep = null;
     private float distFromTarget;
     bool gotToCornerMarker;
+    [HideInInspector] public Coroutine slowCoroutine;
 
 
     void Start()
@@ -238,5 +239,27 @@ public class LaneCreepAI : MonoBehaviour
         stoppingDist += offset;
         attackRange += offset;
         aggroRange += offset;
+    }
+
+    public void ChangeNavAgentSpeed(float speedDebuff)
+    {
+        if (slowCoroutine == null)
+        {
+            slowCoroutine = StartCoroutine(SlowNavmeshAgent(speedDebuff));
+        }
+    }
+
+    IEnumerator SlowNavmeshAgent(float speedDebuff)
+    {
+        // speedDebuff is the % that the speed needs to be reduced by
+        float temp = creepAgent.speed;
+        float thingToTimesBy = (100 - speedDebuff) / 100;
+        float newSpeed = temp * thingToTimesBy;
+        creepAgent.speed = newSpeed;
+
+        yield return new WaitForSecondsRealtime(0.5f);
+        creepAgent.speed = temp;
+
+        slowCoroutine = null;
     }
 }

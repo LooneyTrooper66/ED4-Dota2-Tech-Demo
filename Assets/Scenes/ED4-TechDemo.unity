@@ -12194,7 +12194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6394bbc91a2d6d44a0d5968daaa201e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 1958115143}
   meatHookLevel: 1
   travelDist: 13
   hookSearchRadius: 1
@@ -12203,7 +12203,12 @@ MonoBehaviour:
   manaCost: 0
   hook: {fileID: 0}
   rotLevel: 1
-  areaOfEffect: 0
+  areaOfEffect: 5
+  rotDamage: 30
+  rotSlow: 14
+  rotLayerMask:
+    serializedVersion: 2
+    m_Bits: 385
   meatShhieldLevel: 1
   damageStop: 0
   dismemberLevel: 1

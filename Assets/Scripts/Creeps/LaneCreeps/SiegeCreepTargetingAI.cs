@@ -1,8 +1,9 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SiegeCreepTargetingAI : MonoBehaviour
+public class SiegeCreepTargetingAI : MonoBehaviour, INavmeshSpeed
 {
     private NavMeshAgent creepAgent;
     public Transform currentTarget;
@@ -17,6 +18,7 @@ public class SiegeCreepTargetingAI : MonoBehaviour
     private float timeSinceLastTargetSwitch = 0f;
     Transform closestEnemy = null;
     private float distFromTarget;
+    [HideInInspector] public Coroutine slowCoroutine;
 
     List<GameObject> cornerMarkers = new List<GameObject>();
     List<GameObject> cornerMarkersStore = new List<GameObject>();
@@ -137,7 +139,7 @@ public class SiegeCreepTargetingAI : MonoBehaviour
 
         if (closestEnemy != null)
         {
-            currentTarget = closestEnemy; 
+            currentTarget = closestEnemy;
         }
         else
         {
@@ -208,5 +210,27 @@ public class SiegeCreepTargetingAI : MonoBehaviour
         }
 
         return closestObject;
+    }
+
+    public void ChangeNavAgentSpeed(float speedDebuff)
+    {
+        if (slowCoroutine == null)
+        {
+            slowCoroutine = StartCoroutine(SlowNavmeshAgent(speedDebuff));
+        }
+    }
+
+    IEnumerator SlowNavmeshAgent(float speedDebuff)
+    {
+        // speedDebuff is the % that the speed needs to be reduced by
+        float temp = creepAgent.speed;
+        float thingToTimesBy = (100 - speedDebuff) / 100;
+        float newSpeed = temp * thingToTimesBy;
+        creepAgent.speed = newSpeed;
+
+        yield return new WaitForSecondsRealtime(0.5f);
+        creepAgent.speed = temp;
+
+        slowCoroutine = null;
     }
 }

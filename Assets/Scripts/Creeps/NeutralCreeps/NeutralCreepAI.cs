@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class NeutralCreepAI : MonoBehaviour
+public class NeutralCreepAI : MonoBehaviour, INavmeshSpeed
 {
     private NavMeshAgent creepAgent;
     public Transform currentTarget = null;
@@ -15,6 +15,7 @@ public class NeutralCreepAI : MonoBehaviour
     private float offset = 0.3f; // half the creeps radius (ish)
     private Vector3 homeCamp; // set in code on spawn, needed for deaggro
     private float distFromTarget;
+    [HideInInspector] public Coroutine slowCoroutine;
 
     List<GameObject> hostileUnits = new List<GameObject>();
 
@@ -118,5 +119,27 @@ public class NeutralCreepAI : MonoBehaviour
         }
 
         return closestObject;
+    }
+
+    public void ChangeNavAgentSpeed(float speedDebuff)
+    {
+        if (slowCoroutine == null)
+        {
+            slowCoroutine = StartCoroutine(SlowNavmeshAgent(speedDebuff));
+        }
+    }
+
+    IEnumerator SlowNavmeshAgent(float speedDebuff)
+    {
+        // speedDebuff is the % that the speed needs to be reduced by
+        float temp = creepAgent.speed;
+        float thingToTimesBy = (100 - speedDebuff) / 100;
+        float newSpeed = temp * thingToTimesBy;
+        creepAgent.speed = newSpeed;
+
+        yield return new WaitForSecondsRealtime(0.5f);
+        creepAgent.speed = temp;
+
+        slowCoroutine = null;
     }
 }

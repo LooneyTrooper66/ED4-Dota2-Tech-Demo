@@ -16,8 +16,13 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     [Header("Rot")]
     public int rotLevel = 1;
-    public float areaOfEffect;
+    public float areaOfEffect = 2.5f;
+    public float rotDamage = 30;
+    public float rotSlow = 14; // in %
     private bool rotActive;
+    private float rotTimer = 0;
+    private float pudgeTakeDmgTimer = 0;
+    public LayerMask rotLayerMask;
 
     [Header("Meat Shield")]
     public int meatShhieldLevel = 1;
@@ -41,15 +46,45 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
         if (rotActive)
         {
-            // anything in radius takes damage at set intervals
-            // pudge takes damage to but cant die from it, check that pudges current health is bigger than the damage to be taken
-            // its a chennel ability so will need to drain mana continuously
+            rotTimer += Time.deltaTime;
+            pudgeTakeDmgTimer += Time.deltaTime;
+            if (rotTimer >= 0.2f)
+            {
+                // damage anything within radius, also apply slow somehow
+                Collider[] inRadius = Physics.OverlapSphere(transform.position, areaOfEffect, rotLayerMask);
+                if (inRadius.Length <= 0) { rotTimer = 0; return; }
+                foreach (Collider c in inRadius)
+                {
+                    INavmeshSpeed speedChange = c.gameObject.GetComponent<INavmeshSpeed>();
+                    if (speedChange != null)
+                    {
+                        speedChange.ChangeNavAgentSpeed(rotSlow);
+                    }
 
-            // use checksphere at set intervals 
+                    IDamageable damageable = c.gameObject.GetComponent<IDamageable>();
+                    if (damageable != null)
+                    {
+                        damageable.DealDamage(c.gameObject, rotDamage);
+                    }
+                }
+
+                rotTimer = 0;
+            }
+
+            if (pudgeTakeDmgTimer >= 1)
+            {
+                // damage pudge
+                if (stats.currentHealth >= rotDamage)
+                {
+                    stats.currentHealth -= rotDamage;
+                    stats.UpdateHealthUI();
+                }
+
+                pudgeTakeDmgTimer = 0;
+            }
         }
 
         #endregion
-
 
         #region // meat shield
 
@@ -70,7 +105,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     public void WAbility() // rot
     {
-        if (rotActive) { rotActive = false; }
+        if (rotActive) { rotActive = false; } // dont reset rotTimer here coz the increments are meant to be set the first time you activate it (see docs)
         else { rotActive = true; }
     }
 
