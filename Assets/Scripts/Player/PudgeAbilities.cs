@@ -9,8 +9,8 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public float travelDist = 13;
     public float hookSearchRadius = 1;
     public float damage = 150;
-    public float cooldown;
-    public float manaCost;
+    public float meathookCooldown;
+    public float meathookManaCost;
 
     public GameObject hook;
 
@@ -25,22 +25,26 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public LayerMask rotLayerMask;
 
     [Header("Meat Shield")]
-    public int meatShhieldLevel = 1;
-    public float damageStop;
-    private bool meatShieldActive;
+    public int meatShieldLevel = 1;
+    public float damageStop = 8;
+    public float shieldDuration = 4;
+    private float meatShieldTimer = 0;
+    public float meatShieldCooldown = 20;
+    public float meatShieldManaCost = 50;
 
     [Header("Dismember")]
     public int dismemberLevel = 1;
     public float castRange;
+    public float dismemberCooldown;
+    public float dismemberManaCost;
 
 
     private void OnEnable()
     {
         rotActive = false;
-        meatShieldActive = false;
     }
 
-    private void Update() // make sure to check for cooldowns
+    private void Update()
     {
         #region // rot
 
@@ -86,11 +90,16 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
         #endregion
 
-        #region // meat shield
+        #region // meat shield 
 
-        if (meatShieldActive)
+        if (stats.meatShieldActive)
         {
-            // just change a value in the herostats damagehero function to reduce incoming damage by a certain amount
+            meatShieldTimer += Time.deltaTime;
+            if (meatShieldTimer >= shieldDuration)
+            {
+                stats.meatShieldActive = false;
+                meatShieldTimer = 0;
+            }
         }
 
         #endregion
@@ -107,13 +116,18 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     {
         if (rotActive) { rotActive = false; } // dont reset rotTimer here coz the increments are meant to be set the first time you activate it (see docs)
         else { rotActive = true; }
+
+        if (stats.meatShieldDamageStop != damageStop)
+        {
+            stats.meatShieldDamageStop = damageStop;
+        }
     }
 
     public void EAbility() // meat shield
     {
         // this one is timed and will deactivate itself if not deactivated by player
-        if (meatShieldActive) { meatShieldActive = false; }
-        else { meatShieldActive = true; }
+        if (stats.meatShieldActive) { stats.meatShieldActive = false; meatShieldTimer = 0; }
+        else { stats.meatShieldActive = true; }
     }
 
     public void RAbility() // dismember

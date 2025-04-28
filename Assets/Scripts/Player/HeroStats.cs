@@ -40,6 +40,8 @@ public class HeroStats : MonoBehaviour, IDamageable
     [HideInInspector] public float currentHealth;
     [HideInInspector] public float targetHealth; // need to update this whenever level up or get item that increases health
     [HideInInspector] public Coroutine damageCoroutine;
+    [HideInInspector] public bool meatShieldActive;
+    [HideInInspector] public float meatShieldDamageStop = 8;
     public LayerMask layerMask;
 
 
@@ -82,6 +84,7 @@ public class HeroStats : MonoBehaviour, IDamageable
         currentHealth = health;
         targetHealth = health;
         healthUI.Start3DSlider(health);
+        meatShieldActive = false;
     }
 
     public void StartLerpHealth()
