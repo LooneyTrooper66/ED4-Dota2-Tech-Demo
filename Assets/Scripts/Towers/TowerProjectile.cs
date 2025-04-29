@@ -4,7 +4,7 @@ public class TowerProjectile : MonoBehaviour
 {
     private GameObject target;
     private float damage;
-    private float speed = 4;
+    private float speed = 6;
 
 
     public void SetTarget(GameObject newTarget, float attackDamage)

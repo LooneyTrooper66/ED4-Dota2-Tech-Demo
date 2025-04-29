@@ -3,23 +3,20 @@ using UnityEngine;
 public class AbilitiesMasterScript : MonoBehaviour
 {
     IHeroAbilityFunctionality heroAbilities;
-    bool qCooldownZero;
-    bool wCooldownZero;
-    bool eCooldownZero;
-    bool rCooldownZero;
-    [HideInInspector] public float qCooldownTimer;
-    [HideInInspector] public float wCooldownTimer;
-    [HideInInspector] public float eCooldownTimer;
-    [HideInInspector] public float rCooldownTimer;
+    [HideInInspector] public bool qCooldownZero;
+    [HideInInspector] public bool eCooldownZero;
+    [HideInInspector] public bool rCooldownZero;
+    [HideInInspector] public float qTimer = 18;
+    [HideInInspector] public float eTimer = 20;
+    [HideInInspector] public float rTimer = 30;
 
 
     private void Start()
     {
         heroAbilities = GetComponent<IHeroAbilityFunctionality>();
-        qCooldownZero = false;
-        wCooldownZero = false;
-        eCooldownZero = false;
-        rCooldownZero = false;
+        qCooldownZero = true;
+        eCooldownZero = true;
+        rCooldownZero = true;
     }
 
     private void Update() // make sure to check for cooldowns
@@ -30,7 +27,7 @@ public class AbilitiesMasterScript : MonoBehaviour
             heroAbilities.QAbility();
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && wCooldownZero == true) // check keybinds later
+        if (Input.GetKeyDown(KeyCode.W)) // doesnt have cooldown
         {
             heroAbilities.WAbility();
         }
@@ -48,45 +45,32 @@ public class AbilitiesMasterScript : MonoBehaviour
 
         #region cooldown timers
 
-        /*if (qCooldownZero == false)
+        if (qCooldownZero == false)
         {
-            meatShieldTimer += Time.deltaTime;
-            if (meatShieldTimer >= shieldDuration)
+            qTimer -= Time.deltaTime;
+            if (qTimer <= 0)
             {
-                stats.meatShieldActive = false;
-                meatShieldTimer = 0;
+                qCooldownZero = true;
             }
         }
 
-        if (stats.meatShieldActive)
+        if (eCooldownZero == false)
         {
-            meatShieldTimer += Time.deltaTime;
-            if (meatShieldTimer >= shieldDuration)
+            eTimer -= Time.deltaTime;
+            if (eTimer <= 0)
             {
-                stats.meatShieldActive = false;
-                meatShieldTimer = 0;
+                eCooldownZero = true;
             }
         }
 
-        if (stats.meatShieldActive)
+        if (rCooldownZero == false)
         {
-            meatShieldTimer += Time.deltaTime;
-            if (meatShieldTimer >= shieldDuration)
+            rTimer -= Time.deltaTime;
+            if (rTimer <= 0)
             {
-                stats.meatShieldActive = false;
-                meatShieldTimer = 0;
+                rCooldownZero = true;
             }
         }
-
-        if (stats.meatShieldActive)
-        {
-            meatShieldTimer += Time.deltaTime;
-            if (meatShieldTimer >= shieldDuration)
-            {
-                stats.meatShieldActive = false;
-                meatShieldTimer = 0;
-            }
-        }*/
 
         #endregion
     }

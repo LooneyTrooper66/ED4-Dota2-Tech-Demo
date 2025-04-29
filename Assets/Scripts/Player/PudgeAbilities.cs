@@ -3,16 +3,18 @@ using UnityEngine;
 public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 {
     public HeroStats stats;
+    public AbilitiesMasterScript abilitiesMS;
 
     [Header("Meat Hook")]
     public int meatHookLevel = 1;
     public float travelDist = 13;
     public float hookSearchRadius = 1;
     public float damage = 150;
-    public float meathookCooldown;
-    public float meathookManaCost;
+    public float meathookCooldown = 18;
+    public float meathookManaCost = 110;
 
     public GameObject hook;
+    public GameObject hookTarget;
 
     [Header("Rot")]
     public int rotLevel = 1;
@@ -35,13 +37,16 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     [Header("Dismember")]
     public int dismemberLevel = 1;
     public float castRange;
-    public float dismemberCooldown;
-    public float dismemberManaCost;
+    public float dismemberCooldown = 30;
+    public float dismemberManaCost = 100;
 
 
     private void OnEnable()
     {
         rotActive = false;
+        abilitiesMS.qTimer = meathookCooldown;
+        abilitiesMS.eTimer = meatShieldCooldown;
+        abilitiesMS.rTimer = dismemberCooldown;
     }
 
     private void Update()
@@ -107,6 +112,16 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     public void QAbility() // meat hook
     {
+        abilitiesMS.qTimer = meathookCooldown;
+        abilitiesMS.qCooldownZero = false;
+
+        bool movingOut = true; // set lerpOut to false when its reached full extension and is coming back to pudge
+
+        // set position of the move target to 13 units out in dir of mouse
+        // change pos of move target back to 0,0,0 if either the hook gets to the target or the hook attatches to something on the way to the target
+        // use ovetowards for hook movement, disable pudge movement for duration of attack
+
+
         // send out hook
         // only let hook catch things when cast out, not when coming back to pudge
         // damage the enemy, dont worry about wether they can teleport coz only against creeps which cant
@@ -125,6 +140,9 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     public void EAbility() // meat shield
     {
+        abilitiesMS.eTimer = meatShieldCooldown;
+        abilitiesMS.eCooldownZero = false;
+
         // this one is timed and will deactivate itself if not deactivated by player
         if (stats.meatShieldActive) { stats.meatShieldActive = false; meatShieldTimer = 0; }
         else { stats.meatShieldActive = true; }
@@ -132,6 +150,9 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     public void RAbility() // dismember
     {
+        abilitiesMS.rTimer = dismemberCooldown;
+        abilitiesMS.rCooldownZero = false;
+
         // maths maths maths aaaaaaa
     }
 }

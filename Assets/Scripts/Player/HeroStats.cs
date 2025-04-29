@@ -189,7 +189,12 @@ public class HeroStats : MonoBehaviour, IDamageable
     public void DamageHero(GameObject target, float damage)
     {
         HeroStats targetStats = target.GetComponent<HeroStats>();
+        if (meatShieldActive)
+        {
+            damage -= meatShieldDamageStop;
+        }
         targetStats.targetHealth -= damage;
+        Debug.Log(damage);
 
         if (targetStats != null && targetStats.targetHealth <= 0)
         {
