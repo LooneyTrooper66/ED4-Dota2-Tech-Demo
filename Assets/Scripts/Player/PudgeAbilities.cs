@@ -4,6 +4,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 {
     public HeroStats stats;
     public AbilitiesMasterScript abilitiesMS;
+    public Movement move;
 
     [Header("Meat Hook")]
     public int meatHookLevel = 1;
@@ -12,6 +13,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public float damage = 150;
     public float meathookCooldown = 18;
     public float meathookManaCost = 110;
+    private bool hookCast;
 
     public GameObject hook;
     public GameObject hookTarget;
@@ -43,6 +45,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     private void OnEnable()
     {
+        hookCast = false;
         rotActive = false;
         abilitiesMS.qTimer = meathookCooldown;
         abilitiesMS.eTimer = meatShieldCooldown;
@@ -51,6 +54,26 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     private void Update()
     {
+        #region // meat hook
+
+        if (hookCast)
+        {
+            // do the thing
+        }
+
+        //bool movingOut = true; // set lerpOut to false when its reached full extension and is coming back to pudge
+
+        // set position of the move target to 13 units out in dir of mouse
+        // change pos of move target back to 0,0,0 if either the hook gets to the target or the hook attatches to something on the way to the target
+        // use ovetowards for hook movement, disable pudge movement for duration of attack
+
+
+        // send out hook
+        // only let hook catch things when cast out, not when coming back to pudge
+        // damage the enemy, dont worry about wether they can teleport coz only against creeps which cant
+
+        #endregion
+
         #region // rot
 
         if (rotActive)
@@ -115,16 +138,8 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         abilitiesMS.qTimer = meathookCooldown;
         abilitiesMS.qCooldownZero = false;
 
-        bool movingOut = true; // set lerpOut to false when its reached full extension and is coming back to pudge
-
-        // set position of the move target to 13 units out in dir of mouse
-        // change pos of move target back to 0,0,0 if either the hook gets to the target or the hook attatches to something on the way to the target
-        // use ovetowards for hook movement, disable pudge movement for duration of attack
-
-
-        // send out hook
-        // only let hook catch things when cast out, not when coming back to pudge
-        // damage the enemy, dont worry about wether they can teleport coz only against creeps which cant
+        if (hookCast) { hookCast = false; }
+        else { hookCast = true; }
     }
 
     public void WAbility() // rot
