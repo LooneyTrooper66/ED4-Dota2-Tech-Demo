@@ -81,7 +81,8 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 abilitiesMS.qTimer = meathookCooldown;
                 abilitiesMS.qCooldownZero = false;
                 hookAiming = false;
-                StartCoroutine(CastHookOut());
+                hookCast = true;
+                //StartCoroutine(CastHookOut());
             }
 
             RaycastHit hit;
@@ -94,7 +95,14 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         if (hookCast)
         {
             move.agent.SetDestination(transform.position);
-            // check for hitting things and if do stop coroutine and start new one
+
+            hook.transform.position = Vector3.MoveTowards(transform.position, hookTarget.transform.position, 6 * Time.deltaTime);
+            if (Vector3.Distance(hook.transform.position, hookTarget.transform.position) < 0.1f)
+            {
+                hookCast = false;
+                hookReturning = true;
+            }
+            // check for hitting things and if do start return
 
             // check 1 radius around for creeps
             // if find creep before full extention, grab and pull back
@@ -205,25 +213,12 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         // maths maths maths aaaaaaa
     }
 
-    IEnumerator CastHookOut()
-    {
-        float distLeft = Vector3.Distance(hook.transform.position, hookTarget.transform.position);
-        Debug.Log(distLeft);
-        while (distLeft > 0)
-        {
-            hook.transform.position = Vector3.MoveTowards(transform.position, hookTarget.transform.position, 6);
-        }
-        hookCast = false;
-        hookReturning = true;
-        yield return null;
-    }
-
     IEnumerator BringHookBack()
     {
         float distLeft = Vector3.Distance(hook.transform.position, hookTarget.transform.position);
         while (distLeft < (travelDist - 0.5f))
         {
-            hook.transform.position = Vector3.MoveTowards(hookTarget.transform.position, transform.position, 6);
+            hook.transform.position = Vector3.MoveTowards(hookTarget.transform.position, transform.position, 6 * Time.deltaTime);
         }
         hookReturning = false; // set to false after killing creep/once back depending on wether caught anything
         hookTarget.SetActive(false);
