@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
@@ -13,10 +15,14 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public float damage = 150;
     public float meathookCooldown = 18;
     public float meathookManaCost = 110;
+    private bool hookAiming;
     private bool hookCast;
+    private bool hookReturning;
 
     public GameObject hook;
+    public GameObject spinny;
     public GameObject hookTarget;
+    public LayerMask hookAimMask;
 
     [Header("Rot")]
     public int rotLevel = 1;
@@ -45,7 +51,10 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     private void OnEnable()
     {
+        hookTarget.SetActive(false);
+        hookAiming = false;
         hookCast = false;
+        hookReturning = false;
         rotActive = false;
         abilitiesMS.qTimer = meathookCooldown;
         abilitiesMS.eTimer = meatShieldCooldown;
@@ -54,23 +63,51 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     private void Update()
     {
+
         #region // meat hook
+
+        if (hookAiming)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                // reset all ui and that
+                hookAiming = false;
+                hookTarget.SetActive(false);
+                spinny.transform.rotation = Quaternion.identity;
+                return;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                abilitiesMS.qTimer = meathookCooldown;
+                abilitiesMS.qCooldownZero = false;
+                hookAiming = false;
+                StartCoroutine(CastHookOut());
+            }
+
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hookAimMask, QueryTriggerInteraction.Ignore))
+            {
+                spinny.transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+            }
+        }
 
         if (hookCast)
         {
-            // do the thing
+            move.agent.SetDestination(transform.position);
+            // check for hitting things and if do stop coroutine and start new one
+
+            // check 1 radius around for creeps
+            // if find creep before full extention, grab and pull back
+            // if no creep by full extension, puill back and dont grab anything else
+
+            // set hookCast to false when its reached full extension/snagged something and is coming back to pudge
+            // disable movement while hookCast true
         }
 
-        //bool movingOut = true; // set lerpOut to false when its reached full extension and is coming back to pudge
-
-        // set position of the move target to 13 units out in dir of mouse
-        // change pos of move target back to 0,0,0 if either the hook gets to the target or the hook attatches to something on the way to the target
-        // use ovetowards for hook movement, disable pudge movement for duration of attack
-
-
-        // send out hook
-        // only let hook catch things when cast out, not when coming back to pudge
-        // damage the enemy, dont worry about wether they can teleport coz only against creeps which cant
+        if (hookReturning)
+        {
+            // kill creep when it gets within attack dist
+        }
 
         #endregion
 
@@ -135,11 +172,8 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     public void QAbility() // meat hook
     {
-        abilitiesMS.qTimer = meathookCooldown;
-        abilitiesMS.qCooldownZero = false;
-
-        if (hookCast) { hookCast = false; }
-        else { hookCast = true; }
+        if (hookAiming) { hookAiming = false; }
+        else { hookAiming = true; hookTarget.SetActive(true); }
     }
 
     public void WAbility() // rot
@@ -169,5 +203,30 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         abilitiesMS.rCooldownZero = false;
 
         // maths maths maths aaaaaaa
+    }
+
+    IEnumerator CastHookOut()
+    {
+        float distLeft = Vector3.Distance(hook.transform.position, hookTarget.transform.position);
+        Debug.Log(distLeft);
+        while (distLeft > 0)
+        {
+            hook.transform.position = Vector3.MoveTowards(transform.position, hookTarget.transform.position, 6);
+        }
+        hookCast = false;
+        hookReturning = true;
+        yield return null;
+    }
+
+    IEnumerator BringHookBack()
+    {
+        float distLeft = Vector3.Distance(hook.transform.position, hookTarget.transform.position);
+        while (distLeft < (travelDist - 0.5f))
+        {
+            hook.transform.position = Vector3.MoveTowards(hookTarget.transform.position, transform.position, 6);
+        }
+        hookReturning = false; // set to false after killing creep/once back depending on wether caught anything
+        hookTarget.SetActive(false);
+        yield return null;
     }
 }
