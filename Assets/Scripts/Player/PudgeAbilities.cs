@@ -23,6 +23,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public GameObject spinny;
     public GameObject hookTarget;
     public LayerMask hookAimMask;
+    public LayerMask hookCollideMask;
 
     [Header("Rot")]
     public int rotLevel = 1;
@@ -96,25 +97,51 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         {
             move.agent.SetDestination(transform.position);
 
-            hook.transform.position = Vector3.MoveTowards(transform.position, hookTarget.transform.position, 6 * Time.deltaTime);
+            hook.transform.position = Vector3.MoveTowards(hook.transform.position, hookTarget.transform.position, 16 * Time.deltaTime);
             if (Vector3.Distance(hook.transform.position, hookTarget.transform.position) < 0.1f)
             {
                 hookCast = false;
                 hookReturning = true;
             }
+
             // check for hitting things and if do start return
+            Collider[] hitTargets = Physics.OverlapSphere(hook.transform.position, 1, hookCollideMask, QueryTriggerInteraction.Ignore);
+            if (hitTargets.Length >= 1)
+            {
+                foreach (Collider c in hitTargets)
+                {
+                    if (c.gameObject.layer == 7) // ally
+                    {
+                        StartCoroutine(DrawInAlly(c.gameObject));
+                    }
 
-            // check 1 radius around for creeps
-            // if find creep before full extention, grab and pull back
-            // if no creep by full extension, puill back and dont grab anything else
+                    if (c.gameObject.layer == 8) // enemy
+                    {
+                        IDamageable damageable = GetComponent<IDamageable>();
+                        if (damageable != null)
+                        {
+                            damageable.DealDamage(c.gameObject, 10000); // make sure it oneshots lol
+                        }
+                    }
+                            
+                }
 
-            // set hookCast to false when its reached full extension/snagged something and is coming back to pudge
-            // disable movement while hookCast true
+                hookCast = false;
+                hookReturning = true;
+            }
         }
 
         if (hookReturning)
         {
-            // kill creep when it gets within attack dist
+            move.agent.SetDestination(transform.position);
+
+            hook.transform.position = Vector3.MoveTowards(hook.transform.position, transform.position, 16 * Time.deltaTime);
+            if (Vector3.Distance(hook.transform.position, transform.position) < 0.1f)
+            {
+                hookReturning = false;
+                hookTarget.SetActive(false);
+                spinny.transform.rotation = Quaternion.identity;
+            }
         }
 
         #endregion
@@ -182,6 +209,15 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     {
         if (hookAiming) { hookAiming = false; }
         else { hookAiming = true; hookTarget.SetActive(true); }
+    }
+
+    IEnumerator DrawInAlly(GameObject allyCreep)
+    {
+        while (hookReturning)
+        {
+            allyCreep.gameObject.transform.position = hook.transform.position;
+        }
+        yield return null;
     }
 
     public void WAbility() // rot

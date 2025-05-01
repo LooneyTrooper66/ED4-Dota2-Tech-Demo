@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class LaneCreepAI : MonoBehaviour, INavmeshSpeed
 {
-    private NavMeshAgent creepAgent;
+    public NavMeshAgent creepAgent;
     public Transform currentTarget;
     public string enemyCreepTag;
     public string enemySiegeTag;

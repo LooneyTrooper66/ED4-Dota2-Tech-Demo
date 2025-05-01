@@ -12526,6 +12526,9 @@ MonoBehaviour:
   hookAimMask:
     serializedVersion: 2
     m_Bits: 512
+  hookCollideMask:
+    serializedVersion: 2
+    m_Bits: 384
   rotLevel: 1
   areaOfEffect: 5
   rotDamage: 30
