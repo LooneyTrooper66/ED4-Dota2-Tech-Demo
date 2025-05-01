@@ -22,6 +22,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public GameObject hook;
     public GameObject spinny;
     public GameObject hookTarget;
+    private GameObject allyCreep = null;
     public LayerMask hookAimMask;
     public LayerMask hookCollideMask;
 
@@ -112,7 +113,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 {
                     if (c.gameObject.layer == 7) // ally
                     {
-                        StartCoroutine(DrawInAlly(c.gameObject));
+                        allyCreep = c.gameObject;
                     }
 
                     if (c.gameObject.layer == 8) // enemy
@@ -133,12 +134,18 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
         if (hookReturning)
         {
+            if (allyCreep != null && (Vector3.Distance(allyCreep.transform.position, transform.position) >= 1))
+            {
+                allyCreep.transform.position = hook.transform.position;
+            }
+
             move.agent.SetDestination(transform.position);
 
             hook.transform.position = Vector3.MoveTowards(hook.transform.position, transform.position, 16 * Time.deltaTime);
             if (Vector3.Distance(hook.transform.position, transform.position) < 0.1f)
             {
                 hookReturning = false;
+                allyCreep = null;
                 hookTarget.SetActive(false);
                 spinny.transform.rotation = Quaternion.identity;
             }
@@ -209,15 +216,6 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     {
         if (hookAiming) { hookAiming = false; }
         else { hookAiming = true; hookTarget.SetActive(true); }
-    }
-
-    IEnumerator DrawInAlly(GameObject allyCreep)
-    {
-        while (hookReturning)
-        {
-            allyCreep.gameObject.transform.position = hook.transform.position;
-        }
-        yield return null;
     }
 
     public void WAbility() // rot
