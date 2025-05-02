@@ -12530,20 +12530,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   rotLevel: 1
-  areaOfEffect: 5
+  areaOfEffect: 2.5
   rotDamage: 30
   rotSlow: 14
   rotLayerMask:
     serializedVersion: 2
     m_Bits: 385
   meatShieldLevel: 1
-  damageStop: 0
+  damageStop: 8
   shieldDuration: 4
   meatShieldCooldown: 20
   meatShieldManaCost: 50
   dismemberLevel: 1
-  castRange: 0
-  dismemberCooldown: 20
+  castRange: 2
+  dismemberCooldown: 30
   dismemberManaCost: 100
 --- !u!114 &1958115157
 MonoBehaviour:

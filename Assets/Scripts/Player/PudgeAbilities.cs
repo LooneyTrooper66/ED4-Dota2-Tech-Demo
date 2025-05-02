@@ -15,7 +15,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     public float damage = 150;
     public float meathookCooldown = 18;
     public float meathookManaCost = 110;
-    private bool hookAiming;
+    private bool hookAiming = false;
     private bool hookCast;
     private bool hookReturning;
 
@@ -46,9 +46,13 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     [Header("Dismember")]
     public int dismemberLevel = 1;
-    public float castRange;
+    public float castRange = 2;
     public float dismemberCooldown = 30;
     public float dismemberManaCost = 100;
+    private bool dismemberChooseTarget = false;
+    private bool dismemberTargetChosen;
+    private Vector3 targetFloatPos;
+    private Vector3 drawTargetInTo = new Vector3(1, 2, 1); // relative to transform.position hopefully
 
 
     private void OnEnable()
@@ -58,6 +62,8 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         hookCast = false;
         hookReturning = false;
         rotActive = false;
+        dismemberChooseTarget = false;
+        dismemberTargetChosen = false;
         abilitiesMS.qTimer = meathookCooldown;
         abilitiesMS.eTimer = meatShieldCooldown;
         abilitiesMS.rTimer = dismemberCooldown;
@@ -65,12 +71,11 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     private void Update()
     {
-
         #region // meat hook
 
         if (hookAiming)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Q))
             {
                 // reset all ui and that
                 hookAiming = false;
@@ -84,7 +89,6 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 abilitiesMS.qCooldownZero = false;
                 hookAiming = false;
                 hookCast = true;
-                //StartCoroutine(CastHookOut());
             }
 
             RaycastHit hit;
@@ -97,6 +101,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         if (hookCast)
         {
             move.agent.SetDestination(transform.position);
+            transform.rotation = transform.rotation;
 
             hook.transform.position = Vector3.MoveTowards(hook.transform.position, hookTarget.transform.position, 16 * Time.deltaTime);
             if (Vector3.Distance(hook.transform.position, hookTarget.transform.position) < 0.1f)
@@ -140,6 +145,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
             }
 
             move.agent.SetDestination(transform.position);
+            transform.rotation = transform.rotation;
 
             hook.transform.position = Vector3.MoveTowards(hook.transform.position, transform.position, 16 * Time.deltaTime);
             if (Vector3.Distance(hook.transform.position, transform.position) < 0.1f)
@@ -210,12 +216,62 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         }
 
         #endregion
+
+        #region // dismember
+
+        if (dismemberChooseTarget)
+        {
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Q))
+            {
+                dismemberChooseTarget = false;
+                return;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hookCollideMask, QueryTriggerInteraction.Ignore))
+                {
+                    //Debug.Log(hit.collider.gameObject.name);
+                    CurrentAttackingState attackable = hit.collider.gameObject.GetComponent<CurrentAttackingState>();
+                    if (attackable != null)
+                    {
+                        move.currentTarget = hit.collider.gameObject.transform;
+                        abilitiesMS.rTimer = dismemberCooldown;
+                        abilitiesMS.rCooldownZero = false;
+                        dismemberChooseTarget = false;
+                        dismemberTargetChosen = true;
+                    }
+                }
+            }
+        }
+
+        if (dismemberTargetChosen)
+        {
+            bool targetInRange = false;
+            if (Vector3.Distance(transform.position, move.currentTarget.position) <= castRange && targetInRange == false)
+            {
+                targetInRange = true;
+                targetFloatPos = new Vector3(move.currentTarget.position.x, 2, move.currentTarget.position.z);
+            }
+
+            if (targetInRange)
+            {
+                move.agent.SetDestination(transform.position);
+                move.currentTarget.transform.position = Vector3.MoveTowards(targetFloatPos, drawTargetInTo, 2 * Time.deltaTime);
+                for (int i = 0; i < 5; i++)
+                {
+                    Debug.Log("attak");
+                }
+            }
+            // when within cast range of target, make target float and slowly move towards pudge, damage 5 times over 5 seconds and regain x health
+        }
+
+        #endregion
     }
 
     public void QAbility() // meat hook
     {
-        if (hookAiming) { hookAiming = false; }
-        else { hookAiming = true; hookTarget.SetActive(true); }
+        hookAiming = true; hookTarget.SetActive(true);
     }
 
     public void WAbility() // rot
@@ -241,21 +297,6 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     public void RAbility() // dismember
     {
-        abilitiesMS.rTimer = dismemberCooldown;
-        abilitiesMS.rCooldownZero = false;
-
-        // maths maths maths aaaaaaa
-    }
-
-    IEnumerator BringHookBack()
-    {
-        float distLeft = Vector3.Distance(hook.transform.position, hookTarget.transform.position);
-        while (distLeft < (travelDist - 0.5f))
-        {
-            hook.transform.position = Vector3.MoveTowards(hookTarget.transform.position, transform.position, 6 * Time.deltaTime);
-        }
-        hookReturning = false; // set to false after killing creep/once back depending on wether caught anything
-        hookTarget.SetActive(false);
-        yield return null;
+        dismemberChooseTarget = true;
     }
 }
