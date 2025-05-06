@@ -194,7 +194,6 @@ public class HeroStats : MonoBehaviour, IDamageable
             damage -= meatShieldDamageStop;
         }
         targetStats.targetHealth -= damage;
-        Debug.Log(damage);
 
         if (targetStats != null && targetStats.targetHealth <= 0)
         {

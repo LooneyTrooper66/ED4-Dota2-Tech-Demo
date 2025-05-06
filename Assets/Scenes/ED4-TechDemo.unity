@@ -9605,13 +9605,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615747865}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.10938163, y: -0.8754261, z: 0.40821788, w: -0.23456968}
+  m_LocalRotation: {x: 0.21130908, y: 0.7848856, z: -0.36599815, w: 0.45315382}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450653325425829}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 120, z: 0}
 --- !u!114 &1615747868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12542,9 +12542,14 @@ MonoBehaviour:
   meatShieldCooldown: 20
   meatShieldManaCost: 50
   dismemberLevel: 1
-  castRange: 2
+  castRange: 2.5
+  dismemberBaseDamage: 80
+  dismemberDmgStrMultiplier: 0.3
   dismemberCooldown: 30
   dismemberManaCost: 100
+  dismemberCollideMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1958115157
 MonoBehaviour:
   m_ObjectHideFlags: 0

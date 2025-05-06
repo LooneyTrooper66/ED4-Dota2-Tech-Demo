@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -46,13 +47,18 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
     [Header("Dismember")]
     public int dismemberLevel = 1;
-    public float castRange = 2;
+    public float castRange = 2.5f; // 200/100 plus radius offset
+    public float dismemberBaseDamage = 80;
+    public float dismemberDmgStrMultiplier = 0.3f;
     public float dismemberCooldown = 30;
     public float dismemberManaCost = 100;
     private bool dismemberChooseTarget = false;
     private bool dismemberTargetChosen;
-    private Vector3 targetFloatPos;
-    private Vector3 drawTargetInTo = new Vector3(1, 2, 1); // relative to transform.position hopefully
+    public LayerMask dismemberCollideMask;
+    private Vector3 targetOrigionalPos;
+    private bool targetInRange = false;
+    int damagedTimes = 0;
+    float timer = 0;
 
 
     private void OnEnable()
@@ -66,6 +72,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
         dismemberTargetChosen = false;
         abilitiesMS.qTimer = meathookCooldown;
         abilitiesMS.eTimer = meatShieldCooldown;
+        targetInRange = false;
         abilitiesMS.rTimer = dismemberCooldown;
     }
 
@@ -116,9 +123,15 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
             {
                 foreach (Collider c in hitTargets)
                 {
+                    // checking if the hit target is a tower
+                    NeutralCreepsCanAttack targetable = c.gameObject.GetComponent<NeutralCreepsCanAttack>();
+                    if (targetable == null) { return; }
+
                     if (c.gameObject.layer == 7) // ally
                     {
                         allyCreep = c.gameObject;
+                        hookReturning = true;
+                        return;
                     }
 
                     if (c.gameObject.layer == 8) // enemy
@@ -229,10 +242,10 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hookCollideMask, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, dismemberCollideMask, QueryTriggerInteraction.Ignore))
                 {
                     //Debug.Log(hit.collider.gameObject.name);
-                    CurrentAttackingState attackable = hit.collider.gameObject.GetComponent<CurrentAttackingState>();
+                    NeutralCreepsCanAttack attackable = hit.collider.gameObject.GetComponent<NeutralCreepsCanAttack>();
                     if (attackable != null)
                     {
                         move.currentTarget = hit.collider.gameObject.transform;
@@ -241,30 +254,66 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                         dismemberChooseTarget = false;
                         dismemberTargetChosen = true;
                     }
+                    else
+                    {
+                        dismemberChooseTarget = false;
+                    }
+                }
+                else
+                {
+                    dismemberChooseTarget = false;
                 }
             }
         }
 
         if (dismemberTargetChosen)
         {
-            bool targetInRange = false;
-            if (Vector3.Distance(transform.position, move.currentTarget.position) <= castRange && targetInRange == false)
+            if (move.currentTarget != null && Vector3.Distance(transform.position, move.currentTarget.position) <= castRange && targetInRange == false)
             {
                 targetInRange = true;
-                targetFloatPos = new Vector3(move.currentTarget.position.x, 2, move.currentTarget.position.z);
-            }
+                targetOrigionalPos = move.currentTarget.position;
+                dismemberTargetChosen = false;
+                timer = 0.8f;
+            }            
+        }
 
-            if (targetInRange)
+        if (Input.GetMouseButtonDown(1) && targetInRange)
+        {
+            move.currentTarget.position = targetOrigionalPos;
+            targetInRange = false;
+            damagedTimes = 0;
+            timer = 0;
+        }
+
+        if (targetInRange)
+        {
+
+            move.agent.SetDestination(transform.position);
+            move.currentTarget.position = new Vector3(move.currentTarget.position.x, 2.5f, move.currentTarget.position.z);
+            if (damagedTimes <= 4 && move.currentTarget.gameObject.activeSelf == true)
             {
-                move.agent.SetDestination(transform.position);
-                move.currentTarget.transform.position = Vector3.MoveTowards(targetFloatPos, drawTargetInTo, 2 * Time.deltaTime);
-                for (int i = 0; i < 5; i++)
+                timer += Time.deltaTime;
+                if (timer > 1)
                 {
-                    Debug.Log("attak");
+                    IDamageable damageable = GetComponent<IDamageable>();
+                    if (damageable != null)
+                    {
+                        damageable.DealDamage(move.currentTarget.gameObject, dismemberBaseDamage + (stats.strength * dismemberDmgStrMultiplier));
+                    }
+                    // heal pudge
+                    damagedTimes++;
+                    timer = 0;
                 }
             }
-            // when within cast range of target, make target float and slowly move towards pudge, damage 5 times over 5 seconds and regain x health
+            else
+            {
+                move.currentTarget.position = targetOrigionalPos;
+                targetInRange = false;
+                damagedTimes = 0;
+                timer = 0;
+            }
         }
+        // when within cast range of target, make target float and slowly move towards pudge, damage 5 times over 5 seconds and regain x health
 
         #endregion
     }

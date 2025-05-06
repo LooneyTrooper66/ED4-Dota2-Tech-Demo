@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 1105617474361896695}
   - component: {fileID: 7612358212996398305}
   - component: {fileID: 2249547045812837716}
+  - component: {fileID: 712203676581564458}
   m_Layer: 8
   m_Name: EasyNeutralCreep
   m_TagString: NeutralCreep
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
   stoppingDist: 0.9
+  loseAggroTimer: 0
 --- !u!114 &4585874232209479443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +405,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4795240896a58f4b8ceb92dd0341c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &712203676581564458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0583b55114dcf947b2b62e62230badf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostile: 0
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0
