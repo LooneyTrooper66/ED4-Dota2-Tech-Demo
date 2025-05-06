@@ -55,6 +55,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
     private bool dismemberChooseTarget = false;
     private bool dismemberTargetChosen;
     public LayerMask dismemberCollideMask;
+    private GameObject currentTargetGO = null;
     private Vector3 targetOrigionalPos;
     private bool targetInRange = false;
     int damagedTimes = 0;
@@ -272,6 +273,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
             {
                 targetInRange = true;
                 targetOrigionalPos = move.currentTarget.position;
+                currentTargetGO = move.currentTarget.gameObject;
                 dismemberTargetChosen = false;
                 timer = 0.8f;
             }            
@@ -279,15 +281,14 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
         if (Input.GetMouseButtonDown(1) && targetInRange)
         {
-            move.currentTarget.position = targetOrigionalPos;
             targetInRange = false;
+            currentTargetGO.transform.position = targetOrigionalPos;
             damagedTimes = 0;
             timer = 0;
         }
 
         if (targetInRange)
         {
-
             move.agent.SetDestination(transform.position);
             move.currentTarget.position = new Vector3(move.currentTarget.position.x, 2.5f, move.currentTarget.position.z);
             if (damagedTimes <= 4 && move.currentTarget.gameObject.activeSelf == true)
