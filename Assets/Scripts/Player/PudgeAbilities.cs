@@ -96,6 +96,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 abilitiesMS.qTimer = meathookCooldown;
                 abilitiesMS.qCooldownZero = false;
                 hookAiming = false;
+                move.playerAllowedToMove = false;
                 hookCast = true;
             }
 
@@ -166,6 +167,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
             {
                 hookReturning = false;
                 allyCreep = null;
+                move.playerAllowedToMove = true;
                 hookTarget.SetActive(false);
                 spinny.transform.rotation = Quaternion.identity;
             }

@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     public NavMeshAgent agent;
     public float rotateSpeed = 0.1f;
+    public bool playerAllowedToMove;
     float rotateVelocity;
 
     [Header("Enemy Targeting")]
@@ -26,6 +27,7 @@ public class Movement : MonoBehaviour
         stats = GetComponent<HeroStats>();
         GameObject timerHolder = GameObject.Find("--Timer--");
         timer = timerHolder.GetComponent<Timer>();
+        playerAllowedToMove = true;
         stoppingDist += offset;
         attackRange = stats.attackRange - offset;
     }
@@ -67,7 +69,7 @@ public class Movement : MonoBehaviour
 
     void GetInputs()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && playerAllowedToMove)
         {
             combat.state = HeroCombat.currentState.travelling;
             RaycastHit hit;
@@ -81,7 +83,7 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerAllowedToMove)
         {
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))

@@ -12441,6 +12441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   rotateSpeed: 0.1
+  playerAllowedToMove: 0
   currentTarget: {fileID: 0}
   offset: 0.5
   layerMask:
