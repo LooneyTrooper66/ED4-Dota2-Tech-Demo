@@ -84,7 +84,7 @@ public class NeutralCreepAI : MonoBehaviour, INavmeshSpeed
         NeutralCreepsCanAttack[] temp = FindObjectsByType<NeutralCreepsCanAttack>(FindObjectsSortMode.None);
         foreach (var scr in temp) // any unit within radius will draw aggro, does not need to be hostile
         {
-            hostileUnits.Add(scr.gameObject);
+            if (scr.gameObject.tag != "NeutralCreep") { hostileUnits.Add(scr.gameObject); }
         }
 
         Transform closestEnemyCreep = GetClosestObjectInRadius(hostileUnits, attackRange);

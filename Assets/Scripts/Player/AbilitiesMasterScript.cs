@@ -3,6 +3,10 @@ using UnityEngine;
 public class AbilitiesMasterScript : MonoBehaviour
 {
     IHeroAbilityFunctionality heroAbilities;
+    HeroStats stats;
+    public float qManaCost;
+    public float eManaCost;
+    public float rManaCost;
     [HideInInspector] public bool qCooldownZero;
     [HideInInspector] public bool eCooldownZero;
     [HideInInspector] public bool rCooldownZero;
@@ -14,6 +18,7 @@ public class AbilitiesMasterScript : MonoBehaviour
     private void Start()
     {
         heroAbilities = GetComponent<IHeroAbilityFunctionality>();
+        stats = GetComponent<HeroStats>();
         qCooldownZero = true;
         eCooldownZero = true;
         rCooldownZero = true;
@@ -22,7 +27,7 @@ public class AbilitiesMasterScript : MonoBehaviour
     private void Update() // make sure to check for cooldowns
     {
         #region inputs to activate abilities
-        if (Input.GetKeyDown(KeyCode.Q) && qCooldownZero == true) // check keybinds later
+        if (Input.GetKeyDown(KeyCode.Q) && stats.currentMana >= qManaCost && qCooldownZero == true) // check keybinds later
         {
             heroAbilities.QAbility();
         }
@@ -32,12 +37,12 @@ public class AbilitiesMasterScript : MonoBehaviour
             heroAbilities.WAbility();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && eCooldownZero == true) // check keybinds later
+        if (Input.GetKeyDown(KeyCode.E) && stats.currentMana >= eManaCost && eCooldownZero == true) // check keybinds later
         {
             heroAbilities.EAbility();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && rCooldownZero == true) // check keybinds later
+        if (Input.GetKeyDown(KeyCode.R) && stats.currentMana >= rManaCost && rCooldownZero == true) // check keybinds later
         {
             heroAbilities.RAbility();
         }

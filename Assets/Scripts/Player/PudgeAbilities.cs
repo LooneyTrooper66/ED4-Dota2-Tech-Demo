@@ -98,6 +98,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 hookAiming = false;
                 move.playerAllowedToMove = false;
                 hookCast = true;
+                stats.currentMana -= meathookManaCost;
             }
 
             RaycastHit hit;
@@ -278,6 +279,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 currentTargetGO = move.currentTarget.gameObject;
                 dismemberTargetChosen = false;
                 timer = 0.9f;
+                stats.currentMana -= dismemberManaCost;
             }            
         }
 
@@ -355,7 +357,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
 
         // this one is timed and will deactivate itself if not deactivated by player
         if (stats.meatShieldActive) { stats.meatShieldActive = false; meatShieldTimer = 0; }
-        else { stats.meatShieldActive = true; }
+        else { stats.meatShieldActive = true; stats.currentMana -= meatShieldManaCost; }
     }
 
     public void RAbility() // dismember

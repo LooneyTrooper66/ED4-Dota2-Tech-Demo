@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RadialAggroCheck : MonoBehaviour
@@ -12,6 +13,6 @@ public class RadialAggroCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        creepAI.FindAndSetCreepTarget();
+        creepAI.currentTarget = other.gameObject.transform;
     }
 }
