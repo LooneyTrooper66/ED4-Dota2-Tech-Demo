@@ -275,7 +275,7 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 targetOrigionalPos = move.currentTarget.position;
                 currentTargetGO = move.currentTarget.gameObject;
                 dismemberTargetChosen = false;
-                timer = 0.8f;
+                timer = 0.9f;
             }            
         }
 
@@ -301,7 +301,19 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                     {
                         damageable.DealDamage(move.currentTarget.gameObject, dismemberBaseDamage + (stats.strength * dismemberDmgStrMultiplier));
                     }
-                    // heal pudge
+                    if (stats.currentHealth < stats.health)
+                    {
+                        float currentHealthRegenable = stats.health - stats.currentHealth;
+                        if (currentHealthRegenable < 80)
+                        {
+                            stats.currentHealth += currentHealthRegenable;
+                        }
+                        else
+                        {
+                            stats.currentHealth += dismemberBaseDamage + (stats.strength * dismemberDmgStrMultiplier); // literally the exact same equasion
+                        }
+                        stats.UpdateHealthUI();
+                    }
                     damagedTimes++;
                     timer = 0;
                 }
@@ -314,7 +326,6 @@ public class PudgeAbilities : MonoBehaviour, IHeroAbilityFunctionality
                 timer = 0;
             }
         }
-        // when within cast range of target, make target float and slowly move towards pudge, damage 5 times over 5 seconds and regain x health
 
         #endregion
     }
