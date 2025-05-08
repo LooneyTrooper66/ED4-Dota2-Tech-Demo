@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class HeroStats : MonoBehaviour, IDamageable
 {
@@ -44,6 +45,11 @@ public class HeroStats : MonoBehaviour, IDamageable
     [HideInInspector] public bool meatShieldActive;
     [HideInInspector] public float meatShieldDamageStop = 8;
     public LayerMask layerMask;
+
+    [Header("UI Elements")]
+    public TextMeshProUGUI goldCount;
+    public TextMeshProUGUI reliableGoldCount;
+    public TextMeshProUGUI unreliableGoldCount;
 
 
     void Awake()
@@ -250,6 +256,9 @@ public class HeroStats : MonoBehaviour, IDamageable
 
     void UpdateUI()
     {
+        goldCount.text = ((int)reliableGold + (int)unreliableGold).ToString();
+        reliableGoldCount.text = $"Reliable: {reliableGold}";
+        unreliableGoldCount.text = $"Unreliable: {unreliableGold}";
         // update all stat based ui
 
         // reliable gold, unreliable gold, all gold, mana, health, etc...
