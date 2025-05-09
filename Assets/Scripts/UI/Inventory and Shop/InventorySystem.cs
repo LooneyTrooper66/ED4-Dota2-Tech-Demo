@@ -38,8 +38,8 @@ public class InventorySystem
                 }
             }
         }
-        
-        if(HasFreeSlot(out InventorySlots freeSlot))
+
+        if (HasFreeSlot(out InventorySlots freeSlot))
         {
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
             OnInventorySlotChanged?.Invoke(freeSlot);
@@ -51,13 +51,17 @@ public class InventorySystem
 
     public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlots> invSlot)
     {
-        invSlot = pInventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
-        return invSlot.Count > 1 ? true : false;
+        GameObject playerInv = GameObject.Find("playerInventory");
+        StaticInventoryDisplay playerInvDisplay = playerInv.GetComponent<StaticInventoryDisplay>();
+        invSlot = playerInvDisplay.InventorySystem.pInventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
+        return invSlot == null ? false : true;
     }
 
     public bool HasFreeSlot(out InventorySlots freeSlot)
     {
-        freeSlot = pInventorySlots.FirstOrDefault(i => i.ItemData == null);
+        GameObject playerInv = GameObject.Find("playerInventory");
+        StaticInventoryDisplay playerInvDisplay = playerInv.GetComponent<StaticInventoryDisplay>();
+        freeSlot = playerInvDisplay.InventorySystem.pInventorySlots.FirstOrDefault(i => i.ItemData == null);
         return freeSlot == null ? false : true;
     }
 }

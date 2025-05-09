@@ -7,11 +7,9 @@ public abstract class InventoryDisplay : MonoBehaviour
 {
     protected InventorySystem inventorySystem;
     protected Dictionary<InventorySlot_UI, InventorySlots> slotsDictionary;
-    [SerializeField] private string inventoryType;
 
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlots> SlotsDictionary => slotsDictionary;
-    public string InventoryType => inventoryType;
 
 
     protected virtual void Start()
@@ -23,7 +21,9 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     protected virtual void UpdateSlot(InventorySlots updatedSlot)
     {
-        foreach (var slot in SlotsDictionary)
+        GameObject playerInv = GameObject.Find("playerInventory");
+        StaticInventoryDisplay playerInvDisplay = playerInv.GetComponent<StaticInventoryDisplay>();
+        foreach (var slot in playerInvDisplay.SlotsDictionary)
         {
             if (slot.Value == updatedSlot) // slot value - under the hood slot
             {

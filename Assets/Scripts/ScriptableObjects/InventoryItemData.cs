@@ -4,7 +4,7 @@ using UnityEngine;
 public class InventoryItemData : ScriptableObject
 {
     public string itemName;
-    public int itemCost;
+    public float itemCost;
     public Sprite icon;
     public int maxStackSize;
 }

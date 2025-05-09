@@ -36,7 +36,7 @@ public class StaticInventoryDisplay : InventoryDisplay
 
     public override void SlotClicked(InventorySlot_UI clickedSlot)
     {
-        Debug.Log("playerItem");
+        Debug.Log("player item");
         // if has an item use item
     }
 }

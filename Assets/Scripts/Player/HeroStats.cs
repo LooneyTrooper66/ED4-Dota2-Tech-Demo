@@ -33,6 +33,7 @@ public class HeroStats : MonoBehaviour, IDamageable
     public float currentNetworth;
 
     [Header("Resorces")]
+    public float totalGold;
     public float reliableGold;
     public float unreliableGold;
     public int xp;
@@ -256,7 +257,8 @@ public class HeroStats : MonoBehaviour, IDamageable
 
     void UpdateUI()
     {
-        goldCount.text = ((int)reliableGold + (int)unreliableGold).ToString();
+        totalGold = (int)reliableGold + (int)unreliableGold;
+        goldCount.text = totalGold.ToString();
         reliableGoldCount.text = $"Reliable: {reliableGold}";
         unreliableGoldCount.text = $"Unreliable: {unreliableGold}";
         // update all stat based ui
