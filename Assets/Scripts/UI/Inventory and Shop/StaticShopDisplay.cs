@@ -55,15 +55,23 @@ public class StaticShopDisplay : InventoryDisplay
                 // need to make sure cant go into negatives lmao
                 // must use unreliable first
                 float itemCosts = clickedSlot.AssignedInvSlot.ItemData.itemCost;
-                if (stats.unreliableGold < 0)
+                if (stats.unreliableGold > 0)
                 {
-                    itemCosts -= stats.unreliableGold;
-                    stats.unreliableGold -= clickedSlot.AssignedInvSlot.ItemData.itemCost;
+                    if (stats.unreliableGold >= clickedSlot.AssignedInvSlot.ItemData.itemCost)
+                    {
+                        stats.unreliableGold -= clickedSlot.AssignedInvSlot.ItemData.itemCost;
+                        itemCosts = 0;
+                    }
+                    else
+                    {
+                        itemCosts -= stats.unreliableGold;
+                        stats.unreliableGold = 0;
+                    }
                 }
 
                 if (itemCosts > 0)
                 {
-                    stats.unreliableGold -= itemCosts;
+                    stats.reliableGold -= itemCosts;
                 }
 
                 return;
@@ -71,8 +79,7 @@ public class StaticShopDisplay : InventoryDisplay
         }
 
 
-        // if has enough money and enough space in inv
-        // take required money and add to player inv
+        // if is item that isnt consumeable make it change stats for player
         // set cooldown if has one
     }
 }

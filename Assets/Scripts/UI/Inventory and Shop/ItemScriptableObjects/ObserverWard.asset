@@ -16,3 +16,4 @@ MonoBehaviour:
   itemCost: 0
   icon: {fileID: 21300000, guid: 41de98ac2bed85e48a6775d7da493ca9, type: 3}
   maxStackSize: 20
+  isConsumeable: 1

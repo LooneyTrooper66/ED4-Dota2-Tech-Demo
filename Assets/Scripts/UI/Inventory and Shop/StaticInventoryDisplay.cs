@@ -36,7 +36,10 @@ public class StaticInventoryDisplay : InventoryDisplay
 
     public override void SlotClicked(InventorySlot_UI clickedSlot)
     {
-        Debug.Log("player item");
-        // if has an item use item
+        // check if is consumable
+        // if is do the get thingy for interface
+
+        // get items interface and make function do thing
+        // IItemFunctionality functionality = clickedSlot.AssignedInvSlot.;
     }
 }

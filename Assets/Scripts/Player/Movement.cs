@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 using UnityEngine.AI;
 
@@ -69,7 +70,7 @@ public class Movement : MonoBehaviour
 
     void GetInputs()
     {
-        if (Input.GetMouseButtonDown(1) && playerAllowedToMove)
+        if (Input.GetMouseButtonDown(1) && playerAllowedToMove && !IsMouseOverUI())
         {
             combat.state = HeroCombat.currentState.travelling;
             RaycastHit hit;
@@ -96,6 +97,11 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
     void MoveToPos(Vector3 pos)

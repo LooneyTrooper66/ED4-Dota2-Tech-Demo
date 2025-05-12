@@ -7,4 +7,5 @@ public class InventoryItemData : ScriptableObject
     public float itemCost;
     public Sprite icon;
     public int maxStackSize;
+    public bool isConsumeable;
 }
