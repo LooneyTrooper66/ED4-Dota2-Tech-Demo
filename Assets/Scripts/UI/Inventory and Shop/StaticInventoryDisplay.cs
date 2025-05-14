@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class StaticInventoryDisplay : InventoryDisplay
 {
     [SerializeField] private InventoryHolder inventoryHolder;
     [SerializeField] private InventorySlot_UI[] slots;
     [SerializeField] private ItemFunctionsHolder itemFunctionsHolder;
+    [SerializeField] private HeroStats stats;
+
 
 
     protected override void Start()
@@ -45,9 +48,17 @@ public class StaticInventoryDisplay : InventoryDisplay
             string functionName = clickedSlot.AssignedInvSlot.ItemData.itemFunctionName;
             itemFunctionsHolder.Invoke(functionName, 0);
 
-            inventorySystem.RemoveFromInventory(clickedSlot.AssignedInvSlot, 1);
 
             // activate cooldown if not already
+        }
+    }
+
+    public void SellCurrentSlot(InventorySlot_UI clickedSlot)
+    {
+        if (clickedSlot.AssignedInvSlot.ItemData != null)
+        {
+            stats.unreliableGold += (clickedSlot.AssignedInvSlot.ItemData.itemCost / 2);
+            inventorySystem.RemoveFromInventory(clickedSlot.AssignedInvSlot, 1);
         }
     }
 }
