@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
     HeroCombat combat;
     HeroStats stats;
     Timer timer;
+    float moveSpeed;
 
 
     private void Start()
@@ -38,15 +39,14 @@ public class Movement : MonoBehaviour
         Move();
 
         #region // setting speed depending on time of day
-        if (timer.currentTime == Timer.timeOfDay.day && agent.speed == 2.29f)
+        if (stats.movementSpeed != moveSpeed)
         {
-            agent.speed = 2.07f;
+            moveSpeed = stats.movementSpeed;
+            agent.speed = moveSpeed;
         }
 
-        if (timer.currentTime == Timer.timeOfDay.night && agent.speed == 2.07f)
-        {
-            agent.speed = 2.29f;
-        }
+        if (timer.currentTime == Timer.timeOfDay.day && agent.speed == moveSpeed) agent.speed = moveSpeed - 0.2f;
+        if (timer.currentTime == Timer.timeOfDay.night && agent.speed == moveSpeed - 0.2f) agent.speed = moveSpeed;
         #endregion
     }
 

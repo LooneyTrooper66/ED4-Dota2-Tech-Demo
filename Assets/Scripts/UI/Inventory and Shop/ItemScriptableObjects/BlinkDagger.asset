@@ -16,4 +16,6 @@ MonoBehaviour:
   itemCost: 2250
   icon: {fileID: 21300000, guid: bebd0ddac6b3a96479549d79242df2d6, type: 3}
   maxStackSize: 1
-  isConsumeable: 0
+  itemFunctionName: BlinkDaggerFunctionality
+  canBeUsed: 1
+  itemUseCooldown: 15

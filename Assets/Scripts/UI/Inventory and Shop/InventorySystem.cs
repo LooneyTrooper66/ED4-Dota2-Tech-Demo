@@ -49,6 +49,12 @@ public class InventorySystem
         return false;
     }
 
+    public void RemoveFromInventory(InventorySlots slotToClear, int amountToRemove)
+    {
+        slotToClear.RemoveFromStack(amountToRemove);
+        OnInventorySlotChanged?.Invoke(slotToClear);
+    }
+
     public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlots> invSlot)
     {
         GameObject playerInv = GameObject.Find("playerInventory");

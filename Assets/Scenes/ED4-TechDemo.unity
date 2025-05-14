@@ -1137,6 +1137,7 @@ MonoBehaviour:
   - {fileID: 1258757546}
   - {fileID: 169475790}
   stats: {fileID: 1958115143}
+  itemFunctionsHolder: {fileID: 895736349}
 --- !u!1 &161485314
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,6 +7193,7 @@ GameObject:
   - component: {fileID: 895736346}
   - component: {fileID: 895736345}
   - component: {fileID: 895736348}
+  - component: {fileID: 895736349}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7273,6 +7275,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1958115142}
+--- !u!114 &895736349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895736344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b1963bf27fa5342ad2684344c54ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 1958115143}
+  abilities: {fileID: 1958115156}
 --- !u!1 &909253978
 GameObject:
   m_ObjectHideFlags: 0
@@ -8753,6 +8769,7 @@ MonoBehaviour:
   - {fileID: 1665941775}
   - {fileID: 1258757546}
   - {fileID: 169475790}
+  itemFunctionsHolder: {fileID: 895736349}
 --- !u!1001 &1033904604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17620,7 +17637,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 2.29
-  m_Acceleration: 8
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

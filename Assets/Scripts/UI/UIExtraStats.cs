@@ -17,6 +17,9 @@ public class UIExtraStats : MonoBehaviour
 
     void UpdateStatsText()
     {
-        statsText.text = ($"Level: {stats.level}   ");
+        statsText.text = ($"Level: {stats.level}   MaxHealth: {stats.health}\nHealthRegen: {stats.healthRegen}   Mana: {stats.mana}\n" +
+            $"ManaRegen: {stats.manaRegen}   MaxHealth: {stats.health}\nDamage: {stats.damage}   MoveSpeed: {stats.movementSpeed}\n" +
+            $"AttackRange: {stats.attackRange}   Strength: {stats.strength}\nIntelligence: {stats.intelligence}   Agility: {stats.agility}\n" +
+            $"VisionDay: {stats.visionDay}   VisionNight: {stats.visionNight}\nCurrentNetworth: {stats.currentNetworth}");
     }
 }

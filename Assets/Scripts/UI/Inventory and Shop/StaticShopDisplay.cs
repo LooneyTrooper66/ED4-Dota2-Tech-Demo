@@ -10,6 +10,7 @@ public class StaticShopDisplay : InventoryDisplay
     [SerializeField] private List<InventorySlot_UI> playerInvSlots;
     Dictionary<InventoryItemData, int> shopItemsDict;
     public HeroStats stats;
+    [SerializeField] private ItemFunctionsHolder itemFunctionsHolder;
 
 
     protected override void Start()
@@ -74,13 +75,15 @@ public class StaticShopDisplay : InventoryDisplay
                     stats.reliableGold -= itemCosts;
                 }
 
+                if (clickedSlot.AssignedInvSlot.ItemData.canBeUsed == false)
+                {
+                    string functionName = clickedSlot.AssignedInvSlot.ItemData.itemFunctionName;
+                    itemFunctionsHolder.Invoke(functionName, 0);
+                }
+
                 return;
             }
         }
-
-
-        // if is item that isnt consumeable make it change stats for player
-        // set cooldown if has one
     }
 }
 

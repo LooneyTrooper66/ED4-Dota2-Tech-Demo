@@ -5,6 +5,7 @@ public class StaticInventoryDisplay : InventoryDisplay
 {
     [SerializeField] private InventoryHolder inventoryHolder;
     [SerializeField] private InventorySlot_UI[] slots;
+    [SerializeField] private ItemFunctionsHolder itemFunctionsHolder;
 
 
     protected override void Start()
@@ -36,10 +37,17 @@ public class StaticInventoryDisplay : InventoryDisplay
 
     public override void SlotClicked(InventorySlot_UI clickedSlot)
     {
-        // check if is consumable
-        // if is do the get thingy for interface
+        if (clickedSlot.AssignedInvSlot.ItemData == null) return;
 
-        // get items interface and make function do thing
-        // IItemFunctionality functionality = clickedSlot.AssignedInvSlot.;
+        // check isnt in cooldown (disable button or smn) pretty much only for blink dagger
+        if (clickedSlot.AssignedInvSlot.ItemData.canBeUsed == true)
+        {
+            string functionName = clickedSlot.AssignedInvSlot.ItemData.itemFunctionName;
+            itemFunctionsHolder.Invoke(functionName, 0);
+
+            inventorySystem.RemoveFromInventory(clickedSlot.AssignedInvSlot, 1);
+
+            // activate cooldown if not already
+        }
     }
 }

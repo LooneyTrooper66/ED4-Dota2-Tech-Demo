@@ -18,7 +18,7 @@ MonoBehaviour:
   mana: 267
   manaRegen: 0.8
   damage: 74
-  movementSpeed: 2.8
+  movementSpeed: 2.29
   secondsBetweenAttacks: 0.67
   attackRange: 1.75
   acquisitionRange: 6
