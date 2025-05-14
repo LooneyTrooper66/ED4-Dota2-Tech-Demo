@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 
@@ -48,9 +50,21 @@ public class StaticInventoryDisplay : InventoryDisplay
             string functionName = clickedSlot.AssignedInvSlot.ItemData.itemFunctionName;
             itemFunctionsHolder.Invoke(functionName, 0);
 
-
-            // activate cooldown if not already
+            // activate item cooldown 
+            if (clickedSlot.AssignedInvSlot.ItemData.itemUseCooldown > 0)
+            {
+                clickedSlot.button.enabled = false;
+                clickedSlot.itemSprite.color = Color.gray;
+                StartCoroutine(ItemCooldown(clickedSlot, clickedSlot.AssignedInvSlot.ItemData.itemUseCooldown));
+            }
         }
+    }
+
+    IEnumerator ItemCooldown(InventorySlot_UI clickedSlot, float cooldownTime)
+    {
+        yield return new WaitForSecondsRealtime(cooldownTime);
+        clickedSlot.button.enabled = true;
+        clickedSlot.itemSprite.color = Color.white;
     }
 
     public void SellCurrentSlot(InventorySlot_UI clickedSlot)

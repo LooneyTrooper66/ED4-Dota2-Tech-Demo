@@ -6,6 +6,7 @@ public class ItemFunctionsHolder : MonoBehaviour
     [SerializeField] private PudgeAbilities abilities;
     bool clarityTimerOn = false;
     bool healingSalveTimerOn = false;
+    bool blinkDaggerArmed = false;
     float clarityTimer = 0;
     float healingSalveTimer = 0;
 
@@ -39,6 +40,37 @@ public class ItemFunctionsHolder : MonoBehaviour
         }
 
         #endregion
+
+        #region
+
+        /*if (blinkDaggerArmed)
+        {
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Q))
+            {
+                // reset all ui and that
+                hookAiming = false;
+                hookTarget.SetActive(false);
+                spinny.transform.rotation = Quaternion.identity;
+                return;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                abilitiesMS.qTimer = meathookCooldown;
+                abilitiesMS.qCooldownZero = false;
+                hookAiming = false;
+                move.playerAllowedToMove = false;
+                hookCast = true;
+                stats.currentMana -= meathookManaCost;
+            }
+
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hookAimMask, QueryTriggerInteraction.Ignore))
+            {
+                spinny.transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+            }
+        }*/
+
+        #endregion
     }
 
     public void ClarityFunctionality()
@@ -66,6 +98,9 @@ public class ItemFunctionsHolder : MonoBehaviour
     public void BlinkDaggerFunctionality()
     {
         // teleport up to 12 away from your position. If used to try to teleport further than 12, will teleport you in the same direction but only by 9.6. 15 second cooldown
+        // left click to confirm position, right click to cancel, similar to hook ability
+
+
     }
 
     public void AetherLensFunctionality()
