@@ -10,6 +10,8 @@ public class StaticInventoryDisplay : InventoryDisplay
     [SerializeField] private InventorySlot_UI[] slots;
     [SerializeField] private ItemFunctionsHolder itemFunctionsHolder;
     [SerializeField] private HeroStats stats;
+    bool itemArmed = false;
+    InventorySlot_UI clickedSlotHolder;
 
 
 
@@ -53,15 +55,33 @@ public class StaticInventoryDisplay : InventoryDisplay
             // activate item cooldown 
             if (clickedSlot.AssignedInvSlot.ItemData.itemUseCooldown > 0)
             {
-                clickedSlot.button.enabled = false;
-                clickedSlot.itemSprite.color = Color.gray;
-                StartCoroutine(ItemCooldown(clickedSlot, clickedSlot.AssignedInvSlot.ItemData.itemUseCooldown));
+                clickedSlotHolder = clickedSlot;
+                itemArmed = true;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (itemArmed)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                itemArmed = false;
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                StartCoroutine(ItemCooldown(clickedSlotHolder, clickedSlotHolder.AssignedInvSlot.ItemData.itemUseCooldown));
+                clickedSlotHolder = null;
+                itemArmed = false;
             }
         }
     }
 
     IEnumerator ItemCooldown(InventorySlot_UI clickedSlot, float cooldownTime)
     {
+        clickedSlot.button.enabled = false;
+        clickedSlot.itemSprite.color = Color.gray;
         yield return new WaitForSecondsRealtime(cooldownTime);
         clickedSlot.button.enabled = true;
         clickedSlot.itemSprite.color = Color.white;

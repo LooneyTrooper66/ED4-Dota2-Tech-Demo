@@ -4,6 +4,8 @@ public class ItemFunctionsHolder : MonoBehaviour
 {
     [SerializeField] private HeroStats stats;
     [SerializeField] private PudgeAbilities abilities;
+    [SerializeField] private Movement move;
+    public LayerMask daggerMask;
     bool clarityTimerOn = false;
     bool healingSalveTimerOn = false;
     bool blinkDaggerArmed = false;
@@ -43,32 +45,50 @@ public class ItemFunctionsHolder : MonoBehaviour
 
         #region
 
-        /*if (blinkDaggerArmed)
+        if (blinkDaggerArmed)
         {
-            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetMouseButtonDown(1))
             {
-                // reset all ui and that
-                hookAiming = false;
-                hookTarget.SetActive(false);
-                spinny.transform.rotation = Quaternion.identity;
+                blinkDaggerArmed = false;
                 return;
             }
-            if (Input.GetMouseButtonDown(0))
-            {
-                abilitiesMS.qTimer = meathookCooldown;
-                abilitiesMS.qCooldownZero = false;
-                hookAiming = false;
-                move.playerAllowedToMove = false;
-                hookCast = true;
-                stats.currentMana -= meathookManaCost;
-            }
+
 
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hookAimMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, daggerMask, QueryTriggerInteraction.Ignore))
             {
-                spinny.transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+                move.gameObject.transform.LookAt(new Vector3(hit.point.x, move.gameObject.transform.position.y, hit.point.z));
             }
-        }*/
+
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                move.playerAllowedToMove = false;
+                blinkDaggerArmed = false;
+
+                RaycastHit hit1;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit1, Mathf.Infinity, daggerMask, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit1.collider != null)
+                    {
+                        // check dist, if within 12 units of player tp to place, if over 12 units tp in same direction but only 9.6 units
+                        if (Vector3.Distance(move.gameObject.transform.position, hit1.point) <= 12)
+                        {
+                            move.gameObject.transform.position = hit1.point;
+                            move.agent.SetDestination(move.gameObject.transform.position);
+                            move.playerAllowedToMove = true;
+                        }
+                        else
+                        {
+                            Vector3 moveDirection = move.gameObject.transform.forward;
+                            move.gameObject.transform.position += moveDirection * 9.6f;
+                            move.agent.SetDestination(move.gameObject.transform.position);
+                            move.playerAllowedToMove = true;
+                        }
+                    }
+                }
+            }
+        }
 
         #endregion
     }
@@ -99,8 +119,7 @@ public class ItemFunctionsHolder : MonoBehaviour
     {
         // teleport up to 12 away from your position. If used to try to teleport further than 12, will teleport you in the same direction but only by 9.6. 15 second cooldown
         // left click to confirm position, right click to cancel, similar to hook ability
-
-
+        blinkDaggerArmed = true;
     }
 
     public void AetherLensFunctionality()
