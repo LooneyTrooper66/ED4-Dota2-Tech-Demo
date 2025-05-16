@@ -138,7 +138,7 @@ public class CameraMovement : MonoBehaviour
         Vector3 pos = transform.position;
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         zoom -= scroll * scrollSpeed * Time.deltaTime * 300f;
-        zoom = Mathf.Clamp(zoom, 6, 14);
+        zoom = Mathf.Clamp(zoom, 6, 18);
         pos.y = Mathf.SmoothDamp(pos.y, zoom, ref velocity, smoothTime);
         transform.position = pos;
 

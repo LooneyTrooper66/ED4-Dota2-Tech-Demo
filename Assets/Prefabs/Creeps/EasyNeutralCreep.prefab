@@ -305,7 +305,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea5c00ea33789684d80c3b75d91010ca, type: 2}
+  - {fileID: -876546973899608171, guid: 4ccd9d79f531b1c42ad8b1738d1bf4ba, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -730,6 +730,7 @@ GameObject:
   - component: {fileID: 4242181248136678808}
   - component: {fileID: 1702231543631701917}
   - component: {fileID: 3689746644486498485}
+  - component: {fileID: 7724365800752126931}
   m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
@@ -820,3 +821,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7724365800752126931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352124416723137697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7cb8409b99e2324a85fff1e2d154f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
