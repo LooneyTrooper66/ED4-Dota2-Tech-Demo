@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 5693069856546446480}
   - component: {fileID: 7900511768800902423}
   - component: {fileID: 8913372820084858824}
+  - component: {fileID: 677571390578063220}
   m_Layer: 8
   m_Name: 'EnemyRangedLaneCreep '
   m_TagString: EnemyCreep
@@ -374,10 +375,23 @@ MonoBehaviour:
   acquisitionRange: 6
   goldWorth: 48
   xpWorth: 69
-  visionDay: 0
-  visionNight: 0
+  visionDay: 10
+  visionNight: 6
   currentHealth: 0
   targetHealth: 0
+--- !u!114 &677571390578063220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a5360c77147214380329f3ed061034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiDot: {fileID: 5091812240887476298}
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0

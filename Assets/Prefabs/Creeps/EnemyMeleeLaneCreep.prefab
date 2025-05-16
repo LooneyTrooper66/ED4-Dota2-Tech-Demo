@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 1628795603164087879}
   - component: {fileID: 5261984863001137600}
   - component: {fileID: 2398730552943407486}
+  - component: {fileID: 6921242244959240590}
   m_Layer: 8
   m_Name: EnemyMeleeLaneCreep
   m_TagString: EnemyCreep
@@ -426,10 +427,23 @@ MonoBehaviour:
   acquisitionRange: 5
   goldWorth: 35
   xpWorth: 57
-  visionDay: 0
-  visionNight: 0
+  visionDay: 10
+  visionNight: 6
   currentHealth: 0
   targetHealth: 0
+--- !u!114 &6921242244959240590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789948495200754454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a5360c77147214380329f3ed061034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiDot: {fileID: 740583070610201104}
 --- !u!1 &4863242948207397649
 GameObject:
   m_ObjectHideFlags: 0

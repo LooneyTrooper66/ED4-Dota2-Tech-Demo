@@ -354,8 +354,8 @@ MonoBehaviour:
   acquisitionRange: 8
   goldWorth: 65
   xpWorth: 88
-  visionDay: 0
-  visionNight: 0
+  visionDay: 10
+  visionNight: 6
   currentHealth: 0
   targetHealth: 0
 --- !u!114 &4472057315545696263

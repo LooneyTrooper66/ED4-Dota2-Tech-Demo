@@ -16,8 +16,8 @@ public class Stats : MonoBehaviour
     public float acquisitionRange;
     public int goldWorth;
     public int xpWorth;
-    public int visionDay;
-    public int visionNight;
+    public float visionDay;
+    public float visionNight;
 
     private float damageLerpDuration = 0.2f;
     [HideInInspector] public float currentHealth;
