@@ -7618,6 +7618,8 @@ MonoBehaviour:
   daggerMask:
     serializedVersion: 2
     m_Bits: 8
+  observerPrefab: {fileID: 4809558867816540843, guid: 56a3b8e413bcb334b9cb63c8470ee2ba, type: 3}
+  observers: []
 --- !u!1 &909253978
 GameObject:
   m_ObjectHideFlags: 0
@@ -18381,8 +18383,8 @@ GameObject:
   - component: {fileID: 1958115155}
   - component: {fileID: 1958115157}
   - component: {fileID: 1958115156}
-  - component: {fileID: 1958115158}
   - component: {fileID: 1958115159}
+  - component: {fileID: 1958115158}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -18748,10 +18750,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958115142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 584d89012a59aeb4bafdce3e2df13ca4, type: 3}
+  m_Script: {fileID: 11500000, guid: c593a1570aee22e4db58678f43b2a739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distCullMaterial: {fileID: -876546973899608171, guid: 4ccd9d79f531b1c42ad8b1738d1bf4ba, type: 3}
+  distCullMaterial: {fileID: -876546973899608171, guid: 596c2e965ca36af4787e4bb670baf64f, type: 3}
   stats: {fileID: 1958115143}
   time: {fileID: 855592050}
 --- !u!114 &1958115159
@@ -18766,7 +18768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ea1c0bc9dbbae41a0693e440e9e35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distCullMaterial: {fileID: -876546973899608171, guid: 596c2e965ca36af4787e4bb670baf64f, type: 3}
+  distCullMaterial: {fileID: -876546973899608171, guid: 4ccd9d79f531b1c42ad8b1738d1bf4ba, type: 3}
   stats: {fileID: 1958115143}
   time: {fileID: 855592050}
 --- !u!1 &1978438337

@@ -52,12 +52,8 @@ public class StaticInventoryDisplay : InventoryDisplay
             string functionName = clickedSlot.AssignedInvSlot.ItemData.itemFunctionName;
             itemFunctionsHolder.Invoke(functionName, 0);
 
-            // activate item cooldown 
-            if (clickedSlot.AssignedInvSlot.ItemData.itemUseCooldown > 0)
-            {
-                clickedSlotHolder = clickedSlot;
-                itemArmed = true;
-            }
+            clickedSlotHolder = clickedSlot;
+            itemArmed = true;
         }
     }
 
@@ -71,7 +67,9 @@ public class StaticInventoryDisplay : InventoryDisplay
             }
             if (Input.GetMouseButtonDown(0))
             {
-                StartCoroutine(ItemCooldown(clickedSlotHolder, clickedSlotHolder.AssignedInvSlot.ItemData.itemUseCooldown));
+                // activate item cooldown or remove from inv if placed
+                if (clickedSlotHolder.AssignedInvSlot.ItemData.itemUseCooldown > 0) StartCoroutine(ItemCooldown(clickedSlotHolder, clickedSlotHolder.AssignedInvSlot.ItemData.itemUseCooldown));
+                else inventorySystem.RemoveFromInventory(clickedSlotHolder.AssignedInvSlot, 1);
                 clickedSlotHolder = null;
                 itemArmed = false;
             }
@@ -92,6 +90,13 @@ public class StaticInventoryDisplay : InventoryDisplay
         if (clickedSlot.AssignedInvSlot.ItemData != null)
         {
             stats.unreliableGold += (clickedSlot.AssignedInvSlot.ItemData.itemCost / 2);
+
+            if (clickedSlot.AssignedInvSlot.ItemData.itemSellFunctionName != null)
+            {
+                string functionName = clickedSlot.AssignedInvSlot.ItemData.itemSellFunctionName;
+                itemFunctionsHolder.Invoke(functionName, 0);
+            }
+
             inventorySystem.RemoveFromInventory(clickedSlot.AssignedInvSlot, 1);
         }
     }

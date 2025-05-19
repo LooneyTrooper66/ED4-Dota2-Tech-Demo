@@ -16,5 +16,7 @@ MonoBehaviour:
   itemCost: 250
   icon: {fileID: 21300000, guid: 99cd2f93b1c7e5049afc54d8e8912aa3, type: 3}
   maxStackSize: 1
-  isConsumeable: 0
   itemFunctionName: WindLaceFunctionality
+  itemSellFunctionName: WindLaceSell
+  canBeUsed: 0
+  itemUseCooldown: 0

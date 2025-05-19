@@ -16,5 +16,7 @@ MonoBehaviour:
   itemCost: 925
   icon: {fileID: 21300000, guid: 6612ed822334dd5408b2ae7c2185bdd0, type: 3}
   maxStackSize: 1
-  isConsumeable: 0
   itemFunctionName: TranquilBootsFunctionality
+  itemSellFunctionName: TranquilBootsSell
+  canBeUsed: 0
+  itemUseCooldown: 0

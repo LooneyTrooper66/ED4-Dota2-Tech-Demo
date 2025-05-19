@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 public class ItemFunctionsHolder : MonoBehaviour
 {
@@ -11,6 +14,9 @@ public class ItemFunctionsHolder : MonoBehaviour
     bool blinkDaggerArmed = false;
     float clarityTimer = 0;
     float healingSalveTimer = 0;
+    bool observerArmed = false;
+    public GameObject observerPrefab;
+    [HideInInspector] public List<GameObject> observers = new List<GameObject>();
 
 
     private void Update()
@@ -43,7 +49,7 @@ public class ItemFunctionsHolder : MonoBehaviour
 
         #endregion
 
-        #region
+        #region // blink dagger
 
         if (blinkDaggerArmed)
         {
@@ -91,6 +97,34 @@ public class ItemFunctionsHolder : MonoBehaviour
         }
 
         #endregion
+
+        #region // observer ward
+
+        if (observerArmed)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                observerArmed = false;
+                return;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit1;
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit1, Mathf.Infinity, daggerMask, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit1.collider != null)
+                    {
+                        observerArmed = false;
+
+                        GameObject go = Instantiate(observerPrefab, hit1.point, Quaternion.identity);
+                        ObserverPlaced();
+                    }
+                }
+            }
+        }
+
+        #endregion
     }
 
     public void ClarityFunctionality()
@@ -115,6 +149,11 @@ public class ItemFunctionsHolder : MonoBehaviour
         stats.movementSpeed += 1.476f;
     }
 
+    public void WindLaceSell()
+    {
+        stats.movementSpeed -= 1.476f;
+    }
+
     public void BlinkDaggerFunctionality()
     {
         // teleport up to 12 away from your position. If used to try to teleport further than 12, will teleport you in the same direction but only by 9.6. 15 second cooldown
@@ -132,6 +171,15 @@ public class ItemFunctionsHolder : MonoBehaviour
         abilities.castRange += 2.25f;
     }
 
+    public void AetherLensSell()
+    {
+        stats.currentMana -= 300;
+        stats.manaRegen -= 2.5f;
+        abilities.travelDist -= 2.25f;
+        abilities.areaOfEffect -= 2.25f;
+        abilities.castRange -= 2.25f;
+    }
+
     public void TranquilBootsFunctionality()
     {
         // +14 health regen and +65 move speed (should be 0.4787 but i want speeeed). not adding passive for time reasons
@@ -139,8 +187,36 @@ public class ItemFunctionsHolder : MonoBehaviour
         stats.movementSpeed += 4.797f;
     }
 
+    public void TranquilBootsSell()
+    {
+        stats.healthRegen -= 14;
+        stats.movementSpeed -= 4.797f;
+    }
+
     public void ObserverWardFunctionality()
     {
-        // 16 radius of ground vision, can be blocked by trees, higher elevations and other structures that block vision. wards last 6 minutes when placed
+        // 16 radius of ground vision, cba to make it blocked by things. wards last 6 minutes when placed
+        observerArmed = true;
+    }
+
+    void ObserverPlaced()
+    {
+        FindObserverWards();
+    }
+
+    public void ObserverWardTimerOut()
+    {
+        FindObserverWards();
+    }
+
+    public void FindObserverWards()
+    {
+        observers.Clear();
+
+        ObserverWard[] myItems = FindObjectsByType(typeof(ObserverWard), FindObjectsSortMode.None) as ObserverWard[];
+        foreach (ObserverWard item in myItems)
+        {
+            observers.Add(item.gameObject);
+        }
     }
 }

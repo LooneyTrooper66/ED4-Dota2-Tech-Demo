@@ -19,8 +19,8 @@ public class PlayerHeroUI : MonoBehaviour
 
     private void Update()
     {
-        health.text = heroStats.currentHealth.ToString();
-        mana.text = heroStats.currentMana.ToString();
+        health.text = ((int)heroStats.currentHealth).ToString();
+        mana.text = ((int)heroStats.currentMana).ToString();
 
         healthBar.value = heroStats.currentHealth;
         manaBar.value = heroStats.currentMana;

@@ -16,5 +16,7 @@ MonoBehaviour:
   itemCost: 2275
   icon: {fileID: 21300000, guid: ed22b805cbfae4245b42a4ab5474ff5b, type: 3}
   maxStackSize: 1
-  isConsumeable: 0
   itemFunctionName: AetherLensFunctionality
+  itemSellFunctionName: AetherLensSell
+  canBeUsed: 0
+  itemUseCooldown: 0

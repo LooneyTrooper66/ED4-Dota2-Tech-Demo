@@ -8,6 +8,7 @@ public class InventoryItemData : ScriptableObject
     public Sprite icon;
     public int maxStackSize;
     public string itemFunctionName;
+    public string itemSellFunctionName;
     public bool canBeUsed;
     public float itemUseCooldown;
 }
