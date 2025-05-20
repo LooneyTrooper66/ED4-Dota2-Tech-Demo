@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 5421917616020356162}
   - component: {fileID: 4780472841080585753}
   - component: {fileID: 3506614043511301599}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 4ccd9d79f531b1c42ad8b1738d1bf4ba, type: 3}
+  - {fileID: 2100000, guid: ea5c00ea33789684d80c3b75d91010ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 2459127866321920671}
   - component: {fileID: 6890244919964647966}
   - component: {fileID: 285666229094288400}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 2829555148414326327}
   - component: {fileID: 5395952022486043428}
   - component: {fileID: 493316976256028527}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4412657305539112651}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 1702231543631701917}
   - component: {fileID: 3689746644486498485}
   - component: {fileID: 7724365800752126931}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
