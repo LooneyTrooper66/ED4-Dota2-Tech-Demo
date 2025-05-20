@@ -17882,7 +17882,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 18, y: 18, z: 18}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1958115150}
@@ -17952,8 +17952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d8937e67c310e4d9285a2e157374d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionDay: 18
-  visionNight: 8
+  visionDay: 25
+  visionNight: 12
 --- !u!1 &1795685421
 GameObject:
   m_ObjectHideFlags: 0
