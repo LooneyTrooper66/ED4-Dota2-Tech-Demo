@@ -14,9 +14,7 @@ public class Timer : MonoBehaviour
     private float dayNightTimer;
 
     public TextMeshProUGUI uiTimerText;
-    public Light directionalLight;
-    public Color dayColour;
-    public Color nightColour;
+    public Transform dayNightHolder;
 
 
 
@@ -26,7 +24,6 @@ public class Timer : MonoBehaviour
         dayNightTimer = timeElapsed;
         gamePlaying = true; // set this to false when in menus
         currentTime = timeOfDay.night;
-        directionalLight.color = nightColour;
     }
 
     private void Update()
@@ -41,18 +38,9 @@ public class Timer : MonoBehaviour
         // for debugging and testing
         if (Input.GetKeyDown(KeyCode.Space) && gamePlaying == true)
         {
-            if (Time.timeScale == 1)
-            {
-                Time.timeScale = 4;
-            }
-            else if (Time.timeScale == 4)
-            {
-                Time.timeScale = 2f;
-            }
-            else
-            {
-                Time.timeScale = 1;
-            }
+            if (Time.timeScale == 1) Time.timeScale = 4;
+            else if (Time.timeScale == 4) Time.timeScale = 2f;
+            else Time.timeScale = 1;
         }
 
         // updates day/night cycle
@@ -61,24 +49,13 @@ public class Timer : MonoBehaviour
             timeElapsed += Time.deltaTime;
             UpdateTimer();
 
-            // day/night cycle
+            dayNightHolder.RotateAround(dayNightHolder.position, Vector3.forward, 1.24f * Time.deltaTime);
+
             dayNightTimer += Time.deltaTime;
-            if (dayNightTimer < 0)
-            {
-                currentTime = timeOfDay.night;
-                directionalLight.color = nightColour;
-            }
-            else if (dayNightTimer >= 0 && dayNightTimer <= 150)
-            {
-                currentTime = timeOfDay.day;
-                directionalLight.color = dayColour;
-            }
-            else if (dayNightTimer > 150 && dayNightTimer <= 300)
-            {
-                currentTime = timeOfDay.night;
-                directionalLight.color = nightColour;
-            }
-            else { dayNightTimer = 0; }
+            if (dayNightTimer < 0) currentTime = timeOfDay.night;
+            else if (dayNightTimer >= 0 && dayNightTimer <= 150) currentTime = timeOfDay.day;
+            else if (dayNightTimer > 150 && dayNightTimer <= 300) currentTime = timeOfDay.night;
+            else dayNightTimer = 0;
         }
     }
 

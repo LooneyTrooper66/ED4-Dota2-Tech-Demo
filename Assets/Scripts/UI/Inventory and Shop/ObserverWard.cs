@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class ObserverWard : MonoBehaviour
 {
-    public ItemFunctionsHolder itemFunctionsHolder;
+    ItemFunctionsHolder itemFunctionsHolder;
     float timer = 360;
 
+
+    private void Awake()
+    {
+        itemFunctionsHolder = GameObject.Find("EventSystem").GetComponent<ItemFunctionsHolder>();
+    }
 
     private void Update()
     {
