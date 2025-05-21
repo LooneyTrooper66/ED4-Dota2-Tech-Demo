@@ -743,8 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d8937e67c310e4d9285a2e157374d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visionDay: 10
-  visionNight: 6
+  visionDay: 12.2
+  visionNight: 7.3
 --- !u!1 &8842543249961247921
 GameObject:
   m_ObjectHideFlags: 0

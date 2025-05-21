@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbilitiesMasterScript : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class AbilitiesMasterScript : MonoBehaviour
     public float qManaCost;
     public float eManaCost;
     public float rManaCost;
+    public Image qAbility;
+    public Image eAbility;
+    public Image rAbility;
     [HideInInspector] public bool qCooldownZero;
     [HideInInspector] public bool eCooldownZero;
     [HideInInspector] public bool rCooldownZero;
@@ -53,8 +57,10 @@ public class AbilitiesMasterScript : MonoBehaviour
         if (qCooldownZero == false)
         {
             qTimer -= Time.deltaTime;
+            qAbility.color = Color.gray;
             if (qTimer <= 0)
             {
+                qAbility.color = Color.white;
                 qCooldownZero = true;
             }
         }
@@ -62,8 +68,10 @@ public class AbilitiesMasterScript : MonoBehaviour
         if (eCooldownZero == false)
         {
             eTimer -= Time.deltaTime;
+            eAbility.color = Color.gray;
             if (eTimer <= 0)
             {
+                eAbility.color = Color.white;
                 eCooldownZero = true;
             }
         }
@@ -71,8 +79,10 @@ public class AbilitiesMasterScript : MonoBehaviour
         if (rCooldownZero == false)
         {
             rTimer -= Time.deltaTime;
+            rAbility.color = Color.gray;
             if (rTimer <= 0)
             {
+                rAbility.color = Color.white;
                 rCooldownZero = true;
             }
         }

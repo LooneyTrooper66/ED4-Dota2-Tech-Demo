@@ -10,7 +10,7 @@ public class StencilSizeScript : MonoBehaviour
 
     private void Start()
     {
-        sphere = GetComponent<GameObject>();
+        sphere = gameObject;
         timer = GameObject.Find("--Timer--").GetComponent<Timer>();
     }
 
