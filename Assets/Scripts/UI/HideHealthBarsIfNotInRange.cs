@@ -27,6 +27,8 @@ public class HideHealthBarsIfNotInRange : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (closestVision == null) closestVision = player;
+
         if (itemFH.observers.Count > 0)
         {
             foreach (GameObject observer in itemFH.observers)

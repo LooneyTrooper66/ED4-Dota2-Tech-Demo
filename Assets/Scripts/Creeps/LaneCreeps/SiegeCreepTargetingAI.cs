@@ -60,6 +60,8 @@ public class SiegeCreepTargetingAI : MonoBehaviour, INavmeshSpeed
         // checking if any enemy units in range - different intervals depending on if has target
         AggroSwapTimer();
 
+        if (currentTarget == null && currentTarget.gameObject.activeSelf == false) currentTarget = null;
+
         // checks if this creep is close enough to the corner marker to go down the next lane correctly
         if (currentTarget != null && currentTarget.gameObject.tag == "CornerMarker")
         {

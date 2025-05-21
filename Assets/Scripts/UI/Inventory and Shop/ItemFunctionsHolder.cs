@@ -216,6 +216,7 @@ public class ItemFunctionsHolder : MonoBehaviour
         ObserverWard[] myItems = FindObjectsByType(typeof(ObserverWard), FindObjectsSortMode.None) as ObserverWard[];
         foreach (ObserverWard item in myItems)
         {
+            if (item.gameObject.activeSelf == true)
             observers.Add(item.gameObject);
         }
     }
